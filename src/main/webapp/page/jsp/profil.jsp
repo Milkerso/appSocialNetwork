@@ -13,7 +13,7 @@
 <title><s:message code="profil.userDane"/></title>
 </head>
 <body>
-<%@include file="/WEB-INF/incl/menu.app" %>
+<%@include file="/page/incl/menu.app" %>
 <div align="center">
 	<h2><s:message code="profil.userDane"/></h2>
 </div>

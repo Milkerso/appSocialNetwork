@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<%@include file="/WEB-INF/incl/menu.app" %>
+<%@include file="/page/incl/menu.app" %>
 <h3 align="center"><c:out value="${message }" /></h3>
 </body>
 </html>

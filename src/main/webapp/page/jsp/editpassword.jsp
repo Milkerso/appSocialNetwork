@@ -14,7 +14,7 @@
 <title><s:message code="button.zmianaHasla"/></title>
 </head>
 <body>
-<%@include file="/WEB-INF/incl/menu.app" %>
+<%@include file="/page/incl/menu.app" %>
 
 <h2 align="center"><s:message code="button.zmianaHasla"/></h2>
 

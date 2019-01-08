@@ -36,7 +36,7 @@ function startSerach(pParam){
 </script>
 </head>
 <body>
-<%@include file="/WEB-INF/incl/menu.app" %>
+<%@include file="/page/incl/menu.app" %>
 <h2><s:message code="menu.users"/></h2>
 <c:set var="licznik" value="${recordStartCounter }"/>
 <div align="center">
