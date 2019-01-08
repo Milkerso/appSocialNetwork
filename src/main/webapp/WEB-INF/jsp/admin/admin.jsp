@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/resources/css/bootstrap/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 <title><s:message code="menu.adminPage"/></title>
 </head>

@@ -1,17 +1,67 @@
 @charset "UTF-8";
 
-body {
-	font-family: sans-serif;
-	font-weight: normal;
-	font-size: 14px;
+/* Menu */
+
+body
+{
+	font-size: 17px;
 	color: #000000;
 	background-color: #ffffff;
-	margin-left: auto; 
-	margin-right : auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	width: 1300px;
+    font-family: 'Open Sans', sans-serif;
+  
 }
+.login
+{
+	font-size: 50px;
+}
+
+h1
+{
+	font-size: 30px;
+	font-weight: 400;
+	color: #005984;
+	margin: 20px;
+	text-align: center;
+}
+
+.jumpers
+{
+	text-align: center;
+}
+
+.jumpers img
+{
+	width: 100%;
+	height: auto;
+}
+
+.jumpers p
+{
+	margin-bottom: 30px;
+}
+
+.jumpers figcaption
+{
+	margin-top: 8px;
+}
+
+
+.navbar
+{
+	min-height: 57px;
+}
+
+.bg-jumpers
+{
+	background-color: #005984 !important;
+}
+
+
+
+
+
+
+
 
 input {
 	height: 20px;
@@ -22,7 +72,7 @@ input {
 form {
 	font-family: sans-serif;
 	font-weight: normal;
-	font-size: 14px;
+	font-size: 17px;
 }
 
 h2 {
@@ -32,7 +82,7 @@ h2 {
 }
 
 a {
-	font-size: 14px;
+	font-size: 17px;
 	font-family: sans-serif;
 	font-weight: bold;
 	color: #000000;
@@ -40,7 +90,7 @@ a {
 }
 
 a:hover {
-	font-size: 14px;
+	font-size: 17px;
 	font-family: sans-serif;
 	font-weight: bold;
 	color: #0080c0;
@@ -65,5 +115,6 @@ a:hover {
 .formbutton:hover {
 	  border: 1px solid red;
 }
+
 
 

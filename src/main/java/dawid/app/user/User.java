@@ -28,6 +28,7 @@ public class User {
 	@NotNull
 	private String email;
 	
+	
 	@Column(name = "password")
 	@NotNull
 	private String password;
@@ -43,6 +44,29 @@ public class User {
 	@Column(name = "active")
 	@NotNull
 	private int active;
+	
+	// additional description
+	
+	@Column(name = "hobby")
+	private String hobby;
+	
+	@Column(name = "address")
+	private String address;
+
+	@Column(name = "sex")
+	private String sex;
+	
+	@Column(name = "language")
+	private String language;
+	
+	@Column(name = "free_time")
+	private String freeTime;
+	
+	@Column(name = "birth_date")
+	private String birthDate;
+	
+	@Column(name = "description")
+	private String description;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -119,4 +143,48 @@ public class User {
 	public void setActivationCode(String activationCode) {
 		this.activationCode = activationCode;
 	}
+	public String getHobby() {
+		return hobby;
+	}
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	public String getFreeTime() {
+		return freeTime;
+	}
+	public void setFreeTime(String freeTime) {
+		this.freeTime = freeTime;
+	}
+	public String getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 }
