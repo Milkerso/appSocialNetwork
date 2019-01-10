@@ -1,5 +1,6 @@
 package dawid.app.user;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -50,11 +51,12 @@ public class User {
 	@Column(name = "hobby")
 	private String hobby;
 	
-	@Column(name = "address")
-	private String address;
+	@Column(name = "city")
+	private String city;
 
 	@Column(name = "sex")
 	private String sex;
+	
 	
 	@Column(name = "language")
 	private String language;
@@ -62,11 +64,16 @@ public class User {
 	@Column(name = "free_time")
 	private String freeTime;
 	
-	@Column(name = "birth_date")
-	private String birthDate;
+	
 	
 	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "birth_date")
+	private Date birthDate;
+	
+	@Column(name = "character")
+	private String character;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -149,11 +156,11 @@ public class User {
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
 	}
-	public String getAddress() {
-		return address;
+	public String getcity() {
+		return city;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setcity(String city) {
+		this.city = city;
 	}
 	public String getSex() {
 		return sex;
@@ -173,12 +180,7 @@ public class User {
 	public void setFreeTime(String freeTime) {
 		this.freeTime = freeTime;
 	}
-	public String getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(String birthDate) {
-		this.birthDate = birthDate;
-	}
+
 	public String getDescription() {
 		return description;
 	}

@@ -1,0 +1,55 @@
+/* Menu */
+
+body
+{
+	font-size: 17px;
+	color: #000000;
+ 	background-image: url("/resources/images/background.jpg")
+    font-family: 'Open Sans', sans-serif;
+  
+}
+.login
+{
+	font-size: 50px;
+}
+
+h1
+{
+	font-size: 30px;
+	font-weight: 400;
+	color: #005984;
+	margin: 20px;
+	text-align: center;
+}
+
+.jumpers
+{
+	text-align: center;
+}
+
+.jumpers img
+{
+	width: 100%;
+	height: auto;
+}
+
+.jumpers p
+{
+	margin-bottom: 30px;
+}
+
+.jumpers figcaption
+{
+	margin-top: 8px;
+}
+
+
+.navbar
+{
+	min-height: 57px;
+}
+
+.bg-jumpers
+{
+	background-color: #005984 !important;
+}
