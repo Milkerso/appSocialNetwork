@@ -1,7 +1,7 @@
 package dawid.app.user;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void updateRegisterStepTwo(String newhobby, int newnumber, String newcharacter, Date newbirthDate, int id) {
+	public void updateRegisterStepTwo(String newhobby, int newnumber, String newcharacter, Date newbirthDate, int id){
 		userRepository.updateRegisterStepTwo(newhobby, newnumber, newcharacter, newbirthDate, id);
 	}
 

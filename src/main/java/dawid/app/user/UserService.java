@@ -1,6 +1,6 @@
 package dawid.app.user;
 
-import java.util.Date;
+import java.sql.Date;
 
 public interface UserService {
 	

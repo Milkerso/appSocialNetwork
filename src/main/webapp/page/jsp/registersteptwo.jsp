@@ -66,7 +66,6 @@
           
            
 			  			<div>
-						<button class="btn btn-light" type="submit">Znajdź</button>
 			  				<button type="submit"  value=<s:message code="button.save"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 			  			</div>
 			  			

@@ -1,5 +1,6 @@
 package dawid.app.user;
 
+import java.sql.Date;
 import java.util.Locale;
 
 import javax.ws.rs.GET;
@@ -100,7 +101,6 @@ public class ProfilController {
 		User user = userService.findUserByEmail(username);
 		model.addAttribute("user", user);
 		
-		LOG.info("**** WYWOŁANO > registertwo()");
 		return "registersteptwo";
 	}
 	
@@ -111,7 +111,10 @@ public class ProfilController {
 		LOG.info(user.getHobby().toString());
 		LOG.info(Integer.toString(user.getNumber()));
 		LOG.info(user.getCharacter().toString());
-		LOG.info(user.getBirthDate().toString());
+	//	Date date =new Date();
+	//	user.setBirthDate(date);
+	//	LOG.info(user.getBirthDate().toString());
+		
 		String returnPage = null;
 	
 		

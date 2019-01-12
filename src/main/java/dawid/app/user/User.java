@@ -1,6 +1,6 @@
 package dawid.app.user;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -72,7 +72,7 @@ public class User {
 	@Column(name = "birth_date")
 	private Date birthDate;
 	
-	@Column(name = "character")
+	@Column(name = "characters")
 	private String character;
 	
 	@Column(name = "number")

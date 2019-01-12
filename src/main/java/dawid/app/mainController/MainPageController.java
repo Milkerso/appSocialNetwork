@@ -1,5 +1,7 @@
 package dawid.app.mainController;
 
+import java.util.Date;
+
 import javax.ws.rs.GET;
 
 import org.slf4j.Logger;
@@ -26,6 +28,7 @@ public class MainPageController {
 	@GET
 	@RequestMapping(value = {"/", "/index"})
 	public String showMainPage() {
+
 		LOG.info("**** WYWOŁANO > showMainPage()");
 		try {
 		String username = UserUtilities.getLoggedUser();
