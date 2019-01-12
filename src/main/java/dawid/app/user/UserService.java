@@ -1,5 +1,7 @@
 package dawid.app.user;
 
+import java.util.Date;
+
 public interface UserService {
 	
 	public User findUserByEmail(String email);
@@ -7,5 +9,8 @@ public interface UserService {
 	public void updateUserPassword(String newPassword, String email);
 	public void updateUserProfile(String newName, String newLastName, String newEmail, int id);
 	public void updateUserActivation(int activeCode, String activationCode);
+	public void updateRegisterStepTwo(String newhobby, int newnumber, String newcharacter, Date newbirthDate, int id);
+
+
 	
 }

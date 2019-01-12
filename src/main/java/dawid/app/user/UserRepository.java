@@ -1,5 +1,7 @@
 package dawid.app.user;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -23,4 +25,9 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	@Modifying
 	@Query("UPDATE User u SET u.active = :activeParam WHERE u.activationCode = :activationCode")
 	public void updateActivation(@Param("activeParam") int activeParam, @Param("activationCode") String activationCode);
+	
+	@Modifying
+	@Query("UPDATE User u SET u.hobby = :newhobby, u.number = :newnumber, u.character = :newcharacter, u.birthDate = :newbirthDate WHERE u.id= :id")
+	public void updateRegisterStepTwo(@Param("newhobby") String newhobby, @Param("newnumber") int newnumber,
+			@Param("newcharacter") String newcharacter, @Param("newbirthDate") Date newbirthDate, @Param("id") Integer id);
 }

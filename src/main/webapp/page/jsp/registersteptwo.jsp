@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s"  uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,8 +23,11 @@
    	<link rel="stylesheet" type="text/css" href="/resources/css/registersteptwo.css" />
    	</head>
   <body>
-
-  <%@include file="/page/incl/menu.app"%>
+    <%@include file="/page/incl/menu.app"%>
+<sf:form id="usersForm" action="registersteptwoend" modelAttribute="user"
+		enctype="multipart/form-data" method="POST">
+		
+		<sf:hidden path="id"/>
 <section id="contact">
 			<div class="section-content">
 				<h1 class="section-header"><s:message code="register.step"/> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> 1</span></h1>
@@ -37,36 +39,44 @@
 					<div class="col-md-6 form-line">
 			  			<div class="form-group">
 			  				<label for="exampleInputUsername"><s:message code="register.hobby"/></label>
-					    	<input type="text" class="form-control" id="" placeholder="">
+			  			
+					    	<sf:input path="hobby" type="text" class="form-control" id="hobby"/>
 				  		</div>
+				  		
 				  		<div class="form-group">
 					    	<label for="exampleInputEmail"><s:message code="register.character"/></label>
-					    	<input type="email" class="form-control" id="exampleInputEmail" placeholder="">
+					    	<sf:input path="character" type="text" class="form-control" id="character" />
 					  	</div>	
 					  	<div class="form-group">
 					    	<label for="telephone"><s:message code="register.number"/></label>
-					    	<input type="tel" class="form-control" id="telephone" placeholder="">
+					    	<sf:input path="number" type="tel" class="form-control" id="number"/>
 			  			</div>
 			  		</div>
-			  		<div class="col-md-6">
+			  
+			  		
+         
+         
+         <div class="col-md-6">
 			  			     <div class="form-group">
           <label class="control-label col-sm-3">Date of Birth <span class="text-danger">*</span></label>
-         
-         </div>
          <div class="input-group registration-date-time">
             		<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
-            		<input class="form-control" name="registration_date" id="registration-date" type="date">
+            		<sf:input path="birthDate" id="birthDate" class="form-control" type="date"/>
             		</div>
           
            
 			  			<div>
-
-			  				<button type="button" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
+						<button class="btn btn-light" type="submit">Znajdź</button>
+			  				<button type="submit"  value=<s:message code="button.save"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 			  			</div>
 			  			
 					</div>
+					</div>
+				
 				</form>
 			</div>
 		</section>
+		<button class="btn btn-light" type="submit">Znajdź</button>
+		</sf:form>
 </body>
 </html>

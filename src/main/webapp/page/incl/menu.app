@@ -14,7 +14,7 @@
 				<form class="form-inline mr-auto">
 				
 					<input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
-					<button class="btn btn-light" type="submit">Znajdź</button>
+					<button class="btn btn-light" type="button">Znajdź</button>
 				
 				</form>			
 			

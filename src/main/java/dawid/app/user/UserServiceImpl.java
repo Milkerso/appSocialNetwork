@@ -1,6 +1,7 @@
 package dawid.app.user;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateUserProfile(String newName, String newLastName, String newEmail, int id) {
 		userRepository.updateUserProfile(newName, newLastName, newEmail, id);
+	}
+	
+	@Override
+	public void updateRegisterStepTwo(String newhobby, int newnumber, String newcharacter, Date newbirthDate, int id) {
+		userRepository.updateRegisterStepTwo(newhobby, newnumber, newcharacter, newbirthDate, id);
 	}
 
 	@Override
