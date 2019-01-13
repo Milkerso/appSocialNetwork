@@ -27,7 +27,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	public void updateActivation(@Param("activeParam") int activeParam, @Param("activationCode") String activationCode);
 	
 	@Modifying
-	@Query("UPDATE User u SET u.hobby = :newhobby, u.number = :newnumber, u.character = :newcharacter, u.birthDate = :newbirthDate WHERE u.id= :id")
-	public void updateRegisterStepTwo(@Param("newhobby") String newhobby, @Param("newnumber") int newnumber,
+	@Query("UPDATE User u SET u.language = :newlanguage, u.number = :newnumber, u.character = :newcharacter, u.birthDate = :newbirthDate WHERE u.id= :id")
+	public void updateRegisterStepTwo(@Param("newlanguage") String newlanguage, @Param("newnumber") int newnumber,
 			@Param("newcharacter") String newcharacter, @Param("newbirthDate") Date newbirthDate, @Param("id") Integer id);
 }

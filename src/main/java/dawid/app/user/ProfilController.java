@@ -108,7 +108,6 @@ public class ProfilController {
 	@RequestMapping(value = "/registersteptwoend")
 	public String registerStepTwoEnd(User user, BindingResult result, Model model, Locale locale) {
 		LOG.info("**** WYWOŁANO > end()");
-		LOG.info(user.getHobby().toString());
 		LOG.info(Integer.toString(user.getNumber()));
 		LOG.info(user.getCharacter().toString());
 	//	Date date =new Date();
@@ -118,11 +117,21 @@ public class ProfilController {
 		String returnPage = null;
 	
 		
-			userService.updateRegisterStepTwo(user.getHobby(), user.getNumber(), user.getCharacter(), user.getBirthDate(),user.getId());
+			userService.updateRegisterStepTwo(user.getLanguage(), user.getNumber(), user.getCharacter(), user.getBirthDate(),user.getId());
 			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
 			returnPage = "index";
 
 		return returnPage;
 	}
 
+	@POST
+	@RequestMapping(value = "/registerstepthree")
+	public String registerstepthree(Model model) {
+		
+		String username = UserUtilities.getLoggedUser();
+		User user = userService.findUserByEmail(username);
+		model.addAttribute("user", user);
+		
+		return "registerstepthree";
+	}
 }

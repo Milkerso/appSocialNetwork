@@ -57,6 +57,9 @@ public class User {
 	@Column(name = "sex")
 	private String sex;
 	
+	@Column(name="who_search")
+	private String whoSearch;
+	
 	
 	@Column(name = "language")
 	private String language;
@@ -214,6 +217,12 @@ public class User {
 	}
 	public void setNumber(int number) {
 		this.number = number;
+	}
+	public String getWhoSearch() {
+		return whoSearch;
+	}
+	public void setWhoSearch(String whoSearch) {
+		this.whoSearch = whoSearch;
 	}
 	
 	
