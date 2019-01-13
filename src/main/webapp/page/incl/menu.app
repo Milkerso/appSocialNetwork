@@ -4,14 +4,18 @@
 		<nav class="navbar navbar-dark bg-jumpers navbar-expand-lg">
 		
 			<a class="nav-link" href="/index"><img src="/resources/images/logo.png" width="50" height="50" > <font color="white"><s:message code="menu.mainPage"/></font></a>
-		
+			
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 		
 			<div class="collapse navbar-collapse" id="mainmenu">
 				
+				<form class="form-inline mr-auto">
+				
 					
+				
+				</form>			
 			
 				<ul class="navbar-nav">
 				

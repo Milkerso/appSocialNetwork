@@ -10,18 +10,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/resources/css/login.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/login.css" />
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title><s:message code="logowanie.pageName" /></title>
 </head>
-<body>
+<body background="/resources/images/background.jpg">
 	<%@include file="/page/incl/menu.app"%>
-	<h2>
-		<s:message code="logowanie.pageName" />
-	</h2>
+	
 
 	<form id="loginForm" action="/login" method="POST">
 
@@ -31,24 +29,24 @@
 
   	    <!-- Icon -->
   	    <div class="fadeIn first">
-  	      <h2 class="my-5">Sign In</h2>
+  	      <h2 class="my-5"><s:message code="login.login"/></h2>
   	    </div>
 
   	    <!-- Login Form -->
   	    <form>
   	  
-  	      <input type="text" id="email" class="fadeIn second zero-raduis" name="email" placeholder="email">
-  	      <input type="password" id="password" class="fadeIn third zero-raduis" name="password" placeholder="password">
+  	      <input type="text" id="email" class="fadeIn second zero-raduis" name="email" placeholder=<s:message code="register.email"/>>
+  	      <input type="password" id="password" class="fadeIn third zero-raduis" name="password" placeholder=<s:message code="register.password"/>>
 		      <div id="formFooter">
-  	      	<a class="underlineHover" href="#">Forgot Password?</a>
+  	      	<a class="underlineHover" href="#"><s:message code="login.forgotPassword"/></a>
   	      </div>
   	      <input type="submit" class="fadeIn fourth zero-raduis" value="login">
   	     <c:if test="${not empty param.error}">
 				<font color="red"><s:message code="error.logowanie"/></font>
 		 </c:if>
-  	      <h2>You don't have a account ?</h2>
+  	      <h2><s:message code="login.notAccount"/>       </h2>
   	      <a href="/register">
-  	      <input type="button" class="fadeIn fourth zero-raduis pc" value="register">
+  	      <input type="button" class="fadeIn fourth zero-raduis pc" value="Rejestracja">
   	      </a>
   	    </form>
   	    

@@ -17,7 +17,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title><s:message code="menu.register"/></title>
 </head>
-<body>
+<body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
 
 

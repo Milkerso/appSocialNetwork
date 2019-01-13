@@ -1,9 +1,10 @@
 package dawid.app.user;
 
 import java.util.Arrays;
+import java.io.File;
 import java.sql.Date;
 import java.util.HashSet;
-
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -55,7 +56,14 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public void updateRegisterStepFourth(String newFileName, String newFileType, byte[] newData,int id)
+	{
+		userRepository.updateRegisterStepFourth(newFileName, newFileType, newData, id);
+	}
+	@Override
 	public void updateUserActivation(int activeCode, String activationCode) {
 		userRepository.updateActivation(activeCode, activationCode);
 	}
+
+	
 }

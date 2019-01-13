@@ -9,92 +9,154 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/resources/css/bootstrap/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/profil.css" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title><s:message code="profil.userDane"/></title>
 </head>
-<body>
+<body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
-<div align="center">
-	<h2><s:message code="profil.userDane"/></h2>
-</div>
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="/resources/images/photo.jpg"alt="" />
+                            <div class="file btn btn-lg btn-primary">
+                              <s:message code="profil.changePhoto" />
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                       <c:out value="${user.name }"/>
+                                       <c:out value="${user.lastName }"/>
+                                    </h5>
+                             
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><s:message code="profil.data" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><s:message code="profil.about" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edytuj Profil" style="height:45px;" />
+                    </div>
+          
 
-<table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
-
-	<tr>
-		<td width="130" align="right" >
-			<s:message code="register.email"/>
-		</td>
-		<td width="270" align="left">
-			<c:out value="${user.email }"/>
-		</td>
-	</tr>
-	
-	<tr>
-		<td width="130" align="right" >
-			<s:message code="register.name"/>
-		</td>
-		<td width="270" align="left">
-			<c:out value="${user.name }"/>
-		</td>
-	</tr>
-	
-	<tr>
-		<td width="130" align="right" >
-			<s:message code="register.lastName"/>
-		</td>
-		<td width="270" align="left">
-			<c:out value="${user.lastName }"/>
-		</td>
-	</tr>
-	
-	<tr>
-		<td width="130" align="right" >
-			<s:message code="profil.czyAktywny"/>
-		</td>
-		<td width="270" align="left">
-			<c:choose>
-				<c:when test="${user.active == 1 }">
-					<s:message code="word.tak"/>
-				</c:when>
-				<c:otherwise>
-					<s:message code="word.nie"/>
-				</c:otherwise>
-			</c:choose>
-		</td>
-	</tr>
-	
-	<tr>
-		<td width="130" align="right" >
-			<s:message code="profil.rola"/>
-		</td>
-		<td width="270" align="left">
-			<c:choose>
-				<c:when test="${user.nrRoli == 1 }">
-					<s:message code="word.admin"/>
-				</c:when>
-				<c:otherwise>
-					<s:message code="word.user"/>
-				</c:otherwise>
-			</c:choose>
-		</td>
-	</tr>
-
-</table>
-
-<table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
-
-	<tr>
-		<td align="center">
-			<input type="button" value="<s:message code="button.edycjaProfilu"/>" 
-					onclick="window.location.href='${pageContext.request.contextPath}/editprofil'"/>
-		</td>
-		<td align="center">
-			<input type="button" value="<s:message code="button.zmianaHasla"/>" 
-					onclick="window.location.href='${pageContext.request.contextPath}/editpassword'"/>
-		</td>
-	</tr>
-</table>
-
+                    <div class="col-md-4">
+                   
+                    </div>
+                    <div class="col-md-6" style=" margin-top: -12%;">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="profil.sex" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.sex }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="profil.birthDate" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.birthDate }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="profil.email" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.email }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="profil.phone" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.number }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="profil.city" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.city }"/></p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="register.character" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.character }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="register.language" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.language }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="register.freeTime" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.freeTime }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="register.hobby" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.hobby }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="register.physicalActivity" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.physicalActivity }"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><s:message code="profil.about" /></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><c:out value="${user.description }"/></p>
+                                            </div>
+                                        </div>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+        
 
 </body>
 </html>

@@ -1,7 +1,9 @@
 package dawid.app.user;
 
+
 import java.sql.Date;
 import java.util.Set;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,10 +13,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+
+
 
 @Entity
 @Table(name = "user")
@@ -81,6 +86,19 @@ public class User {
 	
 	@Column(name = "number")
 	private int number;
+	
+	@Transient
+	private MultipartFile photo;
+	
+    @Lob
+    @Column(name = "data")
+    private byte[] data;
+    
+	@Column(name = "file_name")
+    private String fileName;
+	
+	@Column(name = "file_type")
+    private String fileType;
 	
 	
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -230,6 +248,30 @@ public class User {
 	}
 	public void setPhysicalActivity(String physicalActivity) {
 		this.physicalActivity = physicalActivity;
+	}
+	public MultipartFile  getPhoto() {
+		return photo;
+	}
+	public void setPhoto(MultipartFile  photo) {
+		this.photo = photo;
+	}
+	public byte[] getData() {
+		return data;
+	}
+	public void setData(byte[] data) {
+		this.data = data;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getFileType() {
+		return fileType;
+	}
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
 	}
 	
 	

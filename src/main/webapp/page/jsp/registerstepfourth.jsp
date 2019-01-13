@@ -21,11 +21,12 @@
    	<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
    	<link rel="stylesheet" type="text/css" href="/resources/css/menu.css" />
+   	<link rel="stylesheet" type="text/css" href="/resources/css/profil.css" />
    	<link rel="stylesheet" type="text/css" href="/resources/css/registersteptwo.css" />
    	
    	
    	</head>
-  <body>
+  <body background="/resources/images/background.jpg">
      
     <%@include file="/page/incl/menu.app"%>
 <sf:form id="usersForm" action="registerstepfourthend" modelAttribute="user"
@@ -34,17 +35,25 @@
 		<sf:hidden path="id"/>
 <section id="contact">
 			<div class="section-content">
-				<h1 class="section-header"><s:message code="register.step"/> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> 1</span></h1>
+				<h1 class="section-header"><s:message code="register.step"/> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> 3</span></h1>
 				<h3><s:message code="register.registerNextStep"/></h3>
 			</div>
 			<div class="contact-section">
 			<div class="container">
 			<div class="full-width">
-            <h1 class="text-center color">Custom Input file Upload button</h1>
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <input type="file" id="main-input" class="form-control form-input form-style-base">
-                    <h4 id="fake-btn" class="form-input fake-styled-btn text-center truncate"><span class="margin"> Choose File</span></h4>
-                </div>
+               <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="/resources/images/photo.jpg"alt="" />
+                            <div class="file btn btn-lg btn-primary">
+                              <s:message code="profil.changePhoto" />
+                                <sf:input type="file" id="photo" path="photo" name="photo"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div>
+			  				<button type="submit"  value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
+			  			</div>
 
         </div>
 			  		

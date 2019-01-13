@@ -25,7 +25,7 @@
    	
    	
    	</head>
-  <body>
+<body background="/resources/images/background.jpg">
      
     <%@include file="/page/incl/menu.app"%>
 <sf:form id="usersForm" action="registersteptwoend" modelAttribute="user"
@@ -98,8 +98,9 @@
           
            
 			  			<div>
-			  				<button type="submit"  value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
+			  				<button type="submit"  value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true" style="bottom: 5px;"><s:message code="register.accept"/></i></button>
 			  			</div>
+			  			
 			  			
 					</div>
 					</div>

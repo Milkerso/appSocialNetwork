@@ -1,5 +1,7 @@
 package dawid.app.user;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.Locale;
 
@@ -14,6 +16,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+
+
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import dawid.app.mainController.MainPageController;
 import dawid.app.utilities.UserUtilities;
@@ -139,7 +151,7 @@ public class ProfilController {
 	@RequestMapping(value = "/registerstepthreeend")
 	public String registerStepThreeEnd(User user, BindingResult result, Model model, Locale locale) {
 		LOG.info("**** WYWOŁANO > endthree()");
-//		LOG.info(Integer.toString(user.getNumber()));
+
 	//	LOG.info(user.getCharacter().toString());
 	//	Date date =new Date();
 	//	user.setBirthDate(date);
@@ -164,5 +176,36 @@ public class ProfilController {
 		model.addAttribute("user", user);
 		
 		return "registerstepfourth";
+	}
+	
+	@POST
+	@RequestMapping(value = "/registerstepfourthend")
+	public String registerStepFourthEnds(User user, BindingResult result, Model model, Locale locale) {
+		LOG.info("**** WYWOŁANO > endfourth()");
+		user.setFileName(user.getPhoto().getOriginalFilename());
+		try {
+			user.setData(user.getPhoto().getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		user.setFileType(user.getPhoto().getContentType());
+		LOG.info(user.getData().toString());
+		LOG.info(user.getFileName());
+		LOG.info(user.getFileType());
+//		LOG.info(Integer.toString(user.getNumber()));
+	//	LOG.info(user.getCharacter().toString());
+	//	Date date =new Date();
+	//	user.setBirthDate(date);
+	//	LOG.info(user.getBirthDate().toString());
+		
+		String returnPage = null;
+	
+		
+			userService.updateRegisterStepFourth(user.getFileName(),user.getFileType(),user.getData(),user.getId());
+			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
+			returnPage = "index";
+
+		return returnPage;
 	}
 }

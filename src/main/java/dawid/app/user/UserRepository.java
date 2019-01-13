@@ -1,5 +1,6 @@
 package dawid.app.user;
 
+import org.springframework.web.multipart.MultipartFile;
 import java.sql.Date;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -35,6 +36,10 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	@Query("UPDATE User u SET u.freeTime = :newFreeTime, u.physicalActivity = :newPhysicalActivity, u.whoSearch = :newWhoSearch, u.description = :newDescription WHERE u.id= :id")
 	public void updateRegisterStepThree(@Param("newFreeTime") String newFreeTime, @Param("newPhysicalActivity") String newPhysicalActivity,
 			@Param("newWhoSearch") String newWhoSearch, @Param("newDescription") String newDescription, @Param("id") Integer id);
-	
+
+	@Modifying
+	@Query("UPDATE User u SET u.fileName = :newFileName, u.fileType = :newFileType, u.data = :newData WHERE u.id= :id")
+	public void updateRegisterStepFourth(@Param("newFileName") String newFileName, @Param("newFileType") String newFileType,
+			@Param("newData") byte[] newData, @Param("id") Integer id);
 	
 }

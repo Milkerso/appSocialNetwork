@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 <title><s:message code="button.zmianaHasla"/></title>
 </head>
-<body>
+<body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
 
 <h2 align="center"><s:message code="button.zmianaHasla"/></h2>

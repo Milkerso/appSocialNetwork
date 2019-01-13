@@ -20,7 +20,7 @@
 </script>
 
 </head>
-<body>
+<body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
 <p align="center">
 	<font face="sans-serif" size="5">

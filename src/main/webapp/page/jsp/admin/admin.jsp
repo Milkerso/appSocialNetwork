@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 <title><s:message code="menu.adminPage"/></title>
 </head>
-<body>
+<body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
 <h2><s:message code="menu.adminPage"/></h2>
 <%@include file="/page/incl/admenu.app" %>

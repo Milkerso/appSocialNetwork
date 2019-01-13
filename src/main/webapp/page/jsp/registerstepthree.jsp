@@ -25,7 +25,7 @@
    	
    	
    	</head>
-  <body>
+<body background="/resources/images/background.jpg">
      
     <%@include file="/page/incl/menu.app"%>
 <sf:form id="usersForm" action="registerstepthreeend" modelAttribute="user"
@@ -34,7 +34,7 @@
 		<sf:hidden path="id"/>
 <section id="contact">
 			<div class="section-content">
-				<h1 class="section-header"><s:message code="register.step"/> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> 1</span></h1>
+				<h1 class="section-header"><s:message code="register.step"/> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> 2</span></h1>
 				<h3><s:message code="register.registerNextStep"/></h3>
 			</div>
 			<div class="contact-section">
@@ -45,26 +45,26 @@
 			  				<label for="exampleInputUsername"><s:message code="register.freeTime"/></label>
 			  				
 					    	 <div class="form-group">
-					      <sf:select multiple="true" path="freeTime" class="form-control" id="freeTime">
-   							 <sf:option value="morning"><s:message code="register.freeTime1"/></sf:option>
-   							 <sf:option value="noon"><s:message code="register.freeTime2"/></sf:option>
-   							 <sf:option value="evening"><s:message code="register.freeTime3"/></sf:option>
+					      <sf:select multiple="true" path="freeTime" class="form-control" id="freeTime" style="height:70px;">
+   							 <sf:option value="Rano"><s:message code="register.freeTime1"/></sf:option>
+   							 <sf:option value="Po południe"><s:message code="register.freeTime2"/></sf:option>
+   							 <sf:option value="Wieczorem"><s:message code="register.freeTime3"/></sf:option>
 							</sf:select>
 				  		</div>
 				  		<label for="exampleInputUsername"><s:message code="register.physicalActivity"/></label>
 					  	   	 <div class="form-group">
 					      <sf:select multiple="true" path="physicalActivity" class="form-control" id="physicalActivity">
-   							 <sf:option value="basketball"><s:message code="activity.basketball"/></sf:option>
-   							 <sf:option value="football"><s:message code="activity.football"/></sf:option>
-   							 <sf:option value="running"><s:message code="activity.running"/></sf:option>
-   							 <sf:option value="walking"><s:message code="activity.walking"/></sf:option>
-   							 <sf:option value="skate"><s:message code="activity.skate"/></sf:option>
-   							 <sf:option value="skiing"><s:message code="activity.skiing"/></sf:option>
-   							 <sf:option value="hockey"><s:message code="activity.hockey"/></sf:option>
-   							 <sf:option value="tennis"><s:message code="activity.tennis"/></sf:option>
-   							 <sf:option value="tennistTable"><s:message code="activity.tennisTable"/></sf:option>
+   							 <sf:option value="koszykowka"><s:message code="activity.basketball"/></sf:option>
+   							 <sf:option value="piłka nożna"><s:message code="activity.football"/></sf:option>
+   							 <sf:option value="bieganie"><s:message code="activity.running"/></sf:option>
+   							 <sf:option value="chodzenie"><s:message code="activity.walking"/></sf:option>
+   							 <sf:option value="łyżwy"><s:message code="activity.skate"/></sf:option>
+   							 <sf:option value="Jazda na nartach"><s:message code="activity.skiing"/></sf:option>
+   							 <sf:option value="hokej"><s:message code="activity.hockey"/></sf:option>
+   							 <sf:option value="tenis ziemny"><s:message code="activity.tennis"/></sf:option>
+   							 <sf:option value="tenis stołowy"><s:message code="activity.tennisTable"/></sf:option>
    							 <sf:option value="snowboard"><s:message code="activity.snowboard"/></sf:option>
-   							 <sf:option value="horseRiding"><s:message code="activity.horseRiding"/></sf:option>
+   							 <sf:option value="jazda konno"><s:message code="activity.horseRiding"/></sf:option>
 							</sf:select>
 				  		</div>
 			  		</div>
@@ -108,7 +108,7 @@
           
            
 			  			<div>
-			  				<button type="submit"  value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
+			  				<button type="submit"  value=<s:message code="register.accept"/> class="btn btn-default submit"style="margin-top=50px;"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
 			  			</div>
 			  			
 					</div>
