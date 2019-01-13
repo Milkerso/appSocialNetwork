@@ -26,20 +26,7 @@
    	
    	</head>
   <body>
-     	<script>
-   	$("select").mousedown(function(e){
-   	    e.preventDefault();
-   	    
-   			var select = this;
-   	    var scroll = select.scrollTop;
-   	    
-   	    e.target.selected = !e.target.selected;
-   	    
-   	    setTimeout(function(){select.scrollTop = scroll;}, 0);
-   	    
-   	    $(select).focus();
-   	}).mousemove(function(e){e.preventDefault()});
-</script>
+     
     <%@include file="/page/incl/menu.app"%>
 <sf:form id="usersForm" action="registersteptwoend" modelAttribute="user"
 		enctype="multipart/form-data" method="POST">
@@ -70,6 +57,21 @@
 			  			</div>
 			  		</div>
 			  		</div>
+			  		
+			  		<script>
+   	$("select").mousedown(function(e){
+   	    e.preventDefault();
+   	    
+   			var select = this;
+   	    var scroll = select.scrollTop;
+   	    
+   	    e.target.selected = !e.target.selected;
+   	    
+   	    setTimeout(function(){select.scrollTop = scroll;}, 0);
+   	    
+   	    $(select).focus();
+   	}).mousemove(function(e){e.preventDefault()});
+</script>
 			  		
 			  
 			  		
@@ -107,5 +109,7 @@
 		</section>
 
 		</sf:form>
+		
+			
 </body>
 </html>

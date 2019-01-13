@@ -67,7 +67,8 @@ public class User {
 	@Column(name = "free_time")
 	private String freeTime;
 	
-	
+	@Column(name = "physical_activity")
+	private String physicalActivity;
 	
 	@Column(name = "description")
 	private String description;
@@ -224,6 +225,13 @@ public class User {
 	public void setWhoSearch(String whoSearch) {
 		this.whoSearch = whoSearch;
 	}
+	public String getPhysicalActivity() {
+		return physicalActivity;
+	}
+	public void setPhysicalActivity(String physicalActivity) {
+		this.physicalActivity = physicalActivity;
+	}
+	
 	
 	
 }

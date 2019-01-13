@@ -30,4 +30,11 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	@Query("UPDATE User u SET u.language = :newlanguage, u.number = :newnumber, u.character = :newcharacter, u.birthDate = :newbirthDate WHERE u.id= :id")
 	public void updateRegisterStepTwo(@Param("newlanguage") String newlanguage, @Param("newnumber") int newnumber,
 			@Param("newcharacter") String newcharacter, @Param("newbirthDate") Date newbirthDate, @Param("id") Integer id);
+	
+	@Modifying
+	@Query("UPDATE User u SET u.freeTime = :newFreeTime, u.physicalActivity = :newPhysicalActivity, u.whoSearch = :newWhoSearch, u.description = :newDescription WHERE u.id= :id")
+	public void updateRegisterStepThree(@Param("newFreeTime") String newFreeTime, @Param("newPhysicalActivity") String newPhysicalActivity,
+			@Param("newWhoSearch") String newWhoSearch, @Param("newDescription") String newDescription, @Param("id") Integer id);
+	
+	
 }

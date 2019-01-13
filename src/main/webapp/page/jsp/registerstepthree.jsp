@@ -16,13 +16,17 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
    	<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
    	<link rel="stylesheet" type="text/css" href="/resources/css/menu.css" />
    	<link rel="stylesheet" type="text/css" href="/resources/css/registersteptwo.css" />
+   	
+   	
    	</head>
   <body>
+     
     <%@include file="/page/incl/menu.app"%>
 <sf:form id="usersForm" action="registerstepthreeend" modelAttribute="user"
 		enctype="multipart/form-data" method="POST">
@@ -38,40 +42,83 @@
 				<form>
 					<div class="col-md-6 form-line">
 			  			<div class="form-group">
-			  				<label for="exampleInputUsername"><s:message code="register.language"/></label>
-			  			
-					    	<sf:input path="freeTime" type="text" class="form-control" id="freeTime"/>
+			  				<label for="exampleInputUsername"><s:message code="register.freeTime"/></label>
+			  				
+					    	 <div class="form-group">
+					      <sf:select multiple="true" path="freeTime" class="form-control" id="freeTime">
+   							 <sf:option value="morning"><s:message code="register.freeTime1"/></sf:option>
+   							 <sf:option value="noon"><s:message code="register.freeTime2"/></sf:option>
+   							 <sf:option value="evening"><s:message code="register.freeTime3"/></sf:option>
+							</sf:select>
 				  		</div>
-				  		
-				  		<div class="form-group">
-					    	<label for="exampleInputEmail"><s:message code="register.character"/></label>
-					    	<sf:input path="language" type="text" class="form-control" id="language" />
-					  	</div>	
-					  	<div class="form-group">
-					    	<label for="telephone"><s:message code="register.number"/></label>
-					    	<sf:input path="number" type="tel" class="form-control" id="number"/>
-			  			</div>
+				  		<label for="exampleInputUsername"><s:message code="register.physicalActivity"/></label>
+					  	   	 <div class="form-group">
+					      <sf:select multiple="true" path="physicalActivity" class="form-control" id="physicalActivity">
+   							 <sf:option value="basketball"><s:message code="activity.basketball"/></sf:option>
+   							 <sf:option value="football"><s:message code="activity.football"/></sf:option>
+   							 <sf:option value="running"><s:message code="activity.running"/></sf:option>
+   							 <sf:option value="walking"><s:message code="activity.walking"/></sf:option>
+   							 <sf:option value="skate"><s:message code="activity.skate"/></sf:option>
+   							 <sf:option value="skiing"><s:message code="activity.skiing"/></sf:option>
+   							 <sf:option value="hockey"><s:message code="activity.hockey"/></sf:option>
+   							 <sf:option value="tennis"><s:message code="activity.tennis"/></sf:option>
+   							 <sf:option value="tennistTable"><s:message code="activity.tennisTable"/></sf:option>
+   							 <sf:option value="snowboard"><s:message code="activity.snowboard"/></sf:option>
+   							 <sf:option value="horseRiding"><s:message code="activity.horseRiding"/></sf:option>
+							</sf:select>
+				  		</div>
 			  		</div>
+			  		</div>
+			  			<script>
+   	$("select").mousedown(function(e){
+   	    e.preventDefault();
+   	    
+   			var select = this;
+   	    var scroll = select.scrollTop;
+   	    
+   	    e.target.selected = !e.target.selected;
+   	    
+   	    setTimeout(function(){select.scrollTop = scroll;}, 0);
+   	    
+   	    $(select).focus();
+   	}).mousemove(function(e){e.preventDefault()});
+</script>
+			  		
 			  
 			  		
          
          
-        	<div class="col-md-6">
-			  			<div class="form-group">
-			  				<label for ="description"> Message</label>
-			  			 	<sf:textarea  class="form-control" id="description" ></sf:textarea>
+         <div class="col-md-6">
+         
+        <div class="form-group">
+			  				<label for="exampleInputUsername"><s:message code="register.whoSearch"/></label>
+			  				
+					    	 <div class="form-group">
+					      <sf:select path="whoSearch" class="form-control" id="whoSearch" style="height:35px;">
+   							 <sf:option value="male"><s:message code="whoSearch.male"/></sf:option>
+   							 <sf:option value="female"><s:message code="whoSearch.female"/></sf:option>
+   							 <sf:option value="gender"><s:message code="whoSearch.gender"/></sf:option>
+							</sf:select>
+				  		</div>
+			  			    <div class="form-group">
+			  				<label for ="description"]><s:message code="register.description"/></label>
+			  			 	<sf:textarea path="description" class="form-control" id="description"></sf:textarea>
 			  			</div>
+            		</div>
+          
+           
 			  			<div>
-
-			  				<button type="submit" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i><s:message code="button.continue"/></button>
+			  				<button type="submit"  value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
 			  			</div>
 			  			
+					</div>
 					</div>
 				
 				</form>
 			</div>
 		</section>
-		<button class="btn btn-light" type="submit">Znajdź</button>
+
 		</sf:form>
+		
 </body>
 </html>

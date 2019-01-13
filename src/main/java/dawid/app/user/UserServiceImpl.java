@@ -50,6 +50,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public void updateRegisterStepThree(String newFreeTime, String newPhysicalActivity, String newWhoSearch, String newDescription, int id){
+		userRepository.updateRegisterStepThree(newFreeTime, newPhysicalActivity, newWhoSearch, newDescription, id);
+	}
+	
+	@Override
 	public void updateUserActivation(int activeCode, String activationCode) {
 		userRepository.updateActivation(activeCode, activationCode);
 	}

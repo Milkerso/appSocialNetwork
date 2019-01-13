@@ -10,6 +10,8 @@ public interface UserService {
 	public void updateUserProfile(String newName, String newLastName, String newEmail, int id);
 	public void updateUserActivation(int activeCode, String activationCode);
 	public void updateRegisterStepTwo(String newlanguage, int newnumber, String newcharacter, Date newbirthDate, int id);
+	public void updateRegisterStepThree(String newFreeTime, String newPhysicalActivity, String newWhoSearch, String newDescription, int id);
+
 
 
 	

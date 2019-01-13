@@ -134,4 +134,35 @@ public class ProfilController {
 		
 		return "registerstepthree";
 	}
+	
+	@POST
+	@RequestMapping(value = "/registerstepthreeend")
+	public String registerStepThreeEnd(User user, BindingResult result, Model model, Locale locale) {
+		LOG.info("**** WYWOŁANO > endthree()");
+//		LOG.info(Integer.toString(user.getNumber()));
+	//	LOG.info(user.getCharacter().toString());
+	//	Date date =new Date();
+	//	user.setBirthDate(date);
+	//	LOG.info(user.getBirthDate().toString());
+		
+		String returnPage = null;
+	
+		
+			userService.updateRegisterStepThree(user.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(),user.getId());
+			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
+			returnPage = "index";
+
+		return returnPage;
+	}
+	
+	@POST
+	@RequestMapping(value = "/registerstepfourth")
+	public String registerstepfourth(Model model) {
+		
+		String username = UserUtilities.getLoggedUser();
+		User user = userService.findUserByEmail(username);
+		model.addAttribute("user", user);
+		
+		return "registerstepfourth";
+	}
 }
