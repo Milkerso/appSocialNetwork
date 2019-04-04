@@ -18,6 +18,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 
 
@@ -90,6 +91,16 @@ public class User {
 	@Transient
 	private MultipartFile photo;
 	
+	@Transient
+	private String image;
+	
+	@Transient //Annotation so it does not persist in the database
+	public String getImage() {
+	    //Convert the data type byte to String, store it in the variable and return it
+		String encodedImage = Base64.encode(this.data);
+		return encodedImage;
+	}
+	
     @Lob
     @Column(name = "data")
     private byte[] data;
@@ -110,6 +121,13 @@ public class User {
 	
 	@Transient
 	private String newPassword;
+	
+	@Transient //Annotation so it does not persist in the database
+	public String getBase64() {
+	    //Convert the data type byte to String, store it in the variable and return it
+		String encodedImage = Base64.encode(this.data);
+		return encodedImage;
+	}
 	
 	@Column(name = "activation_code")
 	private String activationCode;
@@ -272,6 +290,9 @@ public class User {
 	}
 	public void setFileType(String fileType) {
 		this.fileType = fileType;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	

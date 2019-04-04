@@ -1,6 +1,5 @@
 package dawid.app.user;
 
-import org.springframework.web.multipart.MultipartFile;
 import java.sql.Date;
 
 import org.springframework.data.jpa.repository.JpaRepository;

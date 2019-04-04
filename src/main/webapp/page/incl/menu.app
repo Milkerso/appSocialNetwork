@@ -8,8 +8,13 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-		
 			<div class="collapse navbar-collapse" id="mainmenu">
+				<sec:authorize access="isAuthenticated()">
+			<a class="nav-link" href="/index"><img src="/resources/images/message.png" width="50" height="50" > <font color="white">Wiadomosci</font></a>
+			<a class="nav-link" href="/index"><img src="/resources/images/alert.png" width="50" height="50" > <font color="white">Powiadomienia</font></a>
+		
+				</sec:authorize>
+			
 				
 				<form class="form-inline mr-auto">
 				
@@ -37,6 +42,16 @@
 						</sec:authorize>
 						
 					<sec:authorize access="isAuthenticated()">
+					 <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input type="text" class="  search-query form-control" placeholder="Szukaj" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
 					<li class="nav-item">
 						<a class="nav-link" href="/profil"><s:message code="menu.profil"/></a>
 					</li>

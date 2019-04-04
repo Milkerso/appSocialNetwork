@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s"  uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,14 +20,20 @@
 <body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
 <div class="container emp-profile">
-            <form method="post">
+           <sf:form id="usersForm" action="changephoto" modelAttribute="user"
+		enctype="multipart/form-data" method="POST">
+		
+		<sf:hidden path="id"/>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="/resources/images/photo.jpg"alt="" />
+                        <div class="profile-img" style="height:150px;" >
+                              <img src="data:image/jpeg;base64,${image}" alt="...">
+
                             <div class="file btn btn-lg btn-primary">
-                              <s:message code="profil.changePhoto" />
-                                <input type="file" name="file"/>
+                              <s:message code="profil.changePhoto"  />
+                               <sf:input type="file" onchange="this.form.submit()" id="photo" path="photo" name="photo"/>
+     
+                               
                             </div>
                         </div>
                     </div>
@@ -45,18 +52,7 @@
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><s:message code="profil.about" /></a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edytuj Profil" style="height:45px;" />
-                    </div>
-          
-
-                    <div class="col-md-4">
-                   
-                    </div>
-                    <div class="col-md-6" style=" margin-top: -12%;">
-                        <div class="tab-content profile-tab" id="myTabContent">
+                              <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -95,7 +91,7 @@
                                                 <label><s:message code="profil.city" /></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><c:out value="${user.city }"/></p>
+                                                 <p><c:out value="${user.city }"/></p>
                                             </div>
                                         </div>
                             </div>
@@ -151,12 +147,27 @@
                               
                                 
                             </div>
+                           
+                        </div>
                         </div>
                     </div>
+                    <div class="col-md-2">
+                  
+                        <input type="button" class="profile-edit-btn btn" onclick="location.href='/editprofil';" name="btnAddMore" value="Edytuj Profil" style="height:45px;" />
+                        
+                      
+                    </div>
+                    </div>
+         
+                     <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                        </div>
+                    </div>
+                   
                 </div>
-            </form>           
+                </sf:form>
         </div>
         
-
 </body>
 </html>

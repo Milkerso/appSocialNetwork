@@ -10,7 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/resources/css/bootstrap/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/admin.css" />
 <title><s:message code="menu.users"/></title>
 <script type="text/javascript">
 function changeTrBg(row){
@@ -37,8 +38,16 @@ function startSerach(pParam){
 </head>
 <body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
-<h2><s:message code="menu.users"/></h2>
 <c:set var="licznik" value="${recordStartCounter }"/>
+
+<div class="span7">   
+<div class="widget stacked widget-table action-table">
+	<div class="widget-header">
+					<i class="icon-th-list"></i>
+					<h3>Użytkownicy</h3>
+				</div> <!-- /widget-header -->
+				
+				<div class="widget-content">
 <div align="center">
 	<div align="right" style="width: 1000px; padding: 2px;">
 		<input type="hidden" name="cp" id="cp" value="${currentPage}"/>
@@ -46,7 +55,7 @@ function startSerach(pParam){
 				onclick="startSerach(0);"/><br/>
 		<span id="errorSearch" style="color: red;"></span>
 	</div>
-<table width="1000" border="0" cellpadding="6" cellspacing="2">
+<table class="table table-striped table-bordered" width="1000" border="0" cellpadding="6" cellspacing="2">
 	<tr bgcolor="#ffddcc">
 		<td width="40" align="center"></td>
 		<td width="40" align="center"><b><s:message code="admin.user.id"/></b></td>
@@ -124,5 +133,10 @@ function startSerach(pParam){
 </table>
 
 </div>
+</div>
+</div>
+
+</div>
+
 </body>
 </html>

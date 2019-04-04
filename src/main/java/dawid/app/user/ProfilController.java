@@ -1,31 +1,29 @@
 package dawid.app.user;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.Date;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-
-
-import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import dawid.app.mainController.MainPageController;
 import dawid.app.utilities.UserUtilities;
@@ -42,14 +40,17 @@ public class ProfilController {
 	@Autowired
 	private MessageSource messageSource;
 	
+	private String encodedImage;
+	
 	@GET
 	@RequestMapping(value = "/profil")
 	public String showUserProfilePage(Model model) {	
-		String username = UserUtilities.getLoggedUser();
-		User user = userService.findUserByEmail(username);
-		int nrRoli = user.getRoles().iterator().next().getId();
-		user.setNrRoli(nrRoli);
+		User user=onlineUser();
+		byte[] encoded=Base64.encodeBase64(user.getData());
+		String encodedString = new String(encoded);
 		model.addAttribute("user", user);
+		model.addAttribute("image", encodedString);
+		
 		return "profil";
 	}
 	
@@ -100,7 +101,7 @@ public class ProfilController {
 		} else {
 			userService.updateUserProfile(user.getName(), user.getLastName(), user.getEmail(), user.getId());
 			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-			returnPage = "afteredit";
+			returnPage = "registersteptwo";
 		}
 		return returnPage;
 	}
@@ -126,14 +127,13 @@ public class ProfilController {
 	//	user.setBirthDate(date);
 	//	LOG.info(user.getBirthDate().toString());
 		
-		String returnPage = null;
 	
 		
 			userService.updateRegisterStepTwo(user.getLanguage(), user.getNumber(), user.getCharacter(), user.getBirthDate(),user.getId());
 			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-			returnPage = "index";
 
-		return returnPage;
+
+		return "registerstepthree";
 	}
 
 	@POST
@@ -151,20 +151,29 @@ public class ProfilController {
 	@RequestMapping(value = "/registerstepthreeend")
 	public String registerStepThreeEnd(User user, BindingResult result, Model model, Locale locale) {
 		LOG.info("**** WYWOŁANO > endthree()");
-
-	//	LOG.info(user.getCharacter().toString());
-	//	Date date =new Date();
-	//	user.setBirthDate(date);
-	//	LOG.info(user.getBirthDate().toString());
 		
-		String returnPage = null;
-	
+		Path path = Paths.get(System.getProperty("user.dir")+"\\src\\main\\resources\\static\\images\\photo.jpg");
+		String name = "photo.jpg";
+		String originalFileName = "photo.jpg";
+		String contentType = "image/png";
+		byte[] content = null;
+		try {
+		    content = Files.readAllBytes(path);
+		} catch (final IOException e) {
+		}
+		MultipartFile multipartFile = new MockMultipartFile(name,
+		                     originalFileName, contentType, content);
+		user.setPhoto(multipartFile);
+		LOG.info("**** WYWOŁANO > endfourth()asa");
+		changeAvatar(user,result,model,locale);
+		byte[] encoded=Base64.encodeBase64(user.getData());
+		String encodedString = new String(encoded);
 		
 			userService.updateRegisterStepThree(user.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(),user.getId());
 			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-			returnPage = "index";
+			model.addAttribute("image", encodedString);
 
-		return returnPage;
+		return "registerstepfourth";
 	}
 	
 	@POST
@@ -173,7 +182,11 @@ public class ProfilController {
 		
 		String username = UserUtilities.getLoggedUser();
 		User user = userService.findUserByEmail(username);
+		user=onlineUser();
+		byte[] encoded=Base64.encodeBase64(user.getData());
+		String encodedString = new String(encoded);
 		model.addAttribute("user", user);
+		model.addAttribute("image", encodedString);
 		
 		return "registerstepfourth";
 	}
@@ -182,6 +195,30 @@ public class ProfilController {
 	@RequestMapping(value = "/registerstepfourthend")
 	public String registerStepFourthEnds(User user, BindingResult result, Model model, Locale locale) {
 		LOG.info("**** WYWOŁANO > endfourth()");
+		changeAvatar(user,result,model,locale);
+		user=onlineUser();
+		byte[] encoded=Base64.encodeBase64(user.getData());
+		String encodedString = new String(encoded);
+		model.addAttribute("user", user);
+		model.addAttribute("image", encodedString);
+		return "registerstepfourth";
+	}
+	@POST
+	@RequestMapping(value = "/changephoto")
+	public String changePhoto(User user, BindingResult result, Model model, Locale locale) {
+		LOG.info("**** WYWOŁANO > changePhoto()");
+		changeAvatar(user,result,model,locale);
+		user=onlineUser();
+		byte[] encoded=Base64.encodeBase64(user.getData());
+		String encodedString = new String(encoded);
+		model.addAttribute("user", user);
+		model.addAttribute("image", encodedString);
+		LOG.info("**** WYWOŁANO > changePhoto2()");
+		return "profil";
+	}
+	
+	public void changeAvatar(User user, BindingResult result, Model model, Locale locale)
+	{
 		user.setFileName(user.getPhoto().getOriginalFilename());
 		try {
 			user.setData(user.getPhoto().getBytes());
@@ -190,22 +227,27 @@ public class ProfilController {
 			e.printStackTrace();
 		}
 		user.setFileType(user.getPhoto().getContentType());
-		LOG.info(user.getData().toString());
-		LOG.info(user.getFileName());
-		LOG.info(user.getFileType());
-//		LOG.info(Integer.toString(user.getNumber()));
-	//	LOG.info(user.getCharacter().toString());
-	//	Date date =new Date();
-	//	user.setBirthDate(date);
-	//	LOG.info(user.getBirthDate().toString());
-		
-		String returnPage = null;
-	
+
 		
 			userService.updateRegisterStepFourth(user.getFileName(),user.getFileType(),user.getData(),user.getId());
 			model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-			returnPage = "index";
-
-		return returnPage;
 	}
+	public User onlineUser()
+	{
+		String username = UserUtilities.getLoggedUser();
+		User user = userService.findUserByEmail(username);
+		int nrRoli = user.getRoles().iterator().next().getId();
+		user.setNrRoli(nrRoli);
+		return user;
+	}
+	
+	public String getEncodedImage() {
+		return encodedImage;
+	}
+
+	public void setEncodedImage(String encodedImage) {
+		this.encodedImage = encodedImage;
+	}
+	
+	
 }

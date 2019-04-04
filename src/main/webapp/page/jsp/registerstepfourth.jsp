@@ -41,19 +41,23 @@
 			<div class="contact-section">
 			<div class="container">
 			<div class="full-width">
-               <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="/resources/images/photo.jpg"alt="" />
+               <div class="col-md-2 col-md-offset-5">
+                        <div class="profile-img" style=" height: 250px; width: auto;">
+                                 <img src="data:image/jpeg;base64,${image}" alt="..." class="img-fluid img-thumbnail" >
                             <div class="file btn btn-lg btn-primary">
                               <s:message code="profil.changePhoto" />
-                                <sf:input type="file" id="photo" path="photo" name="photo"/>
+                               <sf:input type="file"  onchange="this.form.submit()" id="photo" path="photo" name="photo"/>
                             </div>
                         </div>
+                       
                     </div>
-                
-                <div>
-			  				<button type="submit"  value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
+                     <div>
+                     <form action="/index">
+			  				<button type="button" value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
+			  			</form>
 			  			</div>
+                
+                
 
         </div>
 			  		
