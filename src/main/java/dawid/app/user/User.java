@@ -25,114 +25,108 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 @Entity
 @Table(name = "user")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private int id;
-	
+
 	@Column(name = "email")
 	@NotNull
 	private String email;
-	
-	
+
+
 	@Column(name = "password")
 	@NotNull
 	private String password;
-	
+
 	@Column(name = "name")
 	@NotNull
 	private String name;
-	
+
 	@Column(name = "last_name")
 	@NotNull
 	private String lastName;
-	
+
 	@Column(name = "active")
 	@NotNull
 	private int active;
-	
+
 	// additional description
-	
+
 	@Column(name = "hobby")
 	private String hobby;
-	
+
 	@Column(name = "city")
 	private String city;
 
 	@Column(name = "sex")
 	private String sex;
-	
+
 	@Column(name="who_search")
 	private String whoSearch;
-	
-	
+
+
 	@Column(name = "language")
 	private String language;
-	
+
 	@Column(name = "free_time")
 	private String freeTime;
-	
+
 	@Column(name = "physical_activity")
 	private String physicalActivity;
-	
+
 	@Column(name = "description")
 	private String description;
-	
+
 	@Column(name = "birth_date")
 	private Date birthDate;
-	
+
 	@Column(name = "characters")
 	private String character;
-	
+
 	@Column(name = "number")
 	private int number;
-	
+
 	@Transient
 	private MultipartFile photo;
-	
+
 	@Transient
 	private String image;
-	
+
 	@Transient //Annotation so it does not persist in the database
 	public String getImage() {
 	    //Convert the data type byte to String, store it in the variable and return it
 		String encodedImage = Base64.encode(this.data);
 		return encodedImage;
 	}
-	
+
     @Lob
     @Column(name = "data")
     private byte[] data;
-    
+
 	@Column(name = "file_name")
     private String fileName;
-	
+
 	@Column(name = "file_type")
     private String fileType;
-	
-	
+
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
 	@Transient
 	private int nrRoli;
-	
+
 	@Transient
 	private String newPassword;
-	
-	@Transient //Annotation so it does not persist in the database
-	public String getBase64() {
-	    //Convert the data type byte to String, store it in the variable and return it
-		String encodedImage = Base64.encode(this.data);
-		return encodedImage;
-	}
-	
+
+
 	@Column(name = "activation_code")
 	private String activationCode;
-	
-	
+
+
 	//gettery i settery
 	public int getId() {
 		return id;
@@ -294,7 +288,7 @@ public class User {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	
-	
+
+
+
 }

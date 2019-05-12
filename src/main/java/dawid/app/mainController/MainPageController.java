@@ -1,7 +1,5 @@
 package dawid.app.mainController;
 
-import java.util.Date;
-
 import javax.ws.rs.GET;
 
 import org.slf4j.Logger;
@@ -17,34 +15,33 @@ import dawid.app.utilities.UserUtilities;
 
 @Controller
 public class MainPageController {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(MainPageController.class);
-		
-	@Autowired
-	private UserService userService;
-	@Autowired
-	private MessageSource messageSource;
-	
-	@GET
-	@RequestMapping(value = {"/", "/index"})
-	public String showMainPage() {
 
-		LOG.info("**** WYWOŁANO > showMainPage()");
-		try {
-		String username = UserUtilities.getLoggedUser();
-		User user = userService.findUserByEmail(username);
-		int nrRoli = user.getRoles().iterator().next().getId();
-		user.setNrRoli(nrRoli);
-		if(user.getcity().length()==0)
-		return "registersteptwo";
-		else {
-			return "index";
-		}
-		}
-		catch(Exception e){
-			return "index";		
-		}
-	
-	}
-	
+    private static final Logger LOG = LoggerFactory.getLogger(MainPageController.class);
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private MessageSource messageSource;
+
+    @GET
+    @RequestMapping(value = {"/", "/index"})
+    public String showMainPage() {
+
+        LOG.info("**** WYWOŁANO > showMainPage()");
+        try {
+            String username = UserUtilities.getLoggedUser();
+            User user = userService.findUserByEmail(username);
+            int nrRoli = user.getRoles().iterator().next().getId();
+            user.setNrRoli(nrRoli);
+            if (user.getcity().length() == 0)
+                return "registersteptwo";
+            else {
+                return "index";
+            }
+        } catch (Exception e) {
+            return "index";
+        }
+
+    }
+
 }

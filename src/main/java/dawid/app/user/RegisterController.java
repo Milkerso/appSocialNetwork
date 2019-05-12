@@ -19,62 +19,62 @@ import dawid.app.validators.UserRegisterValidator;
 
 @Controller
 public class RegisterController {
-	
-	@Autowired
-	private UserService userService;
-	
-	@Autowired
-	private EmailSender emailSender;
-	
-	@Autowired
-	MessageSource messageSource;
-	
-	@GET
-	@RequestMapping(value = "/register")
-	public String registerForm(Model model) {
-		User u = new User();
-		model.addAttribute("user", u);
-		return "register";
-	}
-	
-	@POST
-	@RequestMapping(value = "/adduser")
-	public String registerAction(User user, BindingResult result, Model model, Locale locale) {
-				
-		String returnPage = null;
-		
-		User userExist = userService.findUserByEmail(user.getEmail());
-		
-		new UserRegisterValidator().validateEmailExist(userExist, result);
-				
-		new UserRegisterValidator().validate(user, result);
-				
-		if (result.hasErrors()) {
-			returnPage = "register";
-		} else {
-			user.setActivationCode(AppdemoUtils.randomStringGenerator());
-			
-			String content = "Wymagane potwierdzenie rejestracji. Kliknij w poniższy link aby aktywować konto: " +
-			"http://localhost:8080/activatelink/" + user.getActivationCode();
-			
-			userService.saveUser(user);
-			emailSender.sendEmail(user.getEmail(), "Potwierdzenie rejestracji", content);
-			model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));
-			//model.addAttribute("user", new User());
-			returnPage = "index";
-		}
-		
-		return returnPage;
-	}
 
-	@POST
-	@RequestMapping(value = "/activatelink/{activationCode}")
-	public String activateAccount(@PathVariable("activationCode") String activationCode, Model model, Locale locale) {
+    @Autowired
+    private UserService userService;
 
-		userService.updateUserActivation(1, activationCode);
-		
-		model.addAttribute("message", messageSource.getMessage("user.register.success", null, locale));
-		
-		return "index";
-	}
+    @Autowired
+    private EmailSender emailSender;
+
+    @Autowired
+    MessageSource messageSource;
+
+    @GET
+    @RequestMapping(value = "/register")
+    public String registerForm(Model model) {
+        User u = new User();
+        model.addAttribute("user", u);
+        return "register";
+    }
+
+    @POST
+    @RequestMapping(value = "/adduser")
+    public String registerAction(User user, BindingResult result, Model model, Locale locale) {
+
+        String returnPage = null;
+
+        User userExist = userService.findUserByEmail(user.getEmail());
+
+        new UserRegisterValidator().validateEmailExist(userExist, result);
+
+        new UserRegisterValidator().validate(user, result);
+
+        if (result.hasErrors()) {
+            returnPage = "register";
+        } else {
+            user.setActivationCode(AppdemoUtils.randomStringGenerator());
+
+            String content = "Wymagane potwierdzenie rejestracji. Kliknij w poniższy link aby aktywować konto: " +
+                    "http://localhost:8080/activatelink/" + user.getActivationCode();
+
+            userService.saveUser(user);
+            emailSender.sendEmail(user.getEmail(), "Potwierdzenie rejestracji", content);
+            model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));
+            //model.addAttribute("user", new User());
+            returnPage = "index";
+        }
+
+        return returnPage;
+    }
+
+    @POST
+    @RequestMapping(value = "/activatelink/{activationCode}")
+    public String activateAccount(@PathVariable("activationCode") String activationCode, Model model, Locale locale) {
+
+        userService.updateUserActivation(1, activationCode);
+
+        model.addAttribute("message", messageSource.getMessage("user.register.success", null, locale));
+
+        return "index";
+    }
 }

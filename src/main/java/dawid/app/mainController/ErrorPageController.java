@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ErrorPageController implements ErrorController {
 
-	@Override
-	public String getErrorPath() {
-		return "/error";
-	}
-	
-	@GET
-	@RequestMapping(value = "/error")
-	public String showErrorPage() {
-		return "error";
-	}
+    @Override
+    public String getErrorPath() {
+        return "/error";
+    }
+
+    @GET
+    @RequestMapping(value = "/error")
+    public String showErrorPage() {
+        return "error";
+    }
 
 
 }
