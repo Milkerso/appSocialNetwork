@@ -18,13 +18,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     void updateUserPassword(@Param("newPassword") String password, @Param("email") String email);
 
     @Modifying
-    @Query("UPDATE User u SET u.name = :newName, u.lastName = :newLastName, u.email = :newEmail WHERE u.id= :id")
-    void updateUserProfile(@Param("newName") String newName, @Param("newLastName") String newLastName,
-                           @Param("newEmail") String newEmail, @Param("id") Integer id);
-
-    @Modifying
     @Query("UPDATE User u SET u.active = :activeParam WHERE u.activationCode = :activationCode")
     void updateActivation(@Param("activeParam") int activeParam, @Param("activationCode") String activationCode);
+
+    @Modifying
+    @Query("UPDATE User u SET u.email = :newEmail WHERE u.id= :id")
+    void updateUserProfile(@Param("newEmail") String newEmail, @Param("id") Integer id);
 
     @Modifying
     @Query("UPDATE User u SET u.language = :newlanguage, u.number = :newnumber, u.character = :newcharacter, u.birthDate = :newbirthDate WHERE u.id= :id")
@@ -36,9 +35,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     void updateRegisterStepThree(@Param("newFreeTime") String newFreeTime, @Param("newPhysicalActivity") String newPhysicalActivity,
                                  @Param("newWhoSearch") String newWhoSearch, @Param("newDescription") String newDescription, @Param("id") Integer id);
 
-    @Modifying
-    @Query("UPDATE User u SET u.fileName = :newFileName, u.fileType = :newFileType, u.data = :newData WHERE u.id= :id")
-    void updateRegisterStepFourth(@Param("newFileName") String newFileName, @Param("newFileType") String newFileType,
-                                  @Param("newData") byte[] newData, @Param("id") Integer id);
 
 }

@@ -2,7 +2,10 @@ package dawid.app.user;
 
 
 import java.sql.Date;
+import lombok.*;
 import java.util.Set;
+
+import dawid.app.user.group.Group;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.CascadeType;
@@ -40,27 +43,25 @@ public class User {
 	@NotNull
 	private String password;
 
-	@Column(name = "name")
-	@NotNull
-	private String name;
-
-	@Column(name = "last_name")
-	@NotNull
-	private String lastName;
-
 	@Column(name = "active")
 	@NotNull
 	private int active;
+
+	@Transient
+	private String name;
+
+	@Transient
+	private String lastName;
 
 	// additional description
 
 	@Column(name = "hobby")
 	private String hobby;
 
-	@Column(name = "city")
+	@Transient
 	private String city;
 
-	@Column(name = "sex")
+	@Transient
 	private String sex;
 
 	@Column(name="who_search")
@@ -88,33 +89,25 @@ public class User {
 	@Column(name = "number")
 	private int number;
 
-	@Transient
-	private MultipartFile photo;
 
-	@Transient
-	private String image;
 
-	@Transient //Annotation so it does not persist in the database
-	public String getImage() {
-	    //Convert the data type byte to String, store it in the variable and return it
-		String encodedImage = Base64.encode(this.data);
-		return encodedImage;
-	}
-
-    @Lob
-    @Column(name = "data")
-    private byte[] data;
-
-	@Column(name = "file_name")
-    private String fileName;
-
-	@Column(name = "file_type")
-    private String fileType;
 
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "group_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+	private Set<Group> groups;
+
+	public Set<Group> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(Set<Group> groups) {
+		this.groups = groups;
+	}
 
 	@Transient
 	private int nrRoli;
@@ -261,33 +254,7 @@ public class User {
 	public void setPhysicalActivity(String physicalActivity) {
 		this.physicalActivity = physicalActivity;
 	}
-	public MultipartFile  getPhoto() {
-		return photo;
-	}
-	public void setPhoto(MultipartFile  photo) {
-		this.photo = photo;
-	}
-	public byte[] getData() {
-		return data;
-	}
-	public void setData(byte[] data) {
-		this.data = data;
-	}
-	public String getFileName() {
-		return fileName;
-	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	public String getFileType() {
-		return fileType;
-	}
-	public void setFileType(String fileType) {
-		this.fileType = fileType;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 
 
 

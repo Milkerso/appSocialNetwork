@@ -33,7 +33,7 @@ public class MainPageController {
             User user = userService.findUserByEmail(username);
             int nrRoli = user.getRoles().iterator().next().getId();
             user.setNrRoli(nrRoli);
-            if (user.getcity().length() == 0)
+            if (user.getEmail().length() == 0)
                 return "registersteptwo";
             else {
                 return "index";

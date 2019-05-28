@@ -12,15 +12,14 @@ public interface UserService {
 
     public void updateUserPassword(String newPassword, String email);
 
-    public void updateUserProfile(String newName, String newLastName, String newEmail, int id);
-
     public void updateUserActivation(int activeCode, String activationCode);
+
+    public void updateUserProfile(String newEmail, int id);
 
     public void updateRegisterStepTwo(String newlanguage, int newnumber, String newcharacter, Date newbirthDate, int id);
 
     public void updateRegisterStepThree(String newFreeTime, String newPhysicalActivity, String newWhoSearch, String newDescription, int id);
 
-    public void updateRegisterStepFourth(String newFileName, String newFileType, byte[] newData, int id);
 
 
 }

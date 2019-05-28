@@ -25,7 +25,7 @@
 		<c:out value="${message }" />
 </p>
 
-	<sf:form id="usersForm" action="adduser" modelAttribute="user" 
+	<sf:form id="usersForm" action="adduser" modelAttribute="user"
 	enctype="multipart/form-data" method="POST">
 		
 	<div class="container">
@@ -45,15 +45,15 @@
 		<div class="col form-group">
 			<label><s:message code="register.name"/></label>   
 		   <sf:input path="name"
-						size="28" id="name" type="text" class="form-control" /> 
+						size="28" id="name" type="text" class="form-control" />
 						
-			<label><font color="red"><sf:errors path="name"/></font></label>   
+			<label><font color="red"><sf:errors path="name"/></font></label>
 		</div> <!-- form-group end.// -->
 		<div class="col form-group">
 			<label><s:message code="register.lastName"/></label>
 				 <sf:input path="lastName"
 						size="28" type="text" class="form-control" placeholder=""/>
-						<label><font color="red"><sf:errors path="lastName"/></font></label> 
+						<label><font color="red"><sf:errors path="lastName"/></font></label>
 		</div> <!-- form-group end.// -->
 	</div> <!-- form-row end.// -->
 	<div class="form-group">

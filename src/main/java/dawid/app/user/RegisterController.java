@@ -5,6 +5,8 @@ import java.util.Locale;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
+import dawid.app.user.userProfile.UserProfile;
+import dawid.app.user.userProfile.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,9 @@ public class RegisterController {
     private EmailSender emailSender;
 
     @Autowired
+    private UserProfileService userProfileService;
+
+    @Autowired
     MessageSource messageSource;
 
     @GET
@@ -44,6 +49,7 @@ public class RegisterController {
         String returnPage = null;
 
         User userExist = userService.findUserByEmail(user.getEmail());
+        UserProfile userProfile=new UserProfile();
 
         new UserRegisterValidator().validateEmailExist(userExist, result);
 
@@ -58,6 +64,11 @@ public class RegisterController {
                     "http://localhost:8080/activatelink/" + user.getActivationCode();
 
             userService.saveUser(user);
+            userProfile.setUserProfileID(user.getId());
+            userProfile.setName(user.getName());
+            userProfile.setLastName(user.getLastName());
+            userProfile.setCity(user.getCity());
+            userProfileService.saveUserProfile(userProfile);
             emailSender.sendEmail(user.getEmail(), "Potwierdzenie rejestracji", content);
             model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));
             //model.addAttribute("user", new User());

@@ -40,8 +40,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUserProfile(String newName, String newLastName, String newEmail, int id) {
-        userRepository.updateUserProfile(newName, newLastName, newEmail, id);
+    public void updateUserProfile(String newEmail, int id) {
+        userRepository.updateUserProfile( newEmail, id);
     }
 
     @Override
@@ -54,10 +54,6 @@ public class UserServiceImpl implements UserService {
         userRepository.updateRegisterStepThree(newFreeTime, newPhysicalActivity, newWhoSearch, newDescription, id);
     }
 
-    @Override
-    public void updateRegisterStepFourth(String newFileName, String newFileType, byte[] newData, int id) {
-        userRepository.updateRegisterStepFourth(newFileName, newFileType, newData, id);
-    }
 
     @Override
     public void updateUserActivation(int activeCode, String activationCode) {

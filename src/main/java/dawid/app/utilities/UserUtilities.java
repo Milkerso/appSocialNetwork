@@ -43,8 +43,8 @@ public class UserUtilities {
 					User u = new User();
 					u.setEmail(e.getElementsByTagName("email").item(0).getTextContent());
 					u.setPassword(e.getElementsByTagName("password").item(0).getTextContent());
-					u.setName(e.getElementsByTagName("name").item(0).getTextContent());
-					u.setLastName(e.getElementsByTagName("lastname").item(0).getTextContent());
+					//u.setName(e.getElementsByTagName("name").item(0).getTextContent());
+					//u.setLastName(e.getElementsByTagName("lastname").item(0).getTextContent());
 					u.setActive(Integer.valueOf(e.getElementsByTagName("active").item(0).getTextContent()));
 					u.setNrRoli(Integer.valueOf(e.getElementsByTagName("nrroli").item(0).getTextContent()));
 					userList.add(u);

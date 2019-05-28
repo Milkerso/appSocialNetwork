@@ -14,6 +14,8 @@ import javax.ws.rs.POST;
 
 import dawid.app.user.photo.Photo;
 import dawid.app.user.photo.PhotoService;
+import dawid.app.user.userProfile.UserProfile;
+import dawid.app.user.userProfile.UserProfileService;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
 import org.slf4j.Logger;
@@ -40,21 +42,30 @@ public class ProfilController {
     private UserService userService;
     @Autowired
     private PhotoService photoService;
-
     @Autowired
     private MessageSource messageSource;
-
-    private String encodedImage;
+    @Autowired
+    private ProfilControllerService profilControllerService;
 
     @GET
     @RequestMapping(value = "/profil")
     public String showUserProfilePage(Model model) {
-        User user = onlineUser();
+        System.out.println("3-----------------");
+        String username = UserUtilities.getLoggedUser();
+        User user = userService.findUserByEmail(username);
+        int nrRoli = user.getRoles().iterator().next().getId();
+        System.out.println("4-----------------");
+        user.setNrRoli(nrRoli);
+        System.out.println("laaaaaaaaaaaaaaaaaaaaa" +user.getId());
+        Photo photo= new Photo();
         model.addAttribute("user", user);
-        model.addAttribute("image", this.getProfilPhotoEncoded(user.getId()));
-
+        model.addAttribute("photo", photo);
+        System.out.println("5-----------------");
+        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
         return "profil";
     }
+
+
 
 
     @GET
@@ -69,7 +80,7 @@ public class ProfilController {
     @POST
     @RequestMapping(value = "/updatepass")
     public String changeUSerPassword(User user, BindingResult result, Model model, Locale locale) {
-        String returnPage = null;
+        String returnPage;
         new ChangePasswordValidator().validate(user, result);
         new ChangePasswordValidator().checkPasswords(user.getNewPassword(), result);
         if (result.hasErrors()) {
@@ -95,13 +106,12 @@ public class ProfilController {
     @POST
     @RequestMapping(value = "/updateprofil")
     public String changeUserDataAction(User user, BindingResult result, Model model, Locale locale) {
-        String returnPage = null;
-        LOG.info(user.getName().toString());
+        String returnPage;
         new EditUserProfileValidator().validate(user, result);
         if (result.hasErrors()) {
             returnPage = "editprofil";
         } else {
-            userService.updateUserProfile(user.getName(), user.getLastName(), user.getEmail(), user.getId());
+            userService.updateUserProfile(user.getEmail(), user.getId());
             model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
             returnPage = "registersteptwo";
         }
@@ -124,12 +134,7 @@ public class ProfilController {
     public String registerStepTwoEnd(User user, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > end()");
         LOG.info(Integer.toString(user.getNumber()));
-        LOG.info(user.getCharacter().toString());
-        //	Date date =new Date();
-        //	user.setBirthDate(date);
-        //	LOG.info(user.getBirthDate().toString());
-
-
+        LOG.info(user.getCharacter());
         userService.updateRegisterStepTwo(user.getLanguage(), user.getNumber(), user.getCharacter(), user.getBirthDate(), user.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
 
@@ -153,104 +158,52 @@ public class ProfilController {
     public String registerStepThreeEnd(User user,Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > endthree()");
 
-        Path path = Paths.get(System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images\\photo.jpg");
-        String name = "photo.jpg";
-        String originalFileName = "photo.jpg";
-        String contentType = "image/png";
-        byte[] content = null;
-        try {
-            content = Files.readAllBytes(path);
-        } catch (final IOException e) {
-        }
-        MultipartFile multipartFile = new MockMultipartFile(name,
-                originalFileName, contentType, content);
-        photo.setMultipartFile(multipartFile);
-        changeAvatar(user,photo, result, model, locale);
-        content = Base64.encodeBase64(photo.getData());
-        String encodedString = new String(content);
+        profilControllerService.insertEmptyPhoto(photo);
+        profilControllerService.changeAvatar(user,photo, result, model, locale);
 
         userService.updateRegisterStepThree(user.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(), user.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-        model.addAttribute("image", encodedString);
+        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
 
         return "registerstepfourth";
     }
+
+
 
     @POST
     @RequestMapping(value = "/registerstepfourth")
     public String registerstepfourth(Model model) {
 
-        String username = UserUtilities.getLoggedUser();
-        User user = userService.findUserByEmail(username);
-        user = onlineUser();
-        byte[] encoded = Base64.encodeBase64(user.getData());
-        String encodedString = new String(encoded);
+        User user = profilControllerService.onlineUser();
         model.addAttribute("user", user);
-        model.addAttribute("image", encodedString);
+        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
 
         return "registerstepfourth";
     }
 
     @POST
     @RequestMapping(value = "/registerstepfourthend")
-    public String registerStepFourthEnds(User user, Photo photo, BindingResult result, Model model, Locale locale) {
+    public String registerStepFourthEnds( Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > endfourth()");
-        changeAvatar(user,photo, result, model, locale);
-        user = onlineUser();
-        byte[] encoded = Base64.encodeBase64(user.getData());
-        String encodedString = new String(encoded);
+        User user = profilControllerService.onlineUser();
+        profilControllerService.changeAvatar(user,photo, result, model, locale);
         model.addAttribute("user", user);
-        model.addAttribute("image", encodedString);
+        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
         return "registerstepfourth";
     }
 
     @POST
     @RequestMapping(value = "/changephoto")
-    public String changePhoto(User user,Photo photo, BindingResult result, Model model, Locale locale) {
+    public String changePhoto(Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > changePhoto()");
-
-        changeAvatar(user, photo, result, model, locale);
-        user = onlineUser();
+        User user =profilControllerService.onlineUser();
+        profilControllerService.changeAvatar(user, photo, result, model, locale);
         model.addAttribute("user", user);
-        model.addAttribute("image", this.getProfilPhotoEncoded(user.getId()));
+        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
         LOG.info("**** WYWOŁANO > changePhoto2()");
         return "profil";
     }
 
-    public void changeAvatar(User user,Photo photo, BindingResult result, Model model, Locale locale) {
-        photo.setName(user.getPhoto().getOriginalFilename());
-        try {
-            photo.setData(user.getPhoto().getBytes());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        photo.setDescription("");
-        photo.setUserId(user.getId());
-        photoService.updateUserProfilPhoto(photo.getName(),photo.getDescription(),photo.getData(),user.getId());
-
-      //  userService.updateRegisterStepFourth(user.getFileName(), user.getFileType(), user.getData(), user.getId());
-        model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-    }
-
-    public User onlineUser() {
-        String username = UserUtilities.getLoggedUser();
-        User user = userService.findUserByEmail(username);
-        int nrRoli = user.getRoles().iterator().next().getId();
-        user.setNrRoli(nrRoli);
-        return user;
-    }
-    public Photo getProfilPhoto(int id)
-    {
-        return photoService.findByUserID(id);
-
-    }
-    public String getProfilPhotoEncoded(int id)
-    {
-        Photo photo= this.getProfilPhoto(id);
-        byte[] encoded = Base64.encodeBase64(photo.getData());
-        return new String(encoded);
-    }
 
 
 

@@ -20,7 +20,7 @@
 <body background="/resources/images/background.jpg">
 <%@include file="/page/incl/menu.app" %>
 <div class="container emp-profile">
-           <sf:form id="usersForm" action="changephoto" modelAttribute="user"
+           <sf:form id="usersForm" action="changephoto" modelAttribute="photo"
 		enctype="multipart/form-data" method="POST">
 		
 		<sf:hidden path="id"/>
@@ -31,9 +31,9 @@
 
                             <div class="file btn btn-lg btn-primary">
                               <s:message code="profil.changePhoto"  />
-                               <sf:input type="file" onchange="this.form.submit()" id="photo" path="photo" name="photo"/>
-     
-                               
+                               <sf:input type="file" onchange="this.form.submit()" id="photo" path="multipartFile" name="photo"/>
+
+
                             </div>
                         </div>
                     </div>
