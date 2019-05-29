@@ -1,6 +1,8 @@
 package dawid.app.user.userProfile;
 
+import dawid.app.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +18,16 @@ public class UserProfileServiceImpl implements UserProfileService {
     UserProfileRepository userProfile;
 
     @Override
+    public UserProfile findUserProfileById(int userProfileId) {
+        return userProfileRepository.findUserProfileById(userProfileId);
+    }
+
+    @Override
+    public void updateRegisterStepThree(String newWhoSearch, String newDescription, int id)
+    {
+        userProfileRepository.updateRegisterStepThree(newWhoSearch,newDescription,id);
+    }
+    @Override
     public void saveUserProfile(UserProfile userProfile) {
 
         userProfileRepository.save(userProfile);
@@ -27,9 +39,5 @@ public class UserProfileServiceImpl implements UserProfileService {
         userProfileRepository.updateRegisterStepTwo(newlanguage, newnumber, newcharacter, newbirthDate, id);
     }
 
-    @Override
-    public void updateRegisterStepThree(String newFreeTime, String newPhysicalActivity, String newWhoSearch, String newDescription, int id) {
-        userProfileRepository.updateRegisterStepThree(newFreeTime, newPhysicalActivity, newWhoSearch, newDescription, id);
-    }
 
 }

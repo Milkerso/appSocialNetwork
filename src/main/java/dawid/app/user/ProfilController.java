@@ -45,6 +45,8 @@ public class ProfilController {
     @Autowired
     private MessageSource messageSource;
     @Autowired
+    private UserProfileService userProfileService;
+    @Autowired
     private ProfilControllerService profilControllerService;
 
     @GET
@@ -58,8 +60,10 @@ public class ProfilController {
         user.setNrRoli(nrRoli);
         System.out.println("laaaaaaaaaaaaaaaaaaaaa" +user.getId());
         Photo photo= new Photo();
-        model.addAttribute("user", user);
+        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+        model.addAttribute("user", userProfile);
         model.addAttribute("photo", photo);
+        model.addAttribute("email", user.getEmail());
         System.out.println("5-----------------");
         model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
         return "profil";
@@ -122,22 +126,26 @@ public class ProfilController {
     @RequestMapping(value = "/registersteptwo")
     public String registerStepTwo(Model model) {
 
+         LOG.info("**** WYWOŁANO > registersteptwo()");
         String username = UserUtilities.getLoggedUser();
+        LOG.info("**** WYWOŁANO > registersteptwo1()");
         User user = userService.findUserByEmail(username);
-        model.addAttribute("user", user);
+        LOG.info("**** WYWOŁANO > registersteptwo2()");
+        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+        LOG.info("**** WYWOŁANO > registersteptwo3()");
+        model.addAttribute("userProfile", userProfile);
+        LOG.info("**** WYWOŁANO > registersteptwo4()");
 
         return "registersteptwo";
     }
 
     @POST
     @RequestMapping(value = "/registersteptwoend")
-    public String registerStepTwoEnd(User user, BindingResult result, Model model, Locale locale) {
-        LOG.info("**** WYWOŁANO > end()");
-        LOG.info(Integer.toString(user.getNumber()));
-        LOG.info(user.getCharacter());
-        userService.updateRegisterStepTwo(user.getLanguage(), user.getNumber(), user.getCharacter(), user.getBirthDate(), user.getId());
+    public String registerStepTwoEnd(UserProfile userProfile, BindingResult result, Model model, Locale locale) {
+        LOG.info("**** WYWOŁANO > registersteptwoEnd()");
+        userProfileService.updateRegisterStepTwo(userProfile.getLanguage(), userProfile.getNumber(), userProfile.getCharacter(), userProfile.getBirthDate(), userProfile.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-
+        model.addAttribute("userProfile",userProfile);
 
         return "registerstepthree";
     }
@@ -148,22 +156,33 @@ public class ProfilController {
 
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
-        model.addAttribute("user", user);
+        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+        model.addAttribute("userProfile", userProfile);
 
         return "registerstepthree";
     }
 
     @POST
     @RequestMapping(value = "/registerstepthreeend")
-    public String registerStepThreeEnd(User user,Photo photo, BindingResult result, Model model, Locale locale) {
+    public String registerStepThreeEnd(UserProfile userProfile,Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > endthree()");
-
+        userProfileService.updateRegisterStepThree(userProfile.getWhoSearch(),userProfile.getDescription(),userProfile.getId());
         profilControllerService.insertEmptyPhoto(photo);
-        profilControllerService.changeAvatar(user,photo, result, model, locale);
+        profilControllerService.builderPhoto(photo);
+       try {
+           profilControllerService.getProfilPhotoEncoded(userProfile.getId());
+       }catch (NullPointerException e)
+       {
+           photo.setProfilePhoto(1);
+           photo.setName("Default");
+           photoService.savePhoto(photo);
+       }
 
-        userService.updateRegisterStepThree(user.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(), user.getId());
+
+
+       // userService.updateRegisterStepThree(userProfile.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(), user.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
+        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(userProfile.getId()));
 
         return "registerstepfourth";
     }
@@ -175,18 +194,20 @@ public class ProfilController {
     public String registerstepfourth(Model model) {
 
         User user = profilControllerService.onlineUser();
-        model.addAttribute("user", user);
+        Photo photo =new Photo();
+        model.addAttribute("photo", photo);
         model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
-
+        LOG.info("**** WYWOŁANO > endfo2urth()");
         return "registerstepfourth";
     }
 
     @POST
     @RequestMapping(value = "/registerstepfourthend")
-    public String registerStepFourthEnds( Photo photo, BindingResult result, Model model, Locale locale) {
+    public String registerstepfourthend( Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > endfourth()");
+        photo.setName("lol");
         User user = profilControllerService.onlineUser();
-        profilControllerService.changeAvatar(user,photo, result, model, locale);
+        profilControllerService.changeAvatar(photo, result, model, locale);
         model.addAttribute("user", user);
         model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
         return "registerstepfourth";
@@ -197,13 +218,16 @@ public class ProfilController {
     public String changePhoto(Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > changePhoto()");
         User user =profilControllerService.onlineUser();
-        profilControllerService.changeAvatar(user, photo, result, model, locale);
-        model.addAttribute("user", user);
+        photo.setName("lol");
+        photo.setDescription("lolll");
+        profilControllerService.changeAvatar( photo, result, model, locale);
+        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+        model.addAttribute("email",user.getEmail());
+        model.addAttribute("user", userProfile);
         model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
         LOG.info("**** WYWOŁANO > changePhoto2()");
         return "profil";
     }
-
 
 
 

@@ -31,70 +31,31 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Getter @Setter
 	@Column(name = "user_id")
 	private int id;
 
 	@Column(name = "email")
+	@Getter @Setter
 	@NotNull
 	private String email;
 
 
+
 	@Column(name = "password")
+	@Getter @Setter
 	@NotNull
 	private String password;
 
 	@Column(name = "active")
+	@Getter @Setter
 	@NotNull
 	private int active;
-
-	@Transient
-	private String name;
-
-	@Transient
-	private String lastName;
-
-	// additional description
-
-	@Column(name = "hobby")
-	private String hobby;
-
-	@Transient
-	private String city;
-
-	@Transient
-	private String sex;
-
-	@Column(name="who_search")
-	private String whoSearch;
-
-
-	@Column(name = "language")
-	private String language;
-
-	@Column(name = "free_time")
-	private String freeTime;
-
-	@Column(name = "physical_activity")
-	private String physicalActivity;
-
-	@Column(name = "description")
-	private String description;
-
-	@Column(name = "birth_date")
-	private Date birthDate;
-
-	@Column(name = "characters")
-	private String character;
-
-	@Column(name = "number")
-	private int number;
-
-
-
 
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@Getter @Setter
 	private Set<Role> roles;
 
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -110,150 +71,34 @@ public class User {
 	}
 
 	@Transient
+	@Getter @Setter
 	private int nrRoli;
 
 	@Transient
+	@Getter @Setter
+	private String name;
+
+	@Transient
+	@Getter @Setter
+	private String sex;
+
+	@Transient
+	@Getter @Setter
+	private String lastName;
+
+	@Transient
+	@Getter @Setter
+	private String city;
+
+	@Transient
+	@Getter @Setter
 	private String newPassword;
 
 
 	@Column(name = "activation_code")
+	@Getter @Setter
 	private String activationCode;
 
-
-	//gettery i settery
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public int getActive() {
-		return active;
-	}
-	public void setActive(int active) {
-		this.active = active;
-	}
-	public Set<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-	public int getNrRoli() {
-		return nrRoli;
-	}
-	public void setNrRoli(int nrRoli) {
-		this.nrRoli = nrRoli;
-	}
-	public String getNewPassword() {
-		return newPassword;
-	}
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
-	}
-	public String getActivationCode() {
-		return activationCode;
-	}
-	public void setActivationCode(String activationCode) {
-		this.activationCode = activationCode;
-	}
-	public String getHobby() {
-		return hobby;
-	}
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
-	}
-	public String getcity() {
-		return city;
-	}
-	public void setcity(String city) {
-		this.city = city;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-	public String getLanguage() {
-		return language;
-	}
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-	public String getFreeTime() {
-		return freeTime;
-	}
-	public void setFreeTime(String freeTime) {
-		this.freeTime = freeTime;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public Date getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
-	public String getCharacter() {
-		return character;
-	}
-	public void setCharacter(String character) {
-		this.character = character;
-	}
-	public int getNumber() {
-		return number;
-	}
-	public void setNumber(int number) {
-		this.number = number;
-	}
-	public String getWhoSearch() {
-		return whoSearch;
-	}
-	public void setWhoSearch(String whoSearch) {
-		this.whoSearch = whoSearch;
-	}
-	public String getPhysicalActivity() {
-		return physicalActivity;
-	}
-	public void setPhysicalActivity(String physicalActivity) {
-		this.physicalActivity = physicalActivity;
-	}
 
 
 

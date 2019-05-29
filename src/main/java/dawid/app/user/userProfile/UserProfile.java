@@ -1,9 +1,6 @@
 package dawid.app.user.userProfile;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import lombok.*;
@@ -15,7 +12,7 @@ public class UserProfile {
     @Id
     @Column(name = "user_profile_id")
     @Getter @Setter
-    private int userProfileID;
+    private int id;
 
     @Column(name = "name")
     @Getter @Setter
@@ -60,4 +57,12 @@ public class UserProfile {
     @Column(name = "number")
     @Getter @Setter
     private int number;
+
+    @Transient
+    @Getter @Setter
+    private int freeTime;
+
+    @Transient
+    @Getter @Setter
+    private int physicalActivity;
 }

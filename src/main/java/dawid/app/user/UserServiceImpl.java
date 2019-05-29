@@ -44,15 +44,6 @@ public class UserServiceImpl implements UserService {
         userRepository.updateUserProfile( newEmail, id);
     }
 
-    @Override
-    public void updateRegisterStepTwo(String newlanguage, int newnumber, String newcharacter, Date newbirthDate, int id) {
-        userRepository.updateRegisterStepTwo(newlanguage, newnumber, newcharacter, newbirthDate, id);
-    }
-
-    @Override
-    public void updateRegisterStepThree(String newFreeTime, String newPhysicalActivity, String newWhoSearch, String newDescription, int id) {
-        userRepository.updateRegisterStepThree(newFreeTime, newPhysicalActivity, newWhoSearch, newDescription, id);
-    }
 
 
     @Override

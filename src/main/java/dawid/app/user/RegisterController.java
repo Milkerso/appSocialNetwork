@@ -64,10 +64,11 @@ public class RegisterController {
                     "http://localhost:8080/activatelink/" + user.getActivationCode();
 
             userService.saveUser(user);
-            userProfile.setUserProfileID(user.getId());
+            userProfile.setId(user.getId());
             userProfile.setName(user.getName());
             userProfile.setLastName(user.getLastName());
             userProfile.setCity(user.getCity());
+            userProfile.setSex(user.getSex());
             userProfileService.saveUserProfile(userProfile);
             emailSender.sendEmail(user.getEmail(), "Potwierdzenie rejestracji", content);
             model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));

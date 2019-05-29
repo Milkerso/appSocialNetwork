@@ -1,0 +1,245 @@
+[2019-05-28 19:21:47 ] [org.apache.juli.logging.DirectJDKLog] [main] [180] [INFO ] Starting ProtocolHandler ["http-nio-8080"]
+[2019-05-28 19:21:47 ] [org.apache.juli.logging.DirectJDKLog] [main] [180] [INFO ] Using a shared selector for servlet write/read
+[2019-05-28 19:21:47 ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [206] [INFO ] Tomcat started on port(s): 8080 (http) with context path ''
+[2019-05-28 19:21:47 ] [org.springframework.boot.StartupInfoLogger] [main] [59] [INFO ] Started Application in 12.177 seconds (JVM running for 19.922)
+[2019-05-28 19:21:50 ] [org.apache.juli.logging.DirectJDKLog] [http-nio-8080-exec-1] [180] [INFO ] Initializing Spring FrameworkServlet 'dispatcherServlet'
+[2019-05-28 19:21:50 ] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-1] [494] [INFO ] FrameworkServlet 'dispatcherServlet': initialization started
+[2019-05-28 19:21:50 ] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-1] [509] [INFO ] FrameworkServlet 'dispatcherServlet': initialization completed in 44 ms
+[2019-05-28 19:21:50 ] [dawid.app.mainController.MainPageController] [http-nio-8080-exec-1] [36] [INFO ] **** WYWO£ANO > showMainPage()
+[2019-05-28 19:21:50 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-1] [55] [DEBUG] begin
+[2019-05-28 19:21:50 ] [org.hibernate.query.criteria.internal.CriteriaQueryImpl] [http-nio-8080-exec-1] [307] [DEBUG] Rendered criteria query -> select generatedAlias0 from User as generatedAlias0 where generatedAlias0.email is null
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.QueryTranslatorImpl] [http-nio-8080-exec-1] [282] [DEBUG] parse() - HQL: select generatedAlias0 from dawid.app.user.User as generatedAlias0 where generatedAlias0.email is null
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.ErrorCounter] [http-nio-8080-exec-1] [95] [DEBUG] throwQueryException() : no errors
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.QueryTranslatorImpl] [http-nio-8080-exec-1] [305] [DEBUG] --- HQL AST ---
+ \-[QUERY] Node: 'query'
+    +-[SELECT_FROM] Node: 'SELECT_FROM'
+    |  +-[FROM] Node: 'from'
+    |  |  \-[RANGE] Node: 'RANGE'
+    |  |     +-[DOT] Node: '.'
+    |  |     |  +-[DOT] Node: '.'
+    |  |     |  |  +-[DOT] Node: '.'
+    |  |     |  |  |  +-[IDENT] Node: 'dawid'
+    |  |     |  |  |  \-[IDENT] Node: 'app'
+    |  |     |  |  \-[IDENT] Node: 'user'
+    |  |     |  \-[IDENT] Node: 'User'
+    |  |     \-[ALIAS] Node: 'generatedAlias0'
+    |  \-[SELECT] Node: 'select'
+    |     \-[IDENT] Node: 'generatedAlias0'
+    \-[WHERE] Node: 'where'
+       \-[IS_NULL] Node: 'is null'
+          \-[DOT] Node: '.'
+             +-[IDENT] Node: 'generatedAlias0'
+             \-[IDENT] Node: 'email'
+
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.antlr.HqlSqlBaseWalker] [http-nio-8080-exec-1] [124] [DEBUG] select << begin [level=1, statement=select]
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.tree.FromElement] [http-nio-8080-exec-1] [147] [DEBUG] FromClause{level=1} : dawid.app.user.User (generatedAlias0) -> user0_
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.tree.FromReferenceNode] [http-nio-8080-exec-1] [60] [DEBUG] Resolved : generatedAlias0 -> user0_.user_id
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.tree.FromReferenceNode] [http-nio-8080-exec-1] [60] [DEBUG] Resolved : generatedAlias0 -> user0_.user_id
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.tree.DotNode] [http-nio-8080-exec-1] [688] [DEBUG] getDataType() : email -> org.hibernate.type.StringType@1fb5e9bc
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.tree.FromReferenceNode] [http-nio-8080-exec-1] [60] [DEBUG] Resolved : generatedAlias0.email -> user0_.email
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.antlr.HqlSqlBaseWalker] [http-nio-8080-exec-1] [128] [DEBUG] select : finishing up [level=1, statement=select]
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.HqlSqlWalker] [http-nio-8080-exec-1] [747] [DEBUG] processQuery() :  ( SELECT ( {select clause} user0_.user_id ) ( FromClause{level=1} user user0_ ) ( where ( is null ( user0_.email user0_.user_id email ) ) ) )
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.util.JoinProcessor] [http-nio-8080-exec-1] [192] [DEBUG] Using FROM fragment [user user0_]
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.antlr.HqlSqlBaseWalker] [http-nio-8080-exec-1] [132] [DEBUG] select >> end [level=1, statement=select]
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.QueryTranslatorImpl] [http-nio-8080-exec-1] [269] [DEBUG] --- SQL AST ---
+ \-[SELECT] QueryNode: 'SELECT'  querySpaces (user)
+    +-[SELECT_CLAUSE] SelectClause: '{select clause}'
+    |  +-[ALIAS_REF] IdentNode: 'user0_.user_id as user_id1_4_' {alias=generatedAlias0, className=dawid.app.user.User, tableAlias=user0_}
+    |  \-[SQL_TOKEN] SqlFragment: 'user0_.activation_code as activati2_4_, user0_.active as active3_4_, user0_.email as email4_4_, user0_.password as password5_4_'
+    +-[FROM] FromClause: 'from' FromClause{level=1, fromElementCounter=1, fromElements=1, fromElementByClassAlias=[generatedAlias0], fromElementByTableAlias=[user0_], fromElementsByPath=[], collectionJoinFromElementsByPath=[], impliedElements=[]}
+    |  \-[FROM_FRAGMENT] FromElement: 'user user0_' FromElement{explicit,not a collection join,not a fetch join,fetch non-lazy properties,classAlias=generatedAlias0,role=null,tableName=user,tableAlias=user0_,origin=null,columns={,className=dawid.app.user.User}}
+    \-[WHERE] SqlNode: 'where'
+       \-[IS_NULL] IsNullLogicOperatorNode: 'is null'
+          \-[DOT] DotNode: 'user0_.email' {propertyName=email,dereferenceType=PRIMITIVE,getPropertyPath=email,path=generatedAlias0.email,tableAlias=user0_,className=dawid.app.user.User,classAlias=generatedAlias0}
+             +-[ALIAS_REF] IdentNode: 'user0_.user_id' {alias=generatedAlias0, className=dawid.app.user.User, tableAlias=user0_}
+             \-[IDENT] IdentNode: 'email' {originalText=email}
+
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.ErrorCounter] [http-nio-8080-exec-1] [95] [DEBUG] throwQueryException() : no errors
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.QueryTranslatorImpl] [http-nio-8080-exec-1] [251] [DEBUG] HQL: select generatedAlias0 from dawid.app.user.User as generatedAlias0 where generatedAlias0.email is null
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.QueryTranslatorImpl] [http-nio-8080-exec-1] [252] [DEBUG] SQL: select user0_.user_id as user_id1_4_, user0_.activation_code as activati2_4_, user0_.active as active3_4_, user0_.email as email4_4_, user0_.password as password5_4_ from user user0_ where user0_.email is null
+[2019-05-28 19:21:50 ] [org.hibernate.hql.internal.ast.ErrorCounter] [http-nio-8080-exec-1] [95] [DEBUG] throwQueryException() : no errors
+[2019-05-28 19:21:50 ] [org.hibernate.engine.jdbc.spi.SqlStatementLogger] [http-nio-8080-exec-1] [92] [DEBUG] select user0_.user_id as user_id1_4_, user0_.activation_code as activati2_4_, user0_.active as active3_4_, user0_.email as email4_4_, user0_.password as password5_4_ from user user0_ where user0_.email is null
+[2019-05-28 19:21:50 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-1] [66] [DEBUG] committing
+[2019-05-28 19:21:50 ] [org.apache.juli.logging.DirectJDKLog] [http-nio-8080-exec-1] [182] [ERROR] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at dawid.app.mainController.MainPageController.showMainPage(MainPageController.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+[2019-05-28 19:22:33 ] [dawid.app.mainController.MainPageController] [http-nio-8080-exec-5] [36] [INFO ] **** WYWO£ANO > showMainPage()
+[2019-05-28 19:22:33 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-5] [55] [DEBUG] begin
+[2019-05-28 19:22:33 ] [org.hibernate.query.criteria.internal.CriteriaQueryImpl] [http-nio-8080-exec-5] [307] [DEBUG] Rendered criteria query -> select generatedAlias0 from User as generatedAlias0 where generatedAlias0.email is null
+[2019-05-28 19:22:33 ] [org.hibernate.engine.jdbc.spi.SqlStatementLogger] [http-nio-8080-exec-5] [92] [DEBUG] select user0_.user_id as user_id1_4_, user0_.activation_code as activati2_4_, user0_.active as active3_4_, user0_.email as email4_4_, user0_.password as password5_4_ from user user0_ where user0_.email is null
+[2019-05-28 19:22:33 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-5] [66] [DEBUG] committing
+[2019-05-28 19:22:33 ] [org.apache.juli.logging.DirectJDKLog] [http-nio-8080-exec-5] [182] [ERROR] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at dawid.app.mainController.MainPageController.showMainPage(MainPageController.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)

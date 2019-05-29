@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.sql.SQLOutput;
 
 @Service("photoService")
 @Transactional
@@ -24,8 +25,9 @@ public class PhotoServiceImpl implements PhotoService{
     }
 
     @Override
-    public void updateUserProfilPhoto(String newName, String newDescription, byte[] newData, int id) {
-        photoRepository.updateUserProfilPhoto(newName,newDescription,newData,id);
+    public void updateUserProfilePhoto(String newName, String newDescription, byte[] newData, int id) {
+        System.out.println("update photo");
+        photoRepository.updateUserProfilePhoto(newName,newDescription,newData,id);
     }
 
     @Override

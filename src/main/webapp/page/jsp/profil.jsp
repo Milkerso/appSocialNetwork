@@ -75,7 +75,7 @@
                                                 <label><s:message code="profil.email" /></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><c:out value="${user.email }"/></p>
+                                                <p><c:out value="${email }"/></p>
                                             </div>
                                         </div>
                                         <div class="row">

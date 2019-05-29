@@ -29,7 +29,7 @@
   <body background="/resources/images/background.jpg">
      
     <%@include file="/page/incl/menu.app"%>
-<sf:form id="usersForm" action="registerstepfourthend" modelAttribute="user"
+<sf:form id="usersForm" action="registerstepfourthend" modelAttribute="photo"
 		enctype="multipart/form-data" method="POST">
 		
 		<sf:hidden path="id"/>
@@ -46,14 +46,14 @@
                                  <img src="data:image/jpeg;base64,${image}" alt="..." class="img-fluid img-thumbnail" >
                             <div class="file btn btn-lg btn-primary">
                               <s:message code="profil.changePhoto" />
-                               <sf:input type="file"  onchange="this.form.submit()" id="photo" path="photo" name="photo"/>
+                               <sf:input type="file"  onchange="this.form.submit()" id="photo" path="multipartFile" name="photo"/>
                             </div>
                         </div>
                        
                     </div>
                      <div>
                      <form action="/index">
-			  				<button type="button" value=<s:message code="register.accept"/> class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
+			  				<button type="submit" onclick="location.href='/profil';" value=<s:message code="register.accept"/> class="btn btn-default submit"style="margin-top=50px;"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
 			  			</form>
 			  			</div>
                 

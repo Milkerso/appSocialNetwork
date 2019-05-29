@@ -10,7 +10,7 @@ public class SearchingGroup {
     {
         if(user.getGroups().isEmpty())
         {
-            Group group=groupService.searchGroupByAllArgument(user.getPhysicalActivity(),user.getFreeTime(),user.getEmail());
+         //   Group group=groupService.searchGroupByAllArgument(user.getPhysicalActivity(),user.getFreeTime(),user.getEmail());
         }
         return true;
 

@@ -29,16 +29,10 @@ public class ProfilControllerService {
     @Autowired
     private PhotoService photoService;
 
-    public void changeAvatar(User user, Photo photo, BindingResult result, Model model, Locale locale) {
+    public void changeAvatar( Photo photo, BindingResult result, Model model, Locale locale) {
 
-        try {
-            photo.setData(photo.getMultipartFile().getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        photo.setDescription("");
-        photo.setUserId(user.getId());
-        photoService.updateUserProfilPhoto(photo.getName(),photo.getDescription(),photo.getData(),user.getId());
+        this.builderPhoto(photo);
+        photoService.updateUserProfilePhoto(photo.getName(),photo.getDescription(),photo.getData(),photo.getUserId());
     }
 
     public User onlineUser() {
@@ -68,13 +62,30 @@ public class ProfilControllerService {
         String originalFileName = "photo.jpg";
         String contentType = "image/png";
         byte[] content = null;
+        LOG.info("****jest okej");
         try {
             content = Files.readAllBytes(path);
         } catch (final IOException e) {
+            LOG.info("**** WYWOŁANO >blad)");
         }
         MultipartFile multipartFile = new MockMultipartFile(name,
                 originalFileName, contentType, content);
         photo.setMultipartFile(multipartFile);
+        LOG.info("**** okej2");
+    }
+    public void builderPhoto(Photo photo)
+    {
+        User user= this.onlineUser();
+        try {
+            photo.setData(photo.getMultipartFile().getBytes());
+        } catch (IOException e) {
+            LOG.info("**** okejooo");
+            e.printStackTrace();
+        }
+        LOG.info("**** okej3");
+        photo.setUserId(user.getId());
+        LOG.info("**** WYWOŁANO > registersteptwo()"+ photo.getData().toString());
+
     }
 
 }

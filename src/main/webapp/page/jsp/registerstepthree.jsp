@@ -28,7 +28,7 @@
 <body background="/resources/images/background.jpg">
      
     <%@include file="/page/incl/menu.app"%>
-<sf:form id="usersForm" action="registerstepthreeend" modelAttribute="user"
+<sf:form id="usersForm" action="registerstepthreeend" modelAttribute="userProfile"
 		enctype="multipart/form-data" method="POST">
 		
 		<sf:hidden path="id"/>
@@ -46,25 +46,25 @@
 			  				
 					    	 <div class="form-group">
 					      <sf:select multiple="true" path="freeTime" class="form-control" id="freeTime" style="height:70px;">
-   							 <sf:option value="Rano"><s:message code="register.freeTime1"/></sf:option>
-   							 <sf:option value="Po południe"><s:message code="register.freeTime2"/></sf:option>
-   							 <sf:option value="Wieczorem"><s:message code="register.freeTime3"/></sf:option>
+   							 <sf:option value="1"><s:message code="register.freeTime1"/></sf:option>
+   							 <sf:option value="2"><s:message code="register.freeTime2"/></sf:option>
+   							 <sf:option value="3"><s:message code="register.freeTime3"/></sf:option>
 							</sf:select>
 				  		</div>
 				  		<label for="exampleInputUsername"><s:message code="register.physicalActivity"/></label>
 					  	   	 <div class="form-group">
 					      <sf:select multiple="true" path="physicalActivity" class="form-control" id="physicalActivity">
-   							 <sf:option value="koszykowka"><s:message code="activity.basketball"/></sf:option>
-   							 <sf:option value="piłka nożna"><s:message code="activity.football"/></sf:option>
-   							 <sf:option value="bieganie"><s:message code="activity.running"/></sf:option>
-   							 <sf:option value="chodzenie"><s:message code="activity.walking"/></sf:option>
-   							 <sf:option value="łyżwy"><s:message code="activity.skate"/></sf:option>
-   							 <sf:option value="Jazda na nartach"><s:message code="activity.skiing"/></sf:option>
-   							 <sf:option value="hokej"><s:message code="activity.hockey"/></sf:option>
-   							 <sf:option value="tenis ziemny"><s:message code="activity.tennis"/></sf:option>
-   							 <sf:option value="tenis stołowy"><s:message code="activity.tennisTable"/></sf:option>
-   							 <sf:option value="snowboard"><s:message code="activity.snowboard"/></sf:option>
-   							 <sf:option value="jazda konno"><s:message code="activity.horseRiding"/></sf:option>
+   							 <sf:option value="1"><s:message code="activity.basketball"/></sf:option>
+   							 <sf:option value="2"><s:message code="activity.football"/></sf:option>
+   							 <sf:option value="3"><s:message code="activity.running"/></sf:option>
+   							 <sf:option value="4"><s:message code="activity.walking"/></sf:option>
+   							 <sf:option value="5"><s:message code="activity.skate"/></sf:option>
+   							 <sf:option value="6"><s:message code="activity.skiing"/></sf:option>
+   							 <sf:option value="7"><s:message code="activity.hockey"/></sf:option>
+   							 <sf:option value="8"><s:message code="activity.tennis"/></sf:option>
+   							 <sf:option value="9"><s:message code="activity.tennisTable"/></sf:option>
+   							 <sf:option value="10"><s:message code="activity.snowboard"/></sf:option>
+   							 <sf:option value="11"><s:message code="activity.horseRiding"/></sf:option>
 							</sf:select>
 				  		</div>
 			  		</div>
