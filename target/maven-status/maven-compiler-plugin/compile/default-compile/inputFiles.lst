@@ -4,6 +4,7 @@ D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\User.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\mainController\MainPageController.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\RoleRepository.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\ServletInitializer.java
+D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\userProfile\FreeTime.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\group\Group.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\emailSender\EmailSenderImpl.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\photo\PhotoServiceImpl.java
@@ -21,6 +22,7 @@ D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\userProfile\UserPro
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\constants\AppDemoConstants.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\UserServiceImpl.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\group\groupMechanic\GroupByCity.java
+D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\userProfile\FreeTimeRepository.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\group\GroupServiceImpl.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\RegisterController.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\admin\AdminPageController.java
@@ -30,8 +32,10 @@ D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\Application.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\configuration\WebMvcConfig.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\ProfilController.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\Role.java
+D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\userProfile\PhysicalActivity.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\utilities\AppdemoUtils.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\group\groupMechanic\SearchingGroup.java
+D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\user\userProfile\PhysicalActivityRepository.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\utilities\UserUtilities.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\validators\ChangePasswordValidator.java
 D:\SocialMedia\appSocialNetwork\src\main\java\dawid\app\admin\FileUpload.java

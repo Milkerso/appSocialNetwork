@@ -1,91 +1,10 @@
-[2019-05-29 16:54:14 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-2] [55] [DEBUG] begin
-[2019-05-29 16:54:14 ] [org.hibernate.query.criteria.internal.CriteriaQueryImpl] [http-nio-8080-exec-2] [307] [DEBUG] Rendered criteria query -> select generatedAlias0 from User as generatedAlias0 where generatedAlias0.email=:param0
-[2019-05-29 16:54:14 ] [org.hibernate.engine.jdbc.spi.SqlStatementLogger] [http-nio-8080-exec-2] [92] [DEBUG] select user0_.user_id as user_id1_4_, user0_.activation_code as activati2_4_, user0_.active as active3_4_, user0_.email as email4_4_, user0_.password as password5_4_ from user user0_ where user0_.email=?
-[2019-05-29 16:54:14 ] [org.jboss.logging.DelegatingBasicLogger] [http-nio-8080-exec-2] [384] [DEBUG] Result set row: 0
-[2019-05-29 16:54:14 ] [org.hibernate.loader.Loader] [http-nio-8080-exec-2] [1533] [DEBUG] Result row: EntityKey[dawid.app.user.User#23]
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-2] [144] [DEBUG] Resolving associations for [dawid.app.user.User#23]
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-2] [287] [DEBUG] Done materializing entity [dawid.app.user.User#23]
-[2019-05-29 16:54:14 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-2] [66] [DEBUG] committing
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [132] [DEBUG] Processing flush-time cascades
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [174] [DEBUG] Dirty checking collections
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-2] [206] [DEBUG] Collection found: [dawid.app.user.User.groups#23], was: [dawid.app.user.User.groups#23] (uninitialized)
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-2] [206] [DEBUG] Collection found: [dawid.app.user.User.roles#23], was: [dawid.app.user.User.roles#23] (uninitialized)
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [106] [DEBUG] Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [113] [DEBUG] Flushed: 0 (re)creations, 0 updates, 0 removals to 2 collections
-[2019-05-29 16:54:14 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-2] [102] [DEBUG] Listing entities:
-[2019-05-29 16:54:14 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-2] [109] [DEBUG] dawid.app.user.User{password=$2a$10$wGqE9ecK3pKGaEFH7CXdS.Zrj1WLJkOeXh.8sZojB998Iva8kAyYO, roles=<uninitialized>, active=1, groups=<uninitialized>, id=23, activationCode=2q22VOrd93L1Rivk4rb2iGnVjyf82Xv9, email=dawid.krawczyk532@gmail.com}
-[2019-05-29 16:54:14 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-2] [55] [DEBUG] begin
-[2019-05-29 16:54:14 ] [org.hibernate.query.criteria.internal.CriteriaQueryImpl] [http-nio-8080-exec-2] [307] [DEBUG] Rendered criteria query -> select generatedAlias0 from UserProfile as generatedAlias0 where generatedAlias0.id=:param0
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [132] [DEBUG] Processing flush-time cascades
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [174] [DEBUG] Dirty checking collections
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-2] [206] [DEBUG] Collection found: [dawid.app.user.User.groups#23], was: [dawid.app.user.User.groups#23] (uninitialized)
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-2] [206] [DEBUG] Collection found: [dawid.app.user.User.roles#23], was: [dawid.app.user.User.roles#23] (uninitialized)
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [106] [DEBUG] Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [113] [DEBUG] Flushed: 0 (re)creations, 0 updates, 0 removals to 2 collections
-[2019-05-29 16:54:14 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-2] [102] [DEBUG] Listing entities:
-[2019-05-29 16:54:14 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-2] [109] [DEBUG] dawid.app.user.User{password=$2a$10$wGqE9ecK3pKGaEFH7CXdS.Zrj1WLJkOeXh.8sZojB998Iva8kAyYO, roles=<uninitialized>, active=1, groups=<uninitialized>, id=23, activationCode=2q22VOrd93L1Rivk4rb2iGnVjyf82Xv9, email=dawid.krawczyk532@gmail.com}
-[2019-05-29 16:54:14 ] [org.hibernate.engine.jdbc.spi.SqlStatementLogger] [http-nio-8080-exec-2] [92] [DEBUG] select userprofil0_.user_profile_id as user_pro1_5_, userprofil0_.birth_date as birth_da2_5_, userprofil0_.characters as characte3_5_, userprofil0_.city as city4_5_, userprofil0_.description as descript5_5_, userprofil0_.hobby as hobby6_5_, userprofil0_.language as language7_5_, userprofil0_.last_name as last_nam8_5_, userprofil0_.name as name9_5_, userprofil0_.number as number10_5_, userprofil0_.sex as sex11_5_, userprofil0_.who_search as who_sea12_5_ from user_profile userprofil0_ where userprofil0_.user_profile_id=?
-[2019-05-29 16:54:14 ] [org.jboss.logging.DelegatingBasicLogger] [http-nio-8080-exec-2] [384] [DEBUG] Result set row: 0
-[2019-05-29 16:54:14 ] [org.hibernate.loader.Loader] [http-nio-8080-exec-2] [1533] [DEBUG] Result row: EntityKey[dawid.app.user.userProfile.UserProfile#23]
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-2] [144] [DEBUG] Resolving associations for [dawid.app.user.userProfile.UserProfile#23]
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-2] [287] [DEBUG] Done materializing entity [dawid.app.user.userProfile.UserProfile#23]
-[2019-05-29 16:54:14 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-2] [66] [DEBUG] committing
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [132] [DEBUG] Processing flush-time cascades
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [174] [DEBUG] Dirty checking collections
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-2] [206] [DEBUG] Collection found: [dawid.app.user.User.groups#23], was: [dawid.app.user.User.groups#23] (uninitialized)
-[2019-05-29 16:54:14 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-2] [206] [DEBUG] Collection found: [dawid.app.user.User.roles#23], was: [dawid.app.user.User.roles#23] (uninitialized)
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [106] [DEBUG] Flushed: 0 insertions, 0 updates, 0 deletions to 2 objects
-[2019-05-29 16:54:14 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-2] [113] [DEBUG] Flushed: 0 (re)creations, 0 updates, 0 removals to 2 collections
-[2019-05-29 16:54:14 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-2] [102] [DEBUG] Listing entities:
-[2019-05-29 16:54:14 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-2] [109] [DEBUG] dawid.app.user.User{password=$2a$10$wGqE9ecK3pKGaEFH7CXdS.Zrj1WLJkOeXh.8sZojB998Iva8kAyYO, roles=<uninitialized>, active=1, groups=<uninitialized>, id=23, activationCode=2q22VOrd93L1Rivk4rb2iGnVjyf82Xv9, email=dawid.krawczyk532@gmail.com}
-[2019-05-29 16:54:14 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-2] [109] [DEBUG] dawid.app.user.userProfile.UserProfile{lastName=Krawczyk, number=78645214, character=Sangwinik, city=Przedbórz, sex=kobieta, name=Dawid, description=null, language=Armenian, whoSearch=null, id=23, birthDate=2019-05-15, hobby=null}
-[2019-05-29 16:54:23 ] [dawid.app.user.ProfilController] [http-nio-8080-exec-5] [129] [INFO ] **** WYWO£ANO > registersteptwo()
-[2019-05-29 16:54:23 ] [dawid.app.user.ProfilController] [http-nio-8080-exec-5] [131] [INFO ] **** WYWO£ANO > registersteptwo1()
-[2019-05-29 16:54:23 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-5] [55] [DEBUG] begin
-[2019-05-29 16:54:23 ] [org.hibernate.query.criteria.internal.CriteriaQueryImpl] [http-nio-8080-exec-5] [307] [DEBUG] Rendered criteria query -> select generatedAlias0 from User as generatedAlias0 where generatedAlias0.email=:param0
-[2019-05-29 16:54:23 ] [org.hibernate.engine.jdbc.spi.SqlStatementLogger] [http-nio-8080-exec-5] [92] [DEBUG] select user0_.user_id as user_id1_4_, user0_.activation_code as activati2_4_, user0_.active as active3_4_, user0_.email as email4_4_, user0_.password as password5_4_ from user user0_ where user0_.email=?
-[2019-05-29 16:54:23 ] [org.jboss.logging.DelegatingBasicLogger] [http-nio-8080-exec-5] [384] [DEBUG] Result set row: 0
-[2019-05-29 16:54:23 ] [org.hibernate.loader.Loader] [http-nio-8080-exec-5] [1533] [DEBUG] Result row: EntityKey[dawid.app.user.User#23]
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-5] [144] [DEBUG] Resolving associations for [dawid.app.user.User#23]
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-5] [287] [DEBUG] Done materializing entity [dawid.app.user.User#23]
-[2019-05-29 16:54:23 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-5] [66] [DEBUG] committing
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [132] [DEBUG] Processing flush-time cascades
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [174] [DEBUG] Dirty checking collections
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-5] [206] [DEBUG] Collection found: [dawid.app.user.User.groups#23], was: [dawid.app.user.User.groups#23] (uninitialized)
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-5] [206] [DEBUG] Collection found: [dawid.app.user.User.roles#23], was: [dawid.app.user.User.roles#23] (uninitialized)
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [106] [DEBUG] Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [113] [DEBUG] Flushed: 0 (re)creations, 0 updates, 0 removals to 2 collections
-[2019-05-29 16:54:23 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-5] [102] [DEBUG] Listing entities:
-[2019-05-29 16:54:23 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-5] [109] [DEBUG] dawid.app.user.User{password=$2a$10$wGqE9ecK3pKGaEFH7CXdS.Zrj1WLJkOeXh.8sZojB998Iva8kAyYO, roles=<uninitialized>, active=1, groups=<uninitialized>, id=23, activationCode=2q22VOrd93L1Rivk4rb2iGnVjyf82Xv9, email=dawid.krawczyk532@gmail.com}
-[2019-05-29 16:54:23 ] [dawid.app.user.ProfilController] [http-nio-8080-exec-5] [133] [INFO ] **** WYWO£ANO > registersteptwo2()
-[2019-05-29 16:54:23 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-5] [55] [DEBUG] begin
-[2019-05-29 16:54:23 ] [org.hibernate.query.criteria.internal.CriteriaQueryImpl] [http-nio-8080-exec-5] [307] [DEBUG] Rendered criteria query -> select generatedAlias0 from UserProfile as generatedAlias0 where generatedAlias0.id=:param0
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [132] [DEBUG] Processing flush-time cascades
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [174] [DEBUG] Dirty checking collections
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-5] [206] [DEBUG] Collection found: [dawid.app.user.User.groups#23], was: [dawid.app.user.User.groups#23] (uninitialized)
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-5] [206] [DEBUG] Collection found: [dawid.app.user.User.roles#23], was: [dawid.app.user.User.roles#23] (uninitialized)
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [106] [DEBUG] Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [113] [DEBUG] Flushed: 0 (re)creations, 0 updates, 0 removals to 2 collections
-[2019-05-29 16:54:23 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-5] [102] [DEBUG] Listing entities:
-[2019-05-29 16:54:23 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-5] [109] [DEBUG] dawid.app.user.User{password=$2a$10$wGqE9ecK3pKGaEFH7CXdS.Zrj1WLJkOeXh.8sZojB998Iva8kAyYO, roles=<uninitialized>, active=1, groups=<uninitialized>, id=23, activationCode=2q22VOrd93L1Rivk4rb2iGnVjyf82Xv9, email=dawid.krawczyk532@gmail.com}
-[2019-05-29 16:54:23 ] [org.hibernate.engine.jdbc.spi.SqlStatementLogger] [http-nio-8080-exec-5] [92] [DEBUG] select userprofil0_.user_profile_id as user_pro1_5_, userprofil0_.birth_date as birth_da2_5_, userprofil0_.characters as characte3_5_, userprofil0_.city as city4_5_, userprofil0_.description as descript5_5_, userprofil0_.hobby as hobby6_5_, userprofil0_.language as language7_5_, userprofil0_.last_name as last_nam8_5_, userprofil0_.name as name9_5_, userprofil0_.number as number10_5_, userprofil0_.sex as sex11_5_, userprofil0_.who_search as who_sea12_5_ from user_profile userprofil0_ where userprofil0_.user_profile_id=?
-[2019-05-29 16:54:23 ] [org.jboss.logging.DelegatingBasicLogger] [http-nio-8080-exec-5] [384] [DEBUG] Result set row: 0
-[2019-05-29 16:54:23 ] [org.hibernate.loader.Loader] [http-nio-8080-exec-5] [1533] [DEBUG] Result row: EntityKey[dawid.app.user.userProfile.UserProfile#23]
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-5] [144] [DEBUG] Resolving associations for [dawid.app.user.userProfile.UserProfile#23]
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.TwoPhaseLoad] [http-nio-8080-exec-5] [287] [DEBUG] Done materializing entity [dawid.app.user.userProfile.UserProfile#23]
-[2019-05-29 16:54:23 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-5] [66] [DEBUG] committing
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [132] [DEBUG] Processing flush-time cascades
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [174] [DEBUG] Dirty checking collections
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-5] [206] [DEBUG] Collection found: [dawid.app.user.User.groups#23], was: [dawid.app.user.User.groups#23] (uninitialized)
-[2019-05-29 16:54:23 ] [org.hibernate.engine.internal.Collections] [http-nio-8080-exec-5] [206] [DEBUG] Collection found: [dawid.app.user.User.roles#23], was: [dawid.app.user.User.roles#23] (uninitialized)
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [106] [DEBUG] Flushed: 0 insertions, 0 updates, 0 deletions to 2 objects
-[2019-05-29 16:54:23 ] [org.hibernate.event.internal.AbstractFlushingEventListener] [http-nio-8080-exec-5] [113] [DEBUG] Flushed: 0 (re)creations, 0 updates, 0 removals to 2 collections
-[2019-05-29 16:54:23 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-5] [102] [DEBUG] Listing entities:
-[2019-05-29 16:54:23 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-5] [109] [DEBUG] dawid.app.user.User{password=$2a$10$wGqE9ecK3pKGaEFH7CXdS.Zrj1WLJkOeXh.8sZojB998Iva8kAyYO, roles=<uninitialized>, active=1, groups=<uninitialized>, id=23, activationCode=2q22VOrd93L1Rivk4rb2iGnVjyf82Xv9, email=dawid.krawczyk532@gmail.com}
-[2019-05-29 16:54:23 ] [org.hibernate.internal.util.EntityPrinter] [http-nio-8080-exec-5] [109] [DEBUG] dawid.app.user.userProfile.UserProfile{lastName=Krawczyk, number=78645214, character=Sangwinik, city=Przedbórz, sex=kobieta, name=Dawid, description=null, language=Armenian, whoSearch=null, id=23, birthDate=2019-05-15, hobby=null}
-[2019-05-29 16:54:23 ] [dawid.app.user.ProfilController] [http-nio-8080-exec-5] [135] [INFO ] **** WYWO£ANO > registersteptwo3()
-[2019-05-29 16:54:23 ] [dawid.app.user.ProfilController] [http-nio-8080-exec-5] [137] [INFO ] **** WYWO£ANO > registersteptwo4()
-[2019-05-29 16:54:30 ] [dawid.app.user.ProfilController] [http-nio-8080-exec-6] [145] [INFO ] **** WYWO£ANO > registersteptwoEnd()
-[2019-05-29 16:54:30 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-6] [55] [DEBUG] begin
-[2019-05-29 16:54:30 ] [org.hibernate.engine.jdbc.spi.SqlStatementLogger] [http-nio-8080-exec-6] [92] [DEBUG] update user_profile set language=?, number=?, characters=?, birth_date=? where user_profile_id=?
-[2019-05-29 16:54:31 ] [org.hibernate.engine.transaction.internal.TransactionImpl] [http-nio-8080-exec-6] [66] [DEBUG] committing
+[2019-05-30 20:37:34 ] [org.springframework.context.support.AbstractApplicationContext] [Thread-4] [993] [INFO ] Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5bf173a1: startup date [Thu May 30 20:36:06 CEST 2019]; root of context hierarchy
+[2019-05-30 20:37:34 ] [org.springframework.jmx.export.MBeanExporter] [Thread-4] [451] [INFO ] Unregistering JMX-exposed beans on shutdown
+[2019-05-30 20:37:34 ] [org.springframework.jmx.support.MBeanRegistrationSupport] [Thread-4] [185] [INFO ] Unregistering JMX-exposed beans
+[2019-05-30 20:37:34 ] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [Thread-4] [597] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2019-05-30 20:37:34 ] [org.hibernate.internal.SessionFactoryImpl] [Thread-4] [741] [DEBUG] HHH000031: Closing
+[2019-05-30 20:37:34 ] [org.hibernate.engine.spi.CascadeStyles] [Thread-4] [268] [DEBUG] External cascade style registration [persist : STYLE_PERSIST] overrode base registration [STYLE_PERSIST_SKIPLAZY]
+[2019-05-30 20:37:34 ] [org.hibernate.service.internal.AbstractServiceRegistryImpl] [Thread-4] [414] [DEBUG] Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+[2019-05-30 20:37:34 ] [org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl] [Thread-4] [295] [DEBUG] Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+[2019-05-30 20:37:34 ] [com.zaxxer.hikari.HikariDataSource] [Thread-4] [381] [INFO ] HikariPool-1 - Shutdown initiated...
+[2019-05-30 20:37:34 ] [com.zaxxer.hikari.HikariDataSource] [Thread-4] [383] [INFO ] HikariPool-1 - Shutdown completed.

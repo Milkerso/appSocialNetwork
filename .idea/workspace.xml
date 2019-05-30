@@ -2,63 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cf064bc-4bcf-4ff5-af50-e02207ee995c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.logs/applog.log" beforeDir="false" afterPath="$PROJECT_DIR$/.logs/applog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_24-05-2019_23.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_24-05-2019_24.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_24-05-2019_25.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_24-05-2019_26.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_24-05-2019_27.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_24-05-2019_28.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_1.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_2.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_3.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_4.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/emailSender/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/emailSender/EmailSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/mainController/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/mainController/LoginPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/mainController/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/mainController/MainPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_11.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_28-05-2019_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.logs/archived/appdemo_29-05-2019_9.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilControllerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilControllerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/group/groupMechanic/SearchingGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/group/groupMechanic/SearchingGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/jsp/profil.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/jsp/profil.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepfourth.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepfourth.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepthree.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepthree.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/jsp/registersteptwo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/jsp/registersteptwo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/mainController/LoginPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/mainController/LoginPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/mainController/MainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/mainController/MainPageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/ProfilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/ProfilController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/ProfilControllerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/ProfilControllerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/group/groupMechanic/SearchingGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/group/groupMechanic/SearchingGroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/photo/PhotoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/photo/PhotoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/photo/PhotoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/photo/PhotoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/photo/PhotoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/photo/PhotoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfileRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfileRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfileService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfileService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfileServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dawid/app/user/userProfile/UserProfileServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,65 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="229" column="5" lean-forward="true" selection-start-line="229" selection-start-column="5" selection-end-line="229" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/Role.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="21" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTime.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="28" selection-start-line="28" selection-end-line="29" />
+            <state relative-caret-position="238">
+              <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="85" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="85" />
+            <state relative-caret-position="176">
+              <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,28 +67,98 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepthree.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1927">
-              <caret line="116" column="23" lean-forward="true" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
+            <state relative-caret-position="286">
+              <caret line="27" column="42" selection-start-line="24" selection-end-line="27" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepfourth.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+            <state relative-caret-position="102">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/profil.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="155" column="112" selection-start-line="155" selection-start-column="74" selection-end-line="155" selection-end-column="112" />
+            <state relative-caret-position="292">
+              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivityRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="178" column="51" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="59" column="87" selection-start-line="59" selection-start-column="87" selection-end-line="59" selection-end-column="87" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="32" column="62" selection-start-line="31" selection-start-column="8" selection-end-line="32" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#691#692#0" expanded="true" />
+                <element signature="e#747#748#0" expanded="true" />
+                <element signature="e#1328#1329#0" expanded="true" />
+                <element signature="e#1391#1392#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -206,9 +195,10 @@
       <find>id</find>
       <find>s</find>
       <find>cha</find>
-      <find>user</find>
       <find>profil</find>
       <find>user.e</find>
+      <find>free</find>
+      <find>user</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -246,19 +236,24 @@
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/mainController/MainPageController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepthree.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfile.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/jsp/profil.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilControllerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepfourth.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivityRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/freeTimeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfile.java" />
       </list>
     </option>
   </component>
@@ -428,7 +423,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559142350832" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559241453469" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="D:/stary sys/Slowka/src" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
@@ -462,7 +457,7 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23071979" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23071979" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -476,7 +471,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4993573" visible="true" weight="0.32258064" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993573" visible="true" weight="0.32258064" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50064266" side_tool="true" weight="0.31317204" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -526,44 +521,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/group/GroupRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/emailSender/EmailSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/profil.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" selection-start-line="25" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/error.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -591,13 +548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/validators/UserRegisterValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -675,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/mainController/LoginPageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -696,34 +639,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/utilities/AppdemoUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -755,37 +674,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilControllerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -796,75 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#1328#1329#0" expanded="true" />
-            <element signature="e#1391#1392#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/profil.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="155" column="112" selection-start-line="155" selection-start-column="74" selection-end-line="155" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepfourth.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepthree.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1927">
-          <caret line="116" column="23" lean-forward="true" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="85" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="28" selection-start-line="28" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="229" column="5" lean-forward="true" selection-start-line="229" selection-start-column="5" selection-end-line="229" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -875,10 +702,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/photo/PhotoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="119">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/validators/UserRegisterValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/profil.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="155" column="112" selection-start-line="155" selection-start-column="74" selection-end-line="155" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/jsp/registerstepthree.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="47" column="67" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="79" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -887,15 +756,157 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/Role.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="21" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="21" column="71" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="21" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilControllerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="40" column="63" selection-start-line="40" selection-start-column="63" selection-end-line="40" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/RoleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="65" column="28" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="32" column="62" selection-start-line="31" selection-start-column="8" selection-end-line="32" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTimeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/FreeTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="286">
+          <caret line="27" column="42" selection-start-line="24" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivityRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/ProfilController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="178" column="51" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="59" column="87" selection-start-line="59" selection-start-column="87" selection-end-line="59" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/PhysicalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dawid/app/user/userProfile/UserProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

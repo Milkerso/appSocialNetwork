@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 import javax.ws.rs.GET;
@@ -14,6 +16,8 @@ import javax.ws.rs.POST;
 
 import dawid.app.user.photo.Photo;
 import dawid.app.user.photo.PhotoService;
+import dawid.app.user.userProfile.FreeTime;
+import dawid.app.user.userProfile.FreeTimeRepository;
 import dawid.app.user.userProfile.UserProfile;
 import dawid.app.user.userProfile.UserProfileService;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -48,6 +52,9 @@ public class ProfilController {
     private UserProfileService userProfileService;
     @Autowired
     private ProfilControllerService profilControllerService;
+    @Autowired
+    private FreeTimeRepository freeTimeService;
+
 
     @GET
     @RequestMapping(value = "/profil")
@@ -166,7 +173,14 @@ public class ProfilController {
     @RequestMapping(value = "/registerstepthreeend")
     public String registerStepThreeEnd(UserProfile userProfile,Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > endthree()");
-        userProfileService.updateRegisterStepThree(userProfile.getWhoSearch(),userProfile.getDescription(),userProfile.getId());
+        UserProfile userProfileFreeTime=userProfileService.findUserProfileById(userProfile.getId());
+        userProfileFreeTime.setFreeTimes(userProfile.getFreeTimes());
+        userProfileFreeTime.setDescription(userProfile.getDescription());
+        userProfileFreeTime.setFreeTime(userProfile.getFreeTime());
+        userProfileFreeTime.setWhoSearch(userProfile.getWhoSearch());
+        userProfileFreeTime.setPhysicalActivities(userProfile.getPhysicalActivities());
+        userProfileFreeTime.setPhysicalActivity(userProfile.getPhysicalActivity());
+        userProfileService.saveUserProfileFreeTimeActivities(userProfileFreeTime);
         profilControllerService.insertEmptyPhoto(photo);
         profilControllerService.builderPhoto(photo);
        try {

@@ -3,6 +3,10 @@ package dawid.app.user.userProfile;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import lombok.*;
 
 @Entity
@@ -58,11 +62,21 @@ public class UserProfile {
     @Getter @Setter
     private int number;
 
-    @Transient
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "free_time_user", joinColumns = @JoinColumn(name = "user_profile_id"), inverseJoinColumns = @JoinColumn(name = "free_time_id"))
     @Getter @Setter
-    private int freeTime;
+    private Set<FreeTime> freeTimes;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "physical_activity_user", joinColumns = @JoinColumn(name = "user_profile_id"), inverseJoinColumns = @JoinColumn(name = "physical_activity_id"))
+    @Getter @Setter
+    private Set<PhysicalActivity> physicalActivities;
+
+    @Transient
+    @Setter @Getter
+    private ArrayList<Integer> freeTime;
 
     @Transient
     @Getter @Setter
-    private int physicalActivity;
+    private ArrayList<Integer> physicalActivity;
 }

@@ -5,9 +5,11 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "role")
+@Table(name = "free_time")
 public class FreeTime {
 
     @Id
@@ -20,4 +22,10 @@ public class FreeTime {
     @Getter @Setter
     @NotNull
     private String name;
+
+    @ManyToMany(mappedBy = "freeTimes")
+    @Getter @Setter
+    private Set<UserProfile> userProfiles;
+
+
 }
