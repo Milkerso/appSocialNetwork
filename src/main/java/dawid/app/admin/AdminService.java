@@ -1,11 +1,10 @@
 package dawid.app.admin;
 
-import java.util.List;
-
+import dawid.app.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import dawid.app.user.User;
+import java.util.List;
 
 public interface AdminService {
 	
@@ -13,7 +12,6 @@ public interface AdminService {
 	User findUserById(int id);
 	void updateUser(int id, int nrRoli, int activity);
 	Page<User> findAllSearch(String param, Pageable pageable);
-	void insertInBatch(List<User> userList);
 	void saveAll(List<User> userList);
 	void deleteUserById(int id);
 }

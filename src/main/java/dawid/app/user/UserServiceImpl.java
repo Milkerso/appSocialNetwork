@@ -1,13 +1,12 @@
 package dawid.app.user;
 
-import java.util.Arrays;
-import java.sql.Date;
-import java.util.HashSet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collections;
+import java.util.HashSet;
 
 @Service("userService")
 @Transactional
@@ -30,7 +29,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(0);
         Role role = roleRepository.findByRole("ROLE_USER");
-        user.setRoles(new HashSet<Role>(Arrays.asList(role)));
+        user.setRoles(new HashSet<>(Collections.singletonList(role)));
         userRepository.save(user);
     }
 
@@ -41,9 +40,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUserProfile(String newEmail, int id) {
-        userRepository.updateUserProfile( newEmail, id);
+        userRepository.updateUserProfile(newEmail, id);
     }
-
 
 
     @Override

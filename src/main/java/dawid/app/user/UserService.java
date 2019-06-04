@@ -1,9 +1,6 @@
 package dawid.app.user;
 
 
-import java.sql.Date;
-
-
 public interface UserService {
 
     User findUserByEmail(String email);
@@ -14,8 +11,7 @@ public interface UserService {
 
     void updateUserActivation(int activeCode, String activationCode);
 
-     void updateUserProfile(String newEmail, int id);
-
+    void updateUserProfile(String newEmail, int id);
 
 
 }

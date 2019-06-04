@@ -1,12 +1,10 @@
 package dawid.app.user;
 
-import java.util.Locale;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-
+import dawid.app.emailSender.EmailSender;
 import dawid.app.user.userProfile.UserProfile;
 import dawid.app.user.userProfile.UserProfileService;
+import dawid.app.utilities.AppdemoUtils;
+import dawid.app.validators.UserRegisterValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -15,24 +13,21 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import dawid.app.emailSender.EmailSender;
-import dawid.app.utilities.AppdemoUtils;
-import dawid.app.validators.UserRegisterValidator;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import java.util.Locale;
 
 @Controller
 public class RegisterController {
 
     @Autowired
+    MessageSource messageSource;
+    @Autowired
     private UserService userService;
-
     @Autowired
     private EmailSender emailSender;
-
     @Autowired
     private UserProfileService userProfileService;
-
-    @Autowired
-    MessageSource messageSource;
 
     @GET
     @RequestMapping(value = "/register")
@@ -46,10 +41,10 @@ public class RegisterController {
     @RequestMapping(value = "/adduser")
     public String registerAction(User user, BindingResult result, Model model, Locale locale) {
 
-        String returnPage = null;
+        String returnPage;
 
         User userExist = userService.findUserByEmail(user.getEmail());
-        UserProfile userProfile=new UserProfile();
+        UserProfile userProfile = new UserProfile();
 
         new UserRegisterValidator().validateEmailExist(userExist, result);
 
@@ -72,7 +67,6 @@ public class RegisterController {
             userProfileService.saveUserProfile(userProfile);
             emailSender.sendEmail(user.getEmail(), "Potwierdzenie rejestracji", content);
             model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));
-            //model.addAttribute("user", new User());
             returnPage = "index";
         }
 

@@ -1,12 +1,11 @@
 package dawid.app.user.group;
 
-import dawid.app.user.photo.Photo;
-
 public interface GroupService {
 
-    void saveGroup(Group group);
+    void saveGroup(AllGroup group);
 
-    Group findByUserID(int userId);
-    Group findGroupByUserId(int userId);
-    Group searchGroupByAllArgument( String physical_activities, String free_time, String city);
+    AllGroup findByUserID(int userId);
+    AllGroup findGroupByUserId(int userId);
+    AllGroup searchGroupByAllArgument(int physical_activities, int free_time, String city);
+     void saveUserProfileGroups(AllGroup allGroup);
 }

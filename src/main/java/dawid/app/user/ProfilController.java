@@ -1,42 +1,26 @@
 package dawid.app.user;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-
+import dawid.app.mainController.MainPageController;
+import dawid.app.user.group.GroupService;
 import dawid.app.user.photo.Photo;
 import dawid.app.user.photo.PhotoService;
-import dawid.app.user.userProfile.FreeTime;
-import dawid.app.user.userProfile.FreeTimeRepository;
 import dawid.app.user.userProfile.UserProfile;
 import dawid.app.user.userProfile.UserProfileService;
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
+import dawid.app.utilities.UserUtilities;
+import dawid.app.validators.ChangePasswordValidator;
+import dawid.app.validators.EditUserProfileValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 
-import dawid.app.mainController.MainPageController;
-import dawid.app.utilities.UserUtilities;
-import dawid.app.validators.ChangePasswordValidator;
-import dawid.app.validators.EditUserProfileValidator;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import java.util.Locale;
 
 @Controller
 public class ProfilController {
@@ -51,32 +35,27 @@ public class ProfilController {
     @Autowired
     private UserProfileService userProfileService;
     @Autowired
-    private ProfilControllerService profilControllerService;
+    private ProfilControllerCalculator profilControllerService;
+
     @Autowired
-    private FreeTimeRepository freeTimeService;
+    private GroupService groupService;
 
 
     @GET
     @RequestMapping(value = "/profil")
     public String showUserProfilePage(Model model) {
-        System.out.println("3-----------------");
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
         int nrRoli = user.getRoles().iterator().next().getId();
-        System.out.println("4-----------------");
         user.setNrRoli(nrRoli);
-        System.out.println("laaaaaaaaaaaaaaaaaaaaa" +user.getId());
-        Photo photo= new Photo();
-        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+        Photo photo = new Photo();
+        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
         model.addAttribute("user", userProfile);
         model.addAttribute("photo", photo);
         model.addAttribute("email", user.getEmail());
-        System.out.println("5-----------------");
-        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
+        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
         return "profil";
     }
-
-
 
 
     @GET
@@ -133,12 +112,12 @@ public class ProfilController {
     @RequestMapping(value = "/registersteptwo")
     public String registerStepTwo(Model model) {
 
-         LOG.info("**** WYWOŁANO > registersteptwo()");
+        LOG.info("**** WYWOŁANO > registersteptwo()");
         String username = UserUtilities.getLoggedUser();
         LOG.info("**** WYWOŁANO > registersteptwo1()");
         User user = userService.findUserByEmail(username);
         LOG.info("**** WYWOŁANO > registersteptwo2()");
-        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
         LOG.info("**** WYWOŁANO > registersteptwo3()");
         model.addAttribute("userProfile", userProfile);
         LOG.info("**** WYWOŁANO > registersteptwo4()");
@@ -152,7 +131,7 @@ public class ProfilController {
         LOG.info("**** WYWOŁANO > registersteptwoEnd()");
         userProfileService.updateRegisterStepTwo(userProfile.getLanguage(), userProfile.getNumber(), userProfile.getCharacter(), userProfile.getBirthDate(), userProfile.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-        model.addAttribute("userProfile",userProfile);
+        model.addAttribute("userProfile", userProfile);
 
         return "registerstepthree";
     }
@@ -163,7 +142,7 @@ public class ProfilController {
 
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
-        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
         model.addAttribute("userProfile", userProfile);
 
         return "registerstepthree";
@@ -171,36 +150,35 @@ public class ProfilController {
 
     @POST
     @RequestMapping(value = "/registerstepthreeend")
-    public String registerStepThreeEnd(UserProfile userProfile,Photo photo, BindingResult result, Model model, Locale locale) {
+    public String registerStepThreeEnd(UserProfile userProfile, Photo photo, BindingResult result, Model model, Locale locale) {
         LOG.info("**** WYWOŁANO > endthree()");
-        UserProfile userProfileFreeTime=userProfileService.findUserProfileById(userProfile.getId());
+        UserProfile userProfileFreeTime = userProfileService.findUserProfileById(userProfile.getId());
         userProfileFreeTime.setFreeTimes(userProfile.getFreeTimes());
         userProfileFreeTime.setDescription(userProfile.getDescription());
         userProfileFreeTime.setFreeTime(userProfile.getFreeTime());
         userProfileFreeTime.setWhoSearch(userProfile.getWhoSearch());
         userProfileFreeTime.setPhysicalActivities(userProfile.getPhysicalActivities());
         userProfileFreeTime.setPhysicalActivity(userProfile.getPhysicalActivity());
+        LOG.info("_______________", userProfileFreeTime.getCity());
         userProfileService.saveUserProfileFreeTimeActivities(userProfileFreeTime);
         profilControllerService.insertEmptyPhoto(photo);
         profilControllerService.builderPhoto(photo);
-       try {
-           profilControllerService.getProfilPhotoEncoded(userProfile.getId());
-       }catch (NullPointerException e)
-       {
-           photo.setProfilePhoto(1);
-           photo.setName("Default");
-           photoService.savePhoto(photo);
-       }
+        try {
+            profilControllerService.getProfilePhotoEncoded(userProfile.getId());
+        } catch (NullPointerException e) {
+            photo.setProfilePhoto(1);
+            photo.setName("Default");
+            photoService.savePhoto(photo);
+        }
+        profilControllerService.groupSearch(userProfileFreeTime);
 
 
-
-       // userService.updateRegisterStepThree(userProfile.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(), user.getId());
+        // userService.updateRegisterStepThree(userProfile.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(), user.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(userProfile.getId()));
+        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(userProfile.getId()));
 
         return "registerstepfourth";
     }
-
 
 
     @POST
@@ -208,42 +186,40 @@ public class ProfilController {
     public String registerstepfourth(Model model) {
 
         User user = profilControllerService.onlineUser();
-        Photo photo =new Photo();
+        Photo photo = new Photo();
         model.addAttribute("photo", photo);
-        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
-        LOG.info("**** WYWOŁANO > endfo2urth()");
+        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
+        LOG.info("**** WYWOŁANO > registerstepfourth()");
         return "registerstepfourth";
     }
 
     @POST
     @RequestMapping(value = "/registerstepfourthend")
-    public String registerstepfourthend( Photo photo, BindingResult result, Model model, Locale locale) {
+    public String registerstepfourthend(Photo photo, Model model) {
         LOG.info("**** WYWOŁANO > endfourth()");
         photo.setName("lol");
         User user = profilControllerService.onlineUser();
-        profilControllerService.changeAvatar(photo, result, model, locale);
+        profilControllerService.changeAvatar(photo);
         model.addAttribute("user", user);
-        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
+        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
         return "registerstepfourth";
     }
 
     @POST
     @RequestMapping(value = "/changephoto")
-    public String changePhoto(Photo photo, BindingResult result, Model model, Locale locale) {
+    public String changePhoto(Photo photo, Model model) {
         LOG.info("**** WYWOŁANO > changePhoto()");
-        User user =profilControllerService.onlineUser();
+        User user = profilControllerService.onlineUser();
         photo.setName("lol");
         photo.setDescription("lolll");
-        profilControllerService.changeAvatar( photo, result, model, locale);
-        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
-        model.addAttribute("email",user.getEmail());
+        profilControllerService.changeAvatar(photo);
+        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
+        model.addAttribute("email", user.getEmail());
         model.addAttribute("user", userProfile);
-        model.addAttribute("image", profilControllerService.getProfilPhotoEncoded(user.getId()));
+        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
         LOG.info("**** WYWOŁANO > changePhoto2()");
         return "profil";
     }
-
-
 
 
 }

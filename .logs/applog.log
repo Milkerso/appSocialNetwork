@@ -1,10 +1,10 @@
-[2019-05-30 20:37:34 ] [org.springframework.context.support.AbstractApplicationContext] [Thread-4] [993] [INFO ] Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5bf173a1: startup date [Thu May 30 20:36:06 CEST 2019]; root of context hierarchy
-[2019-05-30 20:37:34 ] [org.springframework.jmx.export.MBeanExporter] [Thread-4] [451] [INFO ] Unregistering JMX-exposed beans on shutdown
-[2019-05-30 20:37:34 ] [org.springframework.jmx.support.MBeanRegistrationSupport] [Thread-4] [185] [INFO ] Unregistering JMX-exposed beans
-[2019-05-30 20:37:34 ] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [Thread-4] [597] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
-[2019-05-30 20:37:34 ] [org.hibernate.internal.SessionFactoryImpl] [Thread-4] [741] [DEBUG] HHH000031: Closing
-[2019-05-30 20:37:34 ] [org.hibernate.engine.spi.CascadeStyles] [Thread-4] [268] [DEBUG] External cascade style registration [persist : STYLE_PERSIST] overrode base registration [STYLE_PERSIST_SKIPLAZY]
-[2019-05-30 20:37:34 ] [org.hibernate.service.internal.AbstractServiceRegistryImpl] [Thread-4] [414] [DEBUG] Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
-[2019-05-30 20:37:34 ] [org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl] [Thread-4] [295] [DEBUG] Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
-[2019-05-30 20:37:34 ] [com.zaxxer.hikari.HikariDataSource] [Thread-4] [381] [INFO ] HikariPool-1 - Shutdown initiated...
-[2019-05-30 20:37:34 ] [com.zaxxer.hikari.HikariDataSource] [Thread-4] [383] [INFO ] HikariPool-1 - Shutdown completed.
+[2019-06-04 19:40:13 ] [org.springframework.context.support.AbstractApplicationContext] [Thread-4] [993] [INFO ] Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@336be097: startup date [Tue Jun 04 19:39:41 CEST 2019]; root of context hierarchy
+[2019-06-04 19:40:13 ] [org.springframework.jmx.export.MBeanExporter] [Thread-4] [451] [INFO ] Unregistering JMX-exposed beans on shutdown
+[2019-06-04 19:40:13 ] [org.springframework.jmx.support.MBeanRegistrationSupport] [Thread-4] [185] [INFO ] Unregistering JMX-exposed beans
+[2019-06-04 19:40:13 ] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [Thread-4] [597] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2019-06-04 19:40:13 ] [org.hibernate.internal.SessionFactoryImpl] [Thread-4] [741] [DEBUG] HHH000031: Closing
+[2019-06-04 19:40:13 ] [org.hibernate.engine.spi.CascadeStyles] [Thread-4] [268] [DEBUG] External cascade style registration [persist : STYLE_PERSIST] overrode base registration [STYLE_PERSIST_SKIPLAZY]
+[2019-06-04 19:40:13 ] [org.hibernate.service.internal.AbstractServiceRegistryImpl] [Thread-4] [414] [DEBUG] Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+[2019-06-04 19:40:13 ] [org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl] [Thread-4] [295] [DEBUG] Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+[2019-06-04 19:40:13 ] [com.zaxxer.hikari.HikariDataSource] [Thread-4] [381] [INFO ] HikariPool-1 - Shutdown initiated...
+[2019-06-04 19:40:13 ] [com.zaxxer.hikari.HikariDataSource] [Thread-4] [383] [INFO ] HikariPool-1 - Shutdown completed.

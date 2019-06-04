@@ -1,7 +1,6 @@
 package dawid.app.user.group.groupMechanic;
 
 import dawid.app.user.User;
-import dawid.app.user.group.Group;
 
 public class GroupByCity implements GroupMechanic{
     @Override

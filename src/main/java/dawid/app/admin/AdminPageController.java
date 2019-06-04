@@ -1,18 +1,7 @@
 package dawid.app.admin;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-
+import dawid.app.user.User;
+import dawid.app.utilities.UserUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +16,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import dawid.app.user.User;
-import dawid.app.utilities.UserUtilities;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 @Controller
 public class AdminPageController {
@@ -135,7 +133,6 @@ public class AdminPageController {
 			Files.write(fileAndPath, mFile.getBytes());
 			file = new File(fileAndPath.toString());
 			List<User> userList = UserUtilities.usersDataLoader(file);
-			//adminService.insertInBatch(userList);
 			adminService.saveAll(userList);
 			file.delete();
 		} catch (Exception e) {

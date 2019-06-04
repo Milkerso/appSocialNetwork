@@ -1,6 +1,5 @@
 package dawid.app.user;
 
-import java.sql.Date;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -24,7 +23,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Modifying
     @Query("UPDATE User u SET u.email = :newEmail WHERE u.id= :id")
     void updateUserProfile(@Param("newEmail") String newEmail, @Param("id") Integer id);
-
 
 
 }
