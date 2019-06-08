@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Set;
 
 @Repository("groupRepository")
@@ -18,7 +19,7 @@ public interface GroupRepository extends JpaRepository<AllGroup, Integer> {
                                       @Param("free_time") int free_time, @Param("city") String city);
 
 
-    @Query(value = "Select * from group where group_id=", nativeQuery = true)
-    AllGroup findByUserId(int userId);
+    @Query(value = "select * from all_group inner join group_user on all_group.group_id=group_user.group_id where group_user.user_id=:user_id", nativeQuery = true)
+    List<AllGroup> findByUserId(@Param("user_id") int userId);
 
 }

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service("groupService")
 @Transactional
@@ -16,14 +18,11 @@ public class GroupServiceImpl implements GroupService{
     }
 
     @Override
-    public AllGroup findByUserID(int userId) {
-        return null;
+    public List<AllGroup> findByUserID(int userId) {
+       return groupRepository.findByUserId(userId);
     }
 
-    @Override
-    public AllGroup findGroupByUserId(int userId) {
-        return null;
-    }
+
 
     @Override
     public AllGroup searchGroupByAllArgument(int physical_activities, int free_time, String city) {

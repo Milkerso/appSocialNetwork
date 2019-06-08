@@ -35,7 +35,7 @@ public class ProfilController {
     @Autowired
     private UserProfileService userProfileService;
     @Autowired
-    private ProfilControllerCalculator profilControllerService;
+    private ProfileControllerCalculator profileControllerCalculator;
 
     @Autowired
     private GroupService groupService;
@@ -53,7 +53,7 @@ public class ProfilController {
         model.addAttribute("user", userProfile);
         model.addAttribute("photo", photo);
         model.addAttribute("email", user.getEmail());
-        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
         return "profil";
     }
 
@@ -161,21 +161,21 @@ public class ProfilController {
         userProfileFreeTime.setPhysicalActivity(userProfile.getPhysicalActivity());
         LOG.info("_______________", userProfileFreeTime.getCity());
         userProfileService.saveUserProfileFreeTimeActivities(userProfileFreeTime);
-        profilControllerService.insertEmptyPhoto(photo);
-        profilControllerService.builderPhoto(photo);
+        profileControllerCalculator.insertEmptyPhoto(photo);
+        profileControllerCalculator.builderPhoto(photo);
         try {
-            profilControllerService.getProfilePhotoEncoded(userProfile.getId());
+            profileControllerCalculator.getProfilePhotoEncoded(userProfile.getId());
         } catch (NullPointerException e) {
             photo.setProfilePhoto(1);
             photo.setName("Default");
             photoService.savePhoto(photo);
         }
-        profilControllerService.groupSearch(userProfileFreeTime);
+        profileControllerCalculator.groupSearch(userProfileFreeTime);
 
 
         // userService.updateRegisterStepThree(userProfile.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(), user.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(userProfile.getId()));
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(userProfile.getId()));
 
         return "registerstepfourth";
     }
@@ -185,10 +185,10 @@ public class ProfilController {
     @RequestMapping(value = "/registerstepfourth")
     public String registerstepfourth(Model model) {
 
-        User user = profilControllerService.onlineUser();
+        User user = profileControllerCalculator.onlineUser();
         Photo photo = new Photo();
         model.addAttribute("photo", photo);
-        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
         LOG.info("**** WYWOŁANO > registerstepfourth()");
         return "registerstepfourth";
     }
@@ -198,10 +198,10 @@ public class ProfilController {
     public String registerstepfourthend(Photo photo, Model model) {
         LOG.info("**** WYWOŁANO > endfourth()");
         photo.setName("lol");
-        User user = profilControllerService.onlineUser();
-        profilControllerService.changeAvatar(photo);
+        User user = profileControllerCalculator.onlineUser();
+        profileControllerCalculator.changeAvatar(photo);
         model.addAttribute("user", user);
-        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
         return "registerstepfourth";
     }
 
@@ -209,14 +209,14 @@ public class ProfilController {
     @RequestMapping(value = "/changephoto")
     public String changePhoto(Photo photo, Model model) {
         LOG.info("**** WYWOŁANO > changePhoto()");
-        User user = profilControllerService.onlineUser();
+        User user = profileControllerCalculator.onlineUser();
         photo.setName("lol");
         photo.setDescription("lolll");
-        profilControllerService.changeAvatar(photo);
+        profileControllerCalculator.changeAvatar(photo);
         UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("user", userProfile);
-        model.addAttribute("image", profilControllerService.getProfilePhotoEncoded(user.getId()));
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
         LOG.info("**** WYWOŁANO > changePhoto2()");
         return "profil";
     }
