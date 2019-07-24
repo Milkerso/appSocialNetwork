@@ -43,8 +43,5 @@ public class Comment {
     @Getter @Setter
     private int commentDislike;
 
-    @Column(name="photo_id")
-    @Getter @Setter
-    private int photoId;
 
 }

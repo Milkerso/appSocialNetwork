@@ -3,7 +3,13 @@ package dawid.app.post;
 
 import javax.persistence.*;
 
+import dawid.app.post.comment.Comment;
+import dawid.app.user.User;
+import dawid.app.user.group.AllGroup;
 import lombok.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "post")
@@ -16,10 +22,11 @@ public class Post {
     @Column(name = "post_id")
     private int id;
 
-    @Column(name = "post_user_id")
+    @ManyToOne
+    @JoinColumn(name = "post_user_id")
     @Getter
     @Setter
-    private int postUserId;
+    private User postUserId;
 
     @Column(name = "post_title")
     @Getter
@@ -34,7 +41,7 @@ public class Post {
     @Column(name = "post_date")
     @Getter
     @Setter
-    private String postDate;
+    private LocalDate postDate;
 
     @Column(name = "user_like")
     @Getter
@@ -46,15 +53,16 @@ public class Post {
     @Setter
     private int userDislike;
 
-    @Column(name = "photo_id")
+    @OneToMany
     @Getter
     @Setter
-    private int photoId;
+    private List<Comment> comment;
 
-    @Column(name = "group_id")
+    @ManyToOne
+    @JoinColumn(name = "group_id")
     @Getter
     @Setter
-    private int groupId;
+    private AllGroup groupId;
 
 
 }

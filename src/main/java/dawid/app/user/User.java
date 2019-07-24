@@ -79,6 +79,9 @@ public class User {
     @Setter
     private String activationCode;
 
+
+
+
     public Set<AllGroup> getGroups() {
         return groups;
     }

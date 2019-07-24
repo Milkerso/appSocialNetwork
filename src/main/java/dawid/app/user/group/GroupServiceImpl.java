@@ -22,6 +22,10 @@ public class GroupServiceImpl implements GroupService{
        return groupRepository.findByUserId(userId);
     }
 
+    @Override
+    public AllGroup findByGroupId(int groupId) {
+        return groupRepository.findByGroupId(groupId);
+    }
 
 
     @Override

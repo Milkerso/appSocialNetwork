@@ -12,7 +12,7 @@
 				<sec:authorize access="isAuthenticated()">
 			<a class="nav-link" href="/index"><img src="/resources/images/message.png" width="50" height="50" > <font color="white">Wiadomosci</font></a>
 			<a class="nav-link" href="/index"><img src="/resources/images/alert.png" width="50" height="50" > <font color="white">Powiadomienia</font></a>
-		
+		    <a class="nav-link" href="/allpost"><img src="/resources/images/alert.png" width="50" height="50" > <font color="white">Grupy</font></a>
 				</sec:authorize>
 			
 				

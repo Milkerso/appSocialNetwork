@@ -16,7 +16,7 @@ public class AllGroup {
     @Getter
     @Setter
     @Column(name = "group_id")
-    private int groupID;
+    private int groupId;
 
     @Column(name = "name")
     @Getter

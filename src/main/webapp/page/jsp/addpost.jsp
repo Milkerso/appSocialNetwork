@@ -20,7 +20,7 @@
 <%@include file="/page/incl/menu.app" %>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
 
-	<form action="/addnewpost" th:action="@{/addnewpost}" th:object="${post}" method="post">
+	<form action="/addnewpost/${groupid}"th:action="@{/addnewpost/${groupid}}" th:object="${post}" method="post">
 <div class="container-fluid">
 	<div class="row">
 <%@include file="/page/incl/allgroup.app" %>

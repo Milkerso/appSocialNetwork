@@ -14,6 +14,9 @@ public interface GroupRepository extends JpaRepository<AllGroup, Integer> {
     @Query(value = "Select * from group", nativeQuery = true)
     Set<AllGroup> allGroup();
 
+    AllGroup findByGroupId(int groupId);
+
+
     @Query(value = "Select * from all_group where all_group.common_physical_activities=:physical_activities AND all_group.common_free_time=:free_time AND all_group.common_city LIKE :city", nativeQuery = true)
     AllGroup searchGroupByAllArgument(@Param("physical_activities") int physical_activities,
                                       @Param("free_time") int free_time, @Param("city") String city);
