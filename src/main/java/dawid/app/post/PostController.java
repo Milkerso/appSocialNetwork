@@ -3,6 +3,7 @@ package dawid.app.post;
 
 import dawid.app.mainController.MainPageController;
 import dawid.app.post.comment.Comment;
+import dawid.app.post.comment.CommentService;
 import dawid.app.user.ProfileControllerCalculator;
 import dawid.app.user.User;
 import dawid.app.user.group.AllGroup;
@@ -39,6 +40,8 @@ public class PostController {
     PhotoService photoService;
     @Autowired
     UserProfileService userProfileService;
+    @Autowired
+    CommentService commentService;
 
 
     @POST
@@ -62,22 +65,21 @@ public class PostController {
     {
 
         User user =profileControllerCalculator.onlineUser();
-        Post post=postService.findById(10);
         List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
-        allGroupList.get(0).getName();
         List<Post> posts=postService.findByGroupId(allGroupList.get(0));
         UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
-        System.out.println(user.getName()+"    lol" +userProfile.getLastName());
-        System.out.println(post.getPostTitle()+"    lol" +post.getContent());
-        System.out.println(post.getComment().size()+"comment size");
-    //    model.addAttribute("post", post);
+        for (Post post:
+             posts) {
+            System.out.println(post.getPostDate());
+        }
         model.addAttribute("posts",posts);
         model.addAttribute("user",userProfile);
         model.addAttribute("groupList",allGroupList);
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
+
 
         return "allpost";
     }
-
     @POST
     @RequestMapping(value = "/allpost/{groupId}")
     public String allGroupPost(@PathVariable("groupId") int groupId,Model model)
@@ -94,22 +96,33 @@ public class PostController {
         model.addAttribute("groupList",allGroupList);
         model.addAttribute("groupId",groupId);
         model.addAttribute("newComment",newComment);
+        model.addAttribute("allGroup",allGroup);
         return "allpost";
     }
 
     @POST
     @RequestMapping(value = "/addcomment/{postId}")
-    public String addComment(@PathVariable("postId") int postId,int groupId,Comment newComment, Model model)
+    public String addComment(@PathVariable("postId") int postId, AllGroup allGroup,Comment newComment, Model model)
     {
 
         User user =profileControllerCalculator.onlineUser();
         List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
         List<Post> posts=postService.findByGroupId(allGroupList.get(0));
         UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
-        System.out.println(postId+"this post id");
+        Post post = postService.findById(postId);
+        System.out.println(newComment.getCommentContent());
+        newComment.setCommentUserId(user.getId());
+        newComment.setCommentDislike(0);
+        newComment.setCommentLike(0);
+        commentService.save(newComment);
+        List<Comment> comments=post.getComment();
+        comments.add(newComment);
+        post.setComment(comments);
+        postService.save(post);
         model.addAttribute("posts",posts);
         model.addAttribute("user",userProfile);
         model.addAttribute("groupList",allGroupList);
+        model.addAttribute("allGroup",allGroup);
 
         return "allpost";
     }

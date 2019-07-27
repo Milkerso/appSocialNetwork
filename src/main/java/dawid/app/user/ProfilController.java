@@ -142,8 +142,10 @@ public class ProfilController {
 
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
+        LOG.info("stepThree");
         UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
         model.addAttribute("userProfile", userProfile);
+        model.addAttribute("photo", new Photo());
 
         return "registerstepthree";
     }

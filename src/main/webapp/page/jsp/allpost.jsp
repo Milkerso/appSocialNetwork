@@ -27,17 +27,17 @@
 	<div class="row">
 <%@include file="/page/incl/allgroup.app" %><div class="container">
 
-	<h2 class="text-center">Bootstrap 4 User Rating Form / Comment Form</h2>
+	<h2 class="text-center"> <c:out value="${allGroup.name }"/></h2>
 
  <c:forEach var="post" items="${posts }">
 	<div style="margin-bottom:10px;"class="card">
 	    <div class="card-body">
 	        <div class="row">
         	    <div class="col-md-2">
-        	        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+        	        <img src="data:image/jpeg;base64,${image}" class="img img-rounded img-fluid"/>
         	        <p class="text-secondary text-center">15 Minutes Ago</p>
-        	         <a class="float-left" style="color:blue;font-size:10px;">href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong> <c:out value="${user.name }"/> <c:out value="${user.lastName }"/></strong></a>
-        	    </div>
+					<a class="float-left" style="color:blue;font-size:10px;">href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong> <c:out value="${user.name }"/> <c:out value="${user.lastName }"/></strong></a>
+				</div>
         	    <div class="col-md-10">
         	        <p>
         	            <p class="float-left" <strong> <c:out value="${post.postTitle }"/></strong></p>
@@ -79,11 +79,11 @@
             	    </div>
 	            </div>
 	        </c:forEach>
-   	<form action="/addcomment/${post.id}"th:action="@{/addcomment/${post.id}}" th:object="${post}" method="post">
+   	<form action="/addcomment/${post.id}"th:action="@{/addcomment/${post.id}}" th:object="${comment}" method="post">
 
 
              <div class="col-12">
-                <textarea id="content" name="content" th:field="*{content}" cols="40" rows="5" class="form-control"></textarea>
+                <textarea id="commentContent" name="commentContent" th:field="*{commentContent}" cols="40" rows="5" class="form-control"></textarea>
 
                     </div>
 

@@ -13,7 +13,7 @@ public interface PhotoRepository  extends JpaRepository<Photo, Integer> {
     Photo findByUserId(int userId);
 
     @Modifying
-    @Query("UPDATE Photo p SET p.name = :newName, p.description = :newDescription, p.data = :newData WHERE p.id= :id")
+    @Query("UPDATE Photo p SET p.name = :newName, p.description = :newDescription, p.data = :newData WHERE p.userId= :id")
     void updateUserProfilePhoto(@Param("newName") String newName, @Param("newDescription") String newDescription,
                            @Param("newData") byte[] newData, @Param("id") Integer id);
 

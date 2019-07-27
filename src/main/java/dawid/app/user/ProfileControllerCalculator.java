@@ -40,7 +40,10 @@ class ProfileControllerCalculator {
     void changeAvatar(Photo photo) {
 
         this.builderPhoto(photo);
-        photoService.updateUserProfilePhoto(photo.getName(), photo.getDescription(), photo.getData(), photo.getUserId());
+        LOG.info(photo.getName()+"photo name");
+        LOG.info(photo.getId()+"photo id");
+        User user=onlineUser();
+        photoService.updateUserProfilePhoto(photo.getName(), photo.getDescription(), photo.getData(), user.getId());
     }
 
     public User onlineUser() {
@@ -56,8 +59,9 @@ class ProfileControllerCalculator {
 
     }
 
-    String getProfilePhotoEncoded(int id) {
+    public String getProfilePhotoEncoded(int id) {
         Photo photo = this.getProfilePhoto(id);
+        System.out.println(id+"id uzytkownika");
         byte[] encoded = Base64.encodeBase64(photo.getData());
         return new String(encoded);
 

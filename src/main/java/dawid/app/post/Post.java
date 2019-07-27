@@ -48,6 +48,11 @@ public class Post {
     @Setter
     private int userLike;
 
+    @Transient
+    @Getter
+    @Setter
+    private String timeAgo;
+
     @Column(name = "user_dislike")
     @Getter
     @Setter
