@@ -37,7 +37,7 @@ public class MainPageController {
         try {
             String username = UserUtilities.getLoggedUser();
             User user = userService.findUserByEmail(username);
-            UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
+            UserProfile userProfile=user.getUserProfile();
             int nrRoli = user.getRoles().iterator().next().getId();
             user.setNrRoli(nrRoli);
             LOG.info("**** WYWOŁANO > showMainPage1()"+userProfile.getId());

@@ -1,9 +1,10 @@
 package dawid.app.post.comment;
+import dawid.app.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name= "comment")
@@ -16,14 +17,20 @@ public class Comment {
     @Column(name="comment_id")
     private int id;
 
+    @Column(name = "comment_date")
+    @Getter
+    @Setter
+    private LocalDateTime commentDate;
+
     @Transient
     @Getter
     @Setter
     private String commentTimeAgo;
 
-    @Column(name="comment_user_id")
+    @ManyToOne
+    @JoinTable(name="comment_user_id")
     @Getter @Setter
-    private int commentUserId;
+    private User commentUserId;
 
     @Column(name="comment_title")
     @Getter @Setter
@@ -33,9 +40,10 @@ public class Comment {
     @Getter @Setter
     private String commentContent;
 
+    @Transient
     @Column(name="comment_date")
     @Getter @Setter
-    private String commentDate;
+    private String commentDateString;
 
 
     @Column(name="comment_like")
@@ -46,5 +54,8 @@ public class Comment {
     @Getter @Setter
     private int commentDislike;
 
-
+    @Transient
+    @Getter
+    @Setter
+    private String photoEncoded;
 }

@@ -12,6 +12,7 @@ import dawid.app.user.photo.Photo;
 import dawid.app.user.photo.PhotoService;
 import dawid.app.user.userProfile.UserProfile;
 import dawid.app.user.userProfile.UserProfileService;
+import org.apache.tomcat.jni.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.ws.rs.POST;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Controller
 public class PostController {
@@ -52,9 +59,29 @@ public class PostController {
         User user =profileControllerCalculator.onlineUser();
         Post post=new Post();
         List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
+        AllGroup allGroup=allGroupList.get(0);
+
+        model.addAttribute("post", post);
+        model.addAttribute("allGroup",allGroup);
+        model.addAttribute("groupId",allGroup.getGroupId());
+        model.addAttribute("groupList",allGroupList);
+
+        return "addpost";
+    }
+
+    @POST
+    @RequestMapping(value = "/addpost/{groupId}")
+    public String addPostGroup(@PathVariable("groupId") int groupId,Model model)
+    {
+
+        User user =profileControllerCalculator.onlineUser();
+        Post post=new Post();
+        List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
+        AllGroup allGroup= groupService.findByGroupId(groupId);
 
 
         model.addAttribute("post", post);
+        model.addAttribute("allGroup",allGroup);
         model.addAttribute("groupList",allGroupList);
 
         return "addpost";
@@ -66,18 +93,12 @@ public class PostController {
 
         User user =profileControllerCalculator.onlineUser();
         List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
-        List<Post> posts=postService.findByGroupId(allGroupList.get(0));
-        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
-        for (Post post:
-             posts) {
-            System.out.println(post.getPostDate());
-        }
+        AllGroup allGroup=allGroupList.get(0);
+        List<Post> posts=postCalculator(allGroup,user);
+        UserProfile userProfile=user.getUserProfile();
         model.addAttribute("posts",posts);
         model.addAttribute("user",userProfile);
         model.addAttribute("groupList",allGroupList);
-        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
-
-
         return "allpost";
     }
     @POST
@@ -85,18 +106,13 @@ public class PostController {
     public String allGroupPost(@PathVariable("groupId") int groupId,Model model)
     {
         User user =profileControllerCalculator.onlineUser();
-        AllGroup allGroup=groupService.findByGroupId(groupId);
-        List<Post> posts=postService.findByGroupId(allGroup);
         List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
-        UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
-       // System.out.println(user.getName()+"    lol" +userProfile.getLastName());
-        Comment newComment= new Comment();
+        AllGroup allGroup=groupService.findByGroupId(groupId);
+        List<Post> posts=postCalculator(allGroup,user);
+        UserProfile userProfile=user.getUserProfile();
         model.addAttribute("posts",posts);
         model.addAttribute("user",userProfile);
         model.addAttribute("groupList",allGroupList);
-        model.addAttribute("groupId",groupId);
-        model.addAttribute("newComment",newComment);
-        model.addAttribute("allGroup",allGroup);
         return "allpost";
     }
 
@@ -107,13 +123,14 @@ public class PostController {
 
         User user =profileControllerCalculator.onlineUser();
         List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
-        List<Post> posts=postService.findByGroupId(allGroupList.get(0));
+        List<Post> posts=postCalculator(allGroup,user);
         UserProfile userProfile=userProfileService.findUserProfileById(user.getId());
         Post post = postService.findById(postId);
         System.out.println(newComment.getCommentContent());
-        newComment.setCommentUserId(user.getId());
+        newComment.setCommentUserId(user);
         newComment.setCommentDislike(0);
         newComment.setCommentLike(0);
+        newComment.setCommentDate(LocalDateTime.now());
         commentService.save(newComment);
         List<Comment> comments=post.getComment();
         comments.add(newComment);
@@ -124,60 +141,28 @@ public class PostController {
         model.addAttribute("groupList",allGroupList);
         model.addAttribute("allGroup",allGroup);
 
-        return "allpost";
-    }
-    @POST
-    @RequestMapping(value = "/addpost/{groupid}")
-    public String addPost(@PathVariable("groupid") int groupId, Model model)
-    {
-        LOG.info("     GroupID   " + groupId);
-        LOG.info("     Group List    " + groupId);
-      User user =profileControllerCalculator.onlineUser();
-        Post post=new Post();
-        List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
-        for (AllGroup allGroup:allGroupList) {
-            LOG.info("     Group List    " + allGroup.getName());
-            LOG.info("     Group List    " + allGroup.getGroupId());
-        }
-        post.setGroupId(groupService.findByGroupId(groupId));
-        System.out.println(post.getGroupId().getGroupId());
-
-        model.addAttribute("post", post);
-        model.addAttribute("groupId", groupId);
-        model.addAttribute("groupList",allGroupList);
-
-        return "addpost";
+        return "redirect:/allpost/"+allGroup.getGroupId();
     }
 
     @POST
-    @RequestMapping(value = "/addnewpost/{groupid}")
-    public String addNewPost(@PathVariable("groupid") int groupId,Post post, Model model)
+    @RequestMapping(value = "/addnewpost/{groupId}")
+    public String addNewPost(@PathVariable("groupId") int groupId,Post post, Model model)
     {
         User user =profileControllerCalculator.onlineUser();
         List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
-        LOG.info("     POST CONTENT    "+post.getContent());
-        LOG.info("     POST Title    "+post.getPostTitle());
-        LOG.info("     POST Title    "+post.getGroupId());
         post.setGroupId(groupService.findByGroupId(groupId));
-
-
         model.addAttribute("post",post);
         model.addAttribute("groupList",allGroupList);
         post.setPostUserId(user);
 
-        post.setPostDate(LocalDate.now());
+        post.setPostDate(LocalDateTime.now());
         postService.save(post);
-        return "addpost";
+
+        return "redirect:/allpost/"+groupId;
     }
 
 
-    @POST
-    @RequestMapping(value = "comment")
-    public String commentView(User user, BindingResult result, Model model, Locale locale)
-    {
 
-        return "comment";
-    }
     @POST
     @RequestMapping(value = "/addnewcomment/{groupid}")
     public String addNewCommentForPost(@PathVariable("groupid") int groupId,Post post, Model model)
@@ -194,9 +179,62 @@ public class PostController {
         model.addAttribute("groupList",allGroupList);
         post.setPostUserId(user);
 
-        post.setPostDate(LocalDate.now());
+        post.setPostDate(LocalDateTime.now());
         postService.save(post);
-        return "addpost";
+        return "addpost/"+groupId;
+    }
+
+    public List<Post> postCalculator(AllGroup allGroup,User user)
+    {
+        List<Post> posts=new ArrayList<>();
+
+        try {
+            posts = postService.findByGroupId(allGroup);
+        }
+        catch (Exception e)
+        {
+        }
+
+        for (Post post:
+                posts) {
+            post.getPostUserId()
+                    .getUserProfile()
+                    .setPhotos( post.getPostUserId()
+                            .getUserProfile()
+                            .getPhotos()
+                            .stream()
+                            .filter(photo ->
+                                    photo.getProfilePhoto()==1)
+                            .collect(Collectors.toList()));
+
+            for (Comment comment:
+                    post.getComment()
+                 ) {
+                comment.getCommentUserId()
+                        .getUserProfile()
+                        .setPhotos( post.getPostUserId()
+                                .getUserProfile()
+                                .getPhotos()
+                                .stream()
+                                .filter(photo ->
+                                        photo.getProfilePhoto()==1)
+                                .collect(Collectors.toList()));
+                comment.setPhotoEncoded(profileControllerCalculator.getProfilePhotoEncoded(comment.getCommentUserId().getId()));
+                long diff = ChronoUnit.MILLIS.between(comment.getCommentDate(),LocalDateTime.now() );
+                TimeAgoCalculator timeAgoCalculator=new TimeAgoCalculator();
+                comment.setCommentTimeAgo(timeAgoCalculator.toDuration(diff));
+            }
+
+
+            post.setPhotoEncoded(profileControllerCalculator.getProfilePhotoEncoded(post.getPostUserId().getId()));
+            long diff = ChronoUnit.MILLIS.between(post.getPostDate(),LocalDateTime.now() );
+            TimeAgoCalculator timeAgoCalculator=new TimeAgoCalculator();
+            post.setTimeAgo(timeAgoCalculator.toDuration(diff));
+        }
+
+        Collections.reverse(posts);
+
+        return posts;
     }
 
 }

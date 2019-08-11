@@ -1,12 +1,14 @@
 package dawid.app.user.userProfile;
 
 import dawid.app.user.group.AllGroup;
+import dawid.app.user.photo.Photo;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,6 +16,7 @@ import java.util.Set;
 public class UserProfile {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_profile_id")
     @Getter
     @Setter
@@ -78,13 +81,21 @@ public class UserProfile {
     @JoinTable(name = "free_time_user", joinColumns = @JoinColumn(name = "user_profile_id"), inverseJoinColumns = @JoinColumn(name = "free_time_id"))
     @Getter
     @Setter
-    private Set<FreeTime> freeTimes;
+    private List<FreeTime> freeTimes;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "physical_activity_user", joinColumns = @JoinColumn(name = "user_profile_id"), inverseJoinColumns = @JoinColumn(name = "physical_activity_id"))
     @Getter
     @Setter
-    private Set<PhysicalActivity> physicalActivities;
+    private List<PhysicalActivity> physicalActivities;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "photo_user", joinColumns = @JoinColumn(name = "user_profile_id"), inverseJoinColumns = @JoinColumn(name = "photo_id"))
+    @Getter
+    @Setter
+    private List<Photo> photos;
+
+
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "group_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
@@ -101,4 +112,16 @@ public class UserProfile {
     @Getter
     @Setter
     private ArrayList<Integer> physicalActivity;
+
+    @Transient
+    @Getter
+    @Setter
+    private String email;
+
+    @Transient
+    @Getter
+    @Setter
+    private String photoEncoded;
+
+
 }

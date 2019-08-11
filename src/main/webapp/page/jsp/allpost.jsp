@@ -34,24 +34,18 @@
 	    <div class="card-body">
 	        <div class="row">
         	    <div class="col-md-2">
-        	        <img src="data:image/jpeg;base64,${image}" class="img img-rounded img-fluid"/>
-        	        <p class="text-secondary text-center">15 Minutes Ago</p>
-					<a class="float-left" style="color:blue;font-size:10px;">href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong> <c:out value="${user.name }"/> <c:out value="${user.lastName }"/></strong></a>
+        	        <img src="data:image/jpeg;base64,${post.photoEncoded}" class="img img-rounded img-fluid"/>
+        	        <p class="text-secondary text-center"><c:out value="${post.timeAgo }"/></p>
+					<p><a href="/profil"><strong><c:out value="${post.postUserId.userProfile.name }"/> <c:out value="${post.postUserId.userProfile.lastName }"/></strong></a></p>
 				</div>
         	    <div class="col-md-10">
         	        <p>
-        	            <p class="float-left" <strong> <c:out value="${post.postTitle }"/></strong></p>
-        	            <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-        	            <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-        	            <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-
+        	            <p class="float-left"> <strong> <c:out value="${post.postTitle }"/></strong></p>
         	       </p>
         	       <div class="clearfix"></div>
         	        <p> <c:out value="${post.content }"/></p>
         	        <p>
-        	            <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-        	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+        	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i>Like</a>
         	       </p>
         	    </div>
 	        </div>
@@ -60,9 +54,9 @@
             	    <div class="card-body">
             	        <div class="row">
                     	    <div class="col-md-2">
-                    	        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
-                    	        <p class="text-secondary text-center">15 Minutes Ago</p>
-                    	         <a class="float-left" style="color:blue;font-size:10px;">href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong> <c:out value="${user.name }"/> <c:out value="${user.lastName }"/></strong></a>
+								<img src="data:image/jpeg;base64,${comment.photoEncoded}" class="img img-rounded img-fluid"/>
+								<p class="text-secondary text-center"><c:out value="${comment.commentTimeAgo }"/></p>
+								<p><a href="/profil"><strong><c:out value="${comment.commentUserId.userProfile.name }"/> <c:out value="${comment.commentUserId.userProfile.lastName }"/></strong></a></p>
 
                     	    </div>
                     	    <div class="col-md-10">

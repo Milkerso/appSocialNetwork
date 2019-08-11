@@ -10,9 +10,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="mainmenu">
 				<sec:authorize access="isAuthenticated()">
-			<a class="nav-link" href="/index"><img src="/resources/images/message.png" width="50" height="50" > <font color="white">Wiadomosci</font></a>
-			<a class="nav-link" href="/index"><img src="/resources/images/alert.png" width="50" height="50" > <font color="white">Powiadomienia</font></a>
+			<a class="nav-link" href="/addpost"><img src="/resources/images/message.png" width="50" height="50" > <font color="white">Dodaj post</font></a>
+			<a class="nav-link" href="/allpeople"><img src="/resources/images/people.png" width="50" height="50" > <font color="white">Osoby</font></a>
 		    <a class="nav-link" href="/allpost"><img src="/resources/images/alert.png" width="50" height="50" > <font color="white">Grupy</font></a>
+		    <sec:authorize access="hasRole('ROLE_ADMIN')">
+		    <a class="nav-link" href="/places"><img src="/resources/images/place.png" width="50" height="50" > <font color="white">Miejsca</font></a>
+		    </sec:authorize>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <a class="nav-link" href="/addPlaces"><img src="/resources/images/place.png" width="50" height="50" > <font color="white">Miejsca</font></a>
+            </sec:authorize>
+
+
 				</sec:authorize>
 			
 				
@@ -42,16 +50,7 @@
 						</sec:authorize>
 						
 					<sec:authorize access="isAuthenticated()">
-					 <div id="custom-search-input">
-                            <div class="input-group col-md-12">
-                                <input type="text" class="  search-query form-control" placeholder="Szukaj" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
+
 					<li class="nav-item">
 						<a class="nav-link" href="/profil"><s:message code="menu.profil"/></a>
 					</li>

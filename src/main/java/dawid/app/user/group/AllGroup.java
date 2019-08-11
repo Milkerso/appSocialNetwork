@@ -1,5 +1,7 @@
 package dawid.app.user.group;
 
+import dawid.app.user.userProfile.FreeTime;
+import dawid.app.user.userProfile.PhysicalActivity;
 import dawid.app.user.userProfile.UserProfile;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,20 +25,22 @@ public class AllGroup {
     @Setter
     private String name;
 
-    @Column(name = "common_physical_activities")
+    @JoinColumn(name = "common_physical_activities")
+    @ManyToOne
     @Getter
     @Setter
-    private int CommonPhysicalActivities;
+    private PhysicalActivity CommonPhysicalActivities;
 
     @Column(name = "common_city")
     @Getter
     @Setter
     private String commonCity;
 
-    @Column(name = "common_free_time")
+    @JoinColumn(name = "common_free_time")
     @Getter
     @Setter
-    private int commonFreeTime;
+    @ManyToOne
+    private FreeTime commonFreeTime;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "group_user", joinColumns = @JoinColumn(name = "group_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))

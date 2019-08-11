@@ -18,8 +18,9 @@ public class UserRegisterValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         User u = (User) obj;
 
-        ValidationUtils.rejectIfEmpty(errors, "name", "error.userName.empty");
-        ValidationUtils.rejectIfEmpty(errors, "lastName", "error.userLastName.empty");
+
+        ValidationUtils.rejectIfEmpty(errors, "userProfile.name", "error.userName.empty");
+        ValidationUtils.rejectIfEmpty(errors, "userProfile.lastName", "error.userLastName.empty");
         ValidationUtils.rejectIfEmpty(errors, "email", "error.userEmail.empty");
         ValidationUtils.rejectIfEmpty(errors, "password", "error.userPassword.empty");
 

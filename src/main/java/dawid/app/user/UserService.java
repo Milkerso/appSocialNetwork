@@ -1,6 +1,10 @@
 package dawid.app.user;
 
 
+import dawid.app.user.group.AllGroup;
+
+import java.util.List;
+
 public interface UserService {
 
     User findUserByEmail(String email);
@@ -12,6 +16,9 @@ public interface UserService {
     void updateUserActivation(int activeCode, String activationCode);
 
     void updateUserProfile(String newEmail, int id);
+
+    List<User> findAllByGroups(AllGroup allGroup);
+
 
 
 }

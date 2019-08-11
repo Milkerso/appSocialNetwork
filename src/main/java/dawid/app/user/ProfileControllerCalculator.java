@@ -5,6 +5,7 @@ import dawid.app.user.group.AllGroup;
 import dawid.app.user.group.GroupService;
 import dawid.app.user.photo.Photo;
 import dawid.app.user.photo.PhotoService;
+import dawid.app.user.place.Place;
 import dawid.app.user.userProfile.*;
 import dawid.app.utilities.UserUtilities;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -34,8 +35,6 @@ class ProfileControllerCalculator {
     private GroupService groupService;
     @Autowired
     private UserProfileService userProfileService;
-    @Autowired
-    private FreeTimeRepository freeTimeRepository;
 
     void changeAvatar(Photo photo) {
 
@@ -55,13 +54,19 @@ class ProfileControllerCalculator {
     }
 
     private Photo getProfilePhoto(int id) {
-        return photoService.findByUserID(id);
+        return photoService.findByUserIDProfilPhoto(id);
 
     }
 
     public String getProfilePhotoEncoded(int id) {
         Photo photo = this.getProfilePhoto(id);
         System.out.println(id+"id uzytkownika");
+        byte[] encoded = Base64.encodeBase64(photo.getData());
+        return new String(encoded);
+
+    }
+
+    public String getPhotoEncoded(Photo photo) {
         byte[] encoded = Base64.encodeBase64(photo.getData());
         return new String(encoded);
 
@@ -104,15 +109,15 @@ class ProfileControllerCalculator {
 
         AllGroup allGroup;
         for (int i = 0; i < userProfile.getPhysicalActivities().size(); i++) {
-            for (int j = 0; j < userProfile.getFreeTime().size(); j++) {
+            for (int j = 0; j < userProfile.getFreeTimes().size(); j++) {
 
 
-                allGroup = groupService.searchGroupByAllArgument(userProfile.getPhysicalActivity().get(i), userProfile.getFreeTime().get(j), userProfile.getCity());
+                allGroup = groupService.searchGroupByAllArgument(userProfile.getPhysicalActivities().get(i).getId(), userProfile.getFreeTimes().get(j).getId(), userProfile.getCity());
                 if (allGroup == null) {
                     allGroup = new AllGroup();
                     allGroup.setCommonCity(userProfile.getCity());
-                    allGroup.setCommonFreeTime(userProfile.getFreeTime().get(j));
-                    allGroup.setCommonPhysicalActivities(userProfile.getPhysicalActivity().get(i));
+                    allGroup.setCommonFreeTime(userProfile.getFreeTimes().get(j));
+                    allGroup.setCommonPhysicalActivities(userProfile.getPhysicalActivities().get(i));
                     List<FreeTime> freeTimesList = new ArrayList<>(userProfile.getFreeTimes());
                     List<PhysicalActivity> physicalActivitiesList = new ArrayList<>(userProfile.getPhysicalActivities());
                     allGroup.setName(freeTimesList.get(j).getName() + " " + physicalActivitiesList.get(i).getName() + " ");

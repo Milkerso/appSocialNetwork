@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import static org.springframework.data.jpa.domain.Specification.where;
 
 @Controller
 public class AdminPageController {
@@ -41,6 +44,10 @@ public class AdminPageController {
 	@Autowired
 	private MessageSource messageSource;
 
+	@Autowired
+	private AdminRepository adminRepository;
+
+
 	@GET
 	@RequestMapping(value = "/admin")
 	@Secured(value = { "ROLE_ADMIN" })
@@ -54,11 +61,42 @@ public class AdminPageController {
 	@Secured(value = { "ROLE_ADMIN" })
 	public String openAdminAllUsersPage(@PathVariable("page") int page, Model model) {
 		Page<User> pages = getAllUsersPageable(page - 1, false, null);
+
 		int totalPages = pages.getTotalPages();
 		int currentPage = pages.getNumber();
 		List<User> userList = pages.getContent();
 		model.addAttribute("totalPages", totalPages);
 		model.addAttribute("currentPage", currentPage + 1);
+		model.addAttribute("userList", userList);
+		model.addAttribute("recordStartCounter", currentPage * ELEMENTS);
+		return "admin/users";
+	}
+
+	@GET
+	@RequestMapping(value = "/admin/users/search/{searchName}/{searchLastName}/{searchEmail}/{page}")
+	@Secured(value = { "ROLE_ADMIN" })
+	public String openAdminAllUsersPageFilter (@PathVariable("searchName") String searchName,
+											   @PathVariable("searchLastName") String searchLastName,
+											   @PathVariable("searchEmail") String searchEmail,
+											   @PathVariable("page") int page, Model model) {
+		SearchSpecification searchSpecification=new SearchSpecification();
+		PageRequest pageRequest=new PageRequest(page-1,15);
+		Page<User> pages = adminRepository.findAll(where(searchSpecification.hasName(searchName))
+		.and(searchSpecification.hasLastName(searchLastName))
+		.and(searchSpecification.hasEmail(searchEmail)), pageRequest);
+
+		for (User users : pages) {
+			int numerRoli = users.getRoles().iterator().next().getId();
+			System.out.println("jaja");
+			users.setNrRoli(numerRoli);
+		}
+
+		int totalPages = pages.getTotalPages();
+		System.out.println(searchEmail);
+		int currentPage = pages.getNumber();
+		List<User> userList = pages.getContent();
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", currentPage+1);
 		model.addAttribute("userList", userList);
 		model.addAttribute("recordStartCounter", currentPage * ELEMENTS);
 		return "admin/users";
@@ -161,6 +199,7 @@ public class AdminPageController {
 		}
 		for (User users : pages) {
 			int numerRoli = users.getRoles().iterator().next().getId();
+			System.out.println("jaja");
 			users.setNrRoli(numerRoli);
 		}
 		return pages;

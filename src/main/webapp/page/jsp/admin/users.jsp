@@ -23,16 +23,32 @@ function defaultTrBg(row){
 }
 
 function startSerach(pParam){
-	var searchWord = document.getElementById('searchString').value;
+	var searchLastName = document.getElementById('searchLastName').value;
+	var searchEmail = document.getElementById('searchEmail').value;
+	var searchName = document.getElementById('searchName').value;
 	var page = parseInt(document.getElementById('cp').value) + parseInt(pParam);
-	if(searchWord.length < 1){
+	if(searchName.length<1&&searchLastName<1&&searchEmail<1)
+	{
 		document.getElementById("errorSearch").innerHTML = "<s:message code="error.searchString.toShort"/>";
 		return false;
-	} else {
-		document.getElementById("errorSearch").innerHTML = "";
-		var searchLink = '${pageContext.request.contextPath}/admin/users/search/' + searchWord + '/' + page;
-		window.location.href=searchLink;
 	}
+	if(searchEmail.length < 1)
+	{
+		searchEmail=0;
+	}
+	if(searchLastName.length<1)
+	{
+		searchLastName=0;
+	}
+	if(searchName.length<1)
+	{
+		searchName=0;
+	}
+
+		document.getElementById("errorSearch").innerHTML = "";
+		var searchLink = '${pageContext.request.contextPath}/admin/users/search/' + searchName+ '/'+ searchLastName + '/'+ searchEmail + '/' + page;
+		window.location.href=searchLink;
+
 }
 </script>
 </head>
@@ -40,7 +56,7 @@ function startSerach(pParam){
 <%@include file="/page/incl/menu.app" %>
 <c:set var="licznik" value="${recordStartCounter }"/>
 
-<div class="span7">   
+<div style="margin-top:20px" class="span7">
 <div class="widget stacked widget-table action-table">
 	<div class="widget-header">
 					<i class="icon-th-list"></i>
@@ -49,10 +65,35 @@ function startSerach(pParam){
 				
 				<div class="widget-content">
 <div align="center">
-	<div align="right" style="width: 1000px; padding: 2px;">
+	<div class="row">
 		<input type="hidden" name="cp" id="cp" value="${currentPage}"/>
-		<input type="text" id="searchString"/>&nbsp;&nbsp;<input type="button" value="<s:message code="button.search"/>"
-				onclick="startSerach(0);"/><br/>
+		<div class="col-md-3">
+			<div>
+			<labe>Imie</labe>
+			</div>
+			<div>
+			<input type="text" id="searchName"/>
+		</div>
+		</div>
+		<div class="col-md-3">
+			<div>
+			<labe>Nazwisko</labe>
+		</div>
+			<div>
+			<input type="text" id="searchLastName"/>
+	</div>
+		</div>
+		<div class="col-md-3">
+			<div>
+			<labe>email</labe>
+			</div>
+			<div>
+				<input type="text" id="searchEmail"/>
+			</div>
+		</div>
+		<button type="button" class="btn btn-primary"
+				onclick="startSerach(0);"><s:message code="button.search"/><br/>
+		</button>
 		<span id="errorSearch" style="color: red;"></span>
 	</div>
 <table class="table table-striped table-bordered" width="1000" border="0" cellpadding="6" cellspacing="2">
@@ -71,8 +112,8 @@ function startSerach(pParam){
 		<tr onmouseover="changeTrBg(this)" onmouseout="defaultTrBg(this)">
 			<td align="right"><c:out value="${licznik }"/></td>
 			<td align="right"><a href="edit/${u.id }"><c:out value="${u.id }" /></a></td>
-			<td align="left"><a href="edit/${u.id }"><c:out value="${u.name }" /></a></td>
-			<td align="left"><a href="edit/${u.id }"><c:out value="${u.lastName }" /></a></td>
+			<td align="left"><a href="edit/${u.id }"><c:out value="${u.userProfile.name }" /></a></td>
+			<td align="left"><a href="edit/${u.id }"><c:out value="${u.userProfile.lastName }" /></a></td>
 			<td align="center"><a href="edit/${u.id }"><c:out value="${u.email }" /></a></td>
 			<td align="center">
 				<c:choose>

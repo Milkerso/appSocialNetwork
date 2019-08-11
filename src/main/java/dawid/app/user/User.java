@@ -2,6 +2,7 @@ package dawid.app.user;
 
 
 import dawid.app.user.group.AllGroup;
+import dawid.app.user.userProfile.UserProfile;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +16,6 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
     @Column(name = "user_id")
@@ -42,45 +42,24 @@ public class User {
 
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     @Getter
     @Setter
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "group_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
     private Set<AllGroup> groups;
-    @Transient
-    @Getter
-    @Setter
-    private int nrRoli;
-    @Transient
-    @Getter
-    @Setter
-    private String name;
-    @Transient
-    @Getter
-    @Setter
-    private String sex;
-    @Transient
-    @Getter
-    @Setter
-    private String lastName;
-    @Transient
-    @Getter
-    @Setter
-    private String city;
-    @Transient
-    @Getter
-    @Setter
-    private String newPassword;
+
     @Column(name = "activation_code")
     @Getter
     @Setter
     private String activationCode;
-
-
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_profile")
+    @Getter
+    @Setter
+    private UserProfile userProfile;
 
     public Set<AllGroup> getGroups() {
         return groups;
@@ -90,5 +69,12 @@ public class User {
         this.groups = groups;
     }
 
-
+    @Transient
+    @Getter
+    @Setter
+    private String newPassword;
+    @Transient
+    @Getter
+    @Setter
+    private int nrRoli;
 }

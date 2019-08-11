@@ -8,7 +8,7 @@ import dawid.app.user.User;
 import dawid.app.user.group.AllGroup;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -41,7 +41,7 @@ public class Post {
     @Column(name = "post_date")
     @Getter
     @Setter
-    private LocalDate postDate;
+    private LocalDateTime postDate;
 
     @Column(name = "user_like")
     @Getter
@@ -68,6 +68,11 @@ public class Post {
     @Getter
     @Setter
     private AllGroup groupId;
+
+    @Transient
+    @Getter
+    @Setter
+    private String photoEncoded;
 
 
 }

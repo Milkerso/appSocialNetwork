@@ -1,6 +1,8 @@
 package dawid.app.user;
 
 import dawid.app.mainController.MainPageController;
+import dawid.app.post.Post;
+import dawid.app.user.group.AllGroup;
 import dawid.app.user.group.GroupService;
 import dawid.app.user.photo.Photo;
 import dawid.app.user.photo.PhotoService;
@@ -16,10 +18,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 @Controller
@@ -37,6 +42,7 @@ public class ProfilController {
     @Autowired
     private ProfileControllerCalculator profileControllerCalculator;
 
+
     @Autowired
     private GroupService groupService;
 
@@ -49,7 +55,7 @@ public class ProfilController {
         int nrRoli = user.getRoles().iterator().next().getId();
         user.setNrRoli(nrRoli);
         Photo photo = new Photo();
-        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
+        UserProfile userProfile = user.getUserProfile();
         model.addAttribute("user", userProfile);
         model.addAttribute("photo", photo);
         model.addAttribute("email", user.getEmail());
@@ -57,6 +63,62 @@ public class ProfilController {
         return "profil";
     }
 
+    @GET
+    @RequestMapping(value = "/places")
+    public String showPlaces(Model model) {
+
+        User user =profileControllerCalculator.onlineUser();
+
+
+        return "places";
+    }
+    @GET
+    @RequestMapping(value = "/allpeople")
+    public String showAllPeople(Model model) {
+
+        User user =profileControllerCalculator.onlineUser();
+        List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
+        AllGroup allGroup= allGroupList.get(0);
+
+        List<User> users=userService.findAllByGroups(allGroup);
+        List<UserProfile> userProfiles=new ArrayList<>();
+        for (User userProf:users
+             ) {
+            UserProfile userProfile=userProf.getUserProfile();
+            userProfile.setEmail(user.getEmail());
+            userProfile.setPhotoEncoded(profileControllerCalculator.getProfilePhotoEncoded(userProf.getId()));
+            userProfiles.add(userProfile);
+        }
+        model.addAttribute("allGroup",allGroup);
+        model.addAttribute("groupList",allGroupList);
+        model.addAttribute("users",userProfiles);
+
+        return "allpeople";
+    }
+
+    @GET
+    @RequestMapping(value = "/allpeople/{groupId}")
+    public String showAllPeopleGroupId(@PathVariable("groupId") int groupId,Model model) {
+
+        User user =profileControllerCalculator.onlineUser();
+        List<AllGroup> allGroupList=groupService.findByUserID(user.getId());
+        AllGroup allGroup= groupService.findByGroupId(groupId);
+        List<User> users=userService.findAllByGroups(allGroup);
+        List<UserProfile> userProfiles=new ArrayList<>();
+        for (User userProf:users
+        ) {
+            UserProfile userProfile=userProf.getUserProfile();
+            userProfile.setEmail(user.getEmail());
+            userProfile.setPhotoEncoded(profileControllerCalculator.getProfilePhotoEncoded(userProf.getId()));
+            userProfiles.add(userProfile);
+        }
+        model.addAttribute("allGroup",allGroup);
+        model.addAttribute("groupList",allGroupList);
+        model.addAttribute("users",userProfiles);
+
+
+        return "allpeople";
+    }
 
     @GET
     @RequestMapping(value = "/editpassword")
@@ -112,15 +174,11 @@ public class ProfilController {
     @RequestMapping(value = "/registersteptwo")
     public String registerStepTwo(Model model) {
 
-        LOG.info("**** WYWOŁANO > registersteptwo()");
         String username = UserUtilities.getLoggedUser();
-        LOG.info("**** WYWOŁANO > registersteptwo1()");
         User user = userService.findUserByEmail(username);
-        LOG.info("**** WYWOŁANO > registersteptwo2()");
-        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
-        LOG.info("**** WYWOŁANO > registersteptwo3()");
+        UserProfile userProfile = user.getUserProfile();
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!"+userProfile.getId());
         model.addAttribute("userProfile", userProfile);
-        LOG.info("**** WYWOŁANO > registersteptwo4()");
 
         return "registersteptwo";
     }
@@ -128,11 +186,8 @@ public class ProfilController {
     @POST
     @RequestMapping(value = "/registersteptwoend")
     public String registerStepTwoEnd(UserProfile userProfile, BindingResult result, Model model, Locale locale) {
-        LOG.info("**** WYWOŁANO > registersteptwoEnd()");
         userProfileService.updateRegisterStepTwo(userProfile.getLanguage(), userProfile.getNumber(), userProfile.getCharacter(), userProfile.getBirthDate(), userProfile.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-        model.addAttribute("userProfile", userProfile);
-
         return "registerstepthree";
     }
 
@@ -142,8 +197,7 @@ public class ProfilController {
 
         String username = UserUtilities.getLoggedUser();
         User user = userService.findUserByEmail(username);
-        LOG.info("stepThree");
-        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
+        UserProfile userProfile = user.getUserProfile();
         model.addAttribute("userProfile", userProfile);
         model.addAttribute("photo", new Photo());
 
@@ -153,31 +207,28 @@ public class ProfilController {
     @POST
     @RequestMapping(value = "/registerstepthreeend")
     public String registerStepThreeEnd(UserProfile userProfile, Photo photo, BindingResult result, Model model, Locale locale) {
-        LOG.info("**** WYWOŁANO > endthree()");
-        UserProfile userProfileFreeTime = userProfileService.findUserProfileById(userProfile.getId());
+        String username = UserUtilities.getLoggedUser();
+        User user = userService.findUserByEmail(username);
+        UserProfile userProfileFreeTime = user.getUserProfile();
         userProfileFreeTime.setFreeTimes(userProfile.getFreeTimes());
         userProfileFreeTime.setDescription(userProfile.getDescription());
         userProfileFreeTime.setFreeTime(userProfile.getFreeTime());
         userProfileFreeTime.setWhoSearch(userProfile.getWhoSearch());
         userProfileFreeTime.setPhysicalActivities(userProfile.getPhysicalActivities());
         userProfileFreeTime.setPhysicalActivity(userProfile.getPhysicalActivity());
-        LOG.info("_______________", userProfileFreeTime.getCity());
         userProfileService.saveUserProfileFreeTimeActivities(userProfileFreeTime);
         profileControllerCalculator.insertEmptyPhoto(photo);
         profileControllerCalculator.builderPhoto(photo);
         try {
-            profileControllerCalculator.getProfilePhotoEncoded(userProfile.getId());
+            profileControllerCalculator.getProfilePhotoEncoded(user.getId());
         } catch (NullPointerException e) {
             photo.setProfilePhoto(1);
             photo.setName("Default");
             photoService.savePhoto(photo);
         }
         profileControllerCalculator.groupSearch(userProfileFreeTime);
-
-
-        // userService.updateRegisterStepThree(userProfile.getFreeTime(), user.getPhysicalActivity(), user.getWhoSearch(), user.getDescription(), user.getId());
         model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
-        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(userProfile.getId()));
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
 
         return "registerstepfourth";
     }
@@ -200,6 +251,7 @@ public class ProfilController {
     public String registerstepfourthend(Photo photo, Model model) {
         LOG.info("**** WYWOŁANO > endfourth()");
         photo.setName("lol");
+        photo.setDescription("lolll");
         User user = profileControllerCalculator.onlineUser();
         profileControllerCalculator.changeAvatar(photo);
         model.addAttribute("user", user);
@@ -215,7 +267,7 @@ public class ProfilController {
         photo.setName("lol");
         photo.setDescription("lolll");
         profileControllerCalculator.changeAvatar(photo);
-        UserProfile userProfile = userProfileService.findUserProfileById(user.getId());
+        UserProfile userProfile = user.getUserProfile();
         model.addAttribute("email", user.getEmail());
         model.addAttribute("user", userProfile);
         model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));

@@ -20,16 +20,16 @@
 <%@include file="/page/incl/menu.app" %>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="#" crossorigin="anonymous">
 
-	<form action="/addnewpost/${groupid}"th:action="@{/addnewpost/${groupid}}" th:object="${post}" method="post">
+	<form action="/addnewpost/${groupId}"th:action="@{/addnewpost/${groupid}}" th:object="${post}" method="post">
 <div class="container-fluid">
 	<div class="row">
-<%@include file="/page/incl/allgroup.app" %>
+<%@include file="/page/incl/addpostallgroup.app" %>
 		<div class="col-md-9">
 		    <div class="card">
 		        <div class="card-body">
 		            <div class="row">
 		                <div class="col-md-3 border-right">
-		                    <h4>Add New Post</h4>
+		                    <h4><c:out value="${allGroup.name }"/></h4>
 		                </div>
 
 
@@ -41,13 +41,13 @@
 
                               <div class="form-group row">
 
-                                <label for="text" class="col-12 col-form-label">Add new Post</label>
+                                <label for="text" class="col-12 col-form-label">Dodaj nowy post</label>
                                 <div class="col-12">
-                                     <input id="text" th:field="*{postTitle}" name="postTitle" placeholder="Enter Title here" class="form-control here" required="required" type="text">
+                                     <input id="text" th:field="*{postTitle}" name="postTitle" placeholder="Tytuł postu" class="form-control here" required="required" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="textarea" class="col-12 col-form-label">Visual Editor</label>
+                                <label for="textarea" class="col-12 col-form-label">Treść postu</label>
                                 <div class="col-12">
                                     <textarea id="content" name="content" th:field="*{content}" cols="40" rows="5" class="form-control"></textarea>
 

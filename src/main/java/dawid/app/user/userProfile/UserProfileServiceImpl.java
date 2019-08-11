@@ -47,8 +47,8 @@ public class UserProfileServiceImpl implements UserProfileService {
         for (int i = 0; i < activityList.size(); i++) {
             activitiesList.add(physicalActivityRepository.findById(userProfile.getPhysicalActivity().get(i).intValue()));
         }
-        userProfile.setFreeTimes(new HashSet<>(freeTimesList));
-        userProfile.setPhysicalActivities(new HashSet<>(activitiesList));
+        userProfile.setFreeTimes(new ArrayList<>(freeTimesList));
+        userProfile.setPhysicalActivities(new ArrayList<>(activitiesList));
         userProfileRepository.save(userProfile);
     }
 

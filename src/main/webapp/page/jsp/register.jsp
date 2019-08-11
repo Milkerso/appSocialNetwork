@@ -44,16 +44,16 @@
 	<div class="form-row">
 		<div class="col form-group">
 			<label><s:message code="register.name"/></label>   
-		   <sf:input path="name"
+		   <sf:input path="userProfile.name"
 						size="28" id="name" type="text" class="form-control" />
 						
-			<label><font color="red"><sf:errors path="name"/></font></label>
+			<label><font color="red"><sf:errors path="userProfile.name"/></font></label>
 		</div> <!-- form-group end.// -->
 		<div class="col form-group">
 			<label><s:message code="register.lastName"/></label>
-				 <sf:input path="lastName"
+				 <sf:input path="userProfile.lastName"
 						size="28" type="text" class="form-control" placeholder=""/>
-						<label><font color="red"><sf:errors path="lastName"/></font></label>
+						<label><font color="red"><sf:errors path="userProfile.lastName"/></font></label>
 		</div> <!-- form-group end.// -->
 	</div> <!-- form-row end.// -->
 	<div class="form-group">
@@ -68,11 +68,11 @@
 	<div class="form-row">
 		<div class="form-group col-md-6">
 		  <label><s:message code="register.city"/></label>
-		   <sf:input path="city" size="28" id="city" type="text" class="form-control" /> 
+		   <sf:input path="userProfile.city" size="28" id="city" type="text" class="form-control" />
 		</div> <!-- form-group end.// -->
 		<div class="form-group col-md-6">
 		  <label><s:message code="register.sex"/></label>
-		<sf:select path="sex" id="sex" class="form-control">
+		<sf:select path="userProfile.sex" id="sex" class="form-control">
 		    <sf:option value="kobieta"><s:message code="register.female"/></sf:option>
 		    <sf:option value="meżczyzna"><s:message code="register.male"/></sf:option>
 		    </sf:select>

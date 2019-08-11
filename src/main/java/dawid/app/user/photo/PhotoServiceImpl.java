@@ -20,8 +20,8 @@ public class PhotoServiceImpl implements PhotoService{
     }
 
     @Override
-    public Photo findByUserID(int userId) {
-        return photoRepository.findByUserId(userId);
+    public Photo findByUserIDProfilPhoto(int userId) {
+        return photoRepository.findByUserIdProfilPhoto(userId);
     }
 
     @Override

@@ -36,6 +36,7 @@ dawid\app\user\userProfile\UserProfileRepository.class
 dawid\app\user\ProfilController.class
 dawid\app\user\group\AllGroup.class
 dawid\app\user\RoleRepository.class
+dawid\app\admin\SearchSpecification.class
 dawid\app\user\Role.class
 dawid\app\post\PostRepository.class
 dawid\app\user\UserRepository.class

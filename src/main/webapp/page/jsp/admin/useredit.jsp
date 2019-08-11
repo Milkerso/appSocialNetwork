@@ -35,7 +35,7 @@
                                                 <label><s:message code="profil.name" /></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><c:out value="${user.name}"/></p>
+                                                <p><c:out value="${user.userProfile.name}"/></p>
                                             </div>
                                         </div>
                                         
@@ -44,7 +44,7 @@
                                                 <label><s:message code="register.lastName" /></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><c:out value="${user.lastName}"/></p>
+                                                <p><c:out value="${user.userProfile.lastName}"/></p>
                                             </div>
                                         </div>
                                         

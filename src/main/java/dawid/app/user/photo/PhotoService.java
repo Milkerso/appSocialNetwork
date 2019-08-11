@@ -4,7 +4,8 @@ public interface PhotoService {
 
      void savePhoto(Photo photo);
 
-     Photo findByUserID(int userId);
+     Photo findByUserIDProfilPhoto(int userId);
+
      void updateUserProfilePhoto(String name, String description, byte[] data,int id);
      void deletePhoto(int id);
      void checkProfilPhoto(int checkProfilPhotoId);

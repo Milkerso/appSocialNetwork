@@ -1,5 +1,7 @@
 package dawid.app.user.photo;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -12,82 +14,39 @@ public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "photo_id")
+    @Getter
+    @Setter
     private int id;
 
     @Column(name ="name")
+    @Getter
+    @Setter
     private  String name;
 
     @Column(name="description")
+    @Getter
+    @Setter
     private  String description;
 
     @Column(name="profile_photo")
+    @Getter
+    @Setter
     private int profilePhoto;
 
     @Column(name="user_id")
+    @Getter
+    @Setter
     private int userId;
 
     @Column(name = "data")
+    @Getter
+    @Setter
     private byte[] data;
 
     @Transient
+    @Getter
+    @Setter
     private MultipartFile multipartFile;
 
-    public void setMultipartFile(MultipartFile multipartFile) {
-        this.multipartFile = multipartFile;
-    }
 
-    public MultipartFile getMultipartFile() {
-        return multipartFile;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getProfilePhoto() {
-        return profilePhoto;
-    }
-
-    public void setProfilePhoto(int profilePhoto) {
-        this.profilePhoto = profilePhoto;
-    }
-
-    public void setData(byte[] data) {
-        this.data = data;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public byte[] getData() {
-        return data;
-    }
-
-    public int getId() {
-        return id;
-    }
 }

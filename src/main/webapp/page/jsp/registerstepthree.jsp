@@ -28,8 +28,8 @@
 <body background="/resources/images/background.jpg">
      
     <%@include file="/page/incl/menu.app"%>
-<sf:form id="usersForm" action="/registerstepthreeend" modelAttribute="userProfile"
-		enctype="multipart/form-data" method="POST">
+	<sf:form id="usersForm" action="registerstepthreeend" modelAttribute="userProfile"
+			 enctype="multipart/form-data" method="POST">
 		
 		<sf:hidden path="id"/>
 <section id="contact">

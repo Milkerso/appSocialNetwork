@@ -1,5 +1,6 @@
 package dawid.app.user;
 
+import dawid.app.user.group.AllGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 
 @Service("userService")
 @Transactional
@@ -41,6 +43,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUserProfile(String newEmail, int id) {
         userRepository.updateUserProfile(newEmail, id);
+    }
+
+    @Override
+    public List<User> findAllByGroups(AllGroup allGroup)
+    {
+        return userRepository.findAllByGroups(allGroup);
     }
 
 

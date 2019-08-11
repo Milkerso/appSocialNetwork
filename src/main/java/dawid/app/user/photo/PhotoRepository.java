@@ -10,7 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface PhotoRepository  extends JpaRepository<Photo, Integer> {
 
     @Query(value = "Select * from photo where photo.user_id=:userId AND photo.profile_photo=1", nativeQuery = true)
-    Photo findByUserId(int userId);
+    Photo findByUserIdProfilPhoto(int userId);
+
 
     @Modifying
     @Query("UPDATE Photo p SET p.name = :newName, p.description = :newDescription, p.data = :newData WHERE p.userId= :id")
