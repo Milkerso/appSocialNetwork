@@ -50,9 +50,12 @@ dawid\app\user\ProfileControllerCalculator.class
 dawid\app\user\photo\PhotoService.class
 dawid\app\validators\ChangePasswordValidator.class
 dawid\app\validators\EditUserProfileValidator.class
+dawid\app\post\TimeAgoCalculator.class
 dawid\app\user\userProfile\FreeTimeRepository.class
+dawid\app\controller\Place.class
 dawid\app\user\photo\Photo.class
 dawid\app\validators\UserRegisterValidator.class
 dawid\app\post\Post.class
 dawid\app\user\UserServiceImpl.class
+dawid\app\repository\PlaceRepository.class
 dawid\app\post\comment\Comment.class

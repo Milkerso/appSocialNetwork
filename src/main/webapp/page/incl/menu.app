@@ -17,7 +17,7 @@
 		    <a class="nav-link" href="/places"><img src="/resources/images/place.png" width="50" height="50" > <font color="white">Miejsca</font></a>
 		    </sec:authorize>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
-            <a class="nav-link" href="/addPlaces"><img src="/resources/images/place.png" width="50" height="50" > <font color="white">Miejsca</font></a>
+            <a class="nav-link" href="/admin/addplace"><img src="/resources/images/add.png" width="50" height="50" > <font color="white">Miejsca</font></a>
             </sec:authorize>
 
 

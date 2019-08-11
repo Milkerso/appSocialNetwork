@@ -5,7 +5,6 @@ import dawid.app.user.group.AllGroup;
 import dawid.app.user.group.GroupService;
 import dawid.app.user.photo.Photo;
 import dawid.app.user.photo.PhotoService;
-import dawid.app.user.place.Place;
 import dawid.app.user.userProfile.*;
 import dawid.app.utilities.UserUtilities;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -63,7 +62,12 @@ class ProfileControllerCalculator {
         System.out.println(id+"id uzytkownika");
         byte[] encoded = Base64.encodeBase64(photo.getData());
         return new String(encoded);
+    }
 
+    public String getBuilderPhotoDefault(byte[] encoded)
+    {
+        encoded = Base64.encodeBase64(encoded);
+        return new String(encoded);
     }
 
     public String getPhotoEncoded(Photo photo) {
@@ -72,7 +76,26 @@ class ProfileControllerCalculator {
 
     }
 
-    void insertEmptyPhoto(Photo photo) {
+    public byte[] insertEmptyPhotoPlace(Photo photo) {
+        Path path = Paths.get(System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images\\build.jpg");
+        String name = "photo.jpg";
+        String originalFileName = "photo.jpg";
+        String contentType = "image/png";
+        byte[] content = null;
+        LOG.info("Wywolano insertEmptyPhoto");
+        try {
+            content = Files.readAllBytes(path);
+        } catch (final IOException e) {
+            LOG.info("**** WYWOŁANO >blad--InsertEmpty photo)");
+        }
+        MultipartFile multipartFile = new MockMultipartFile(name,
+                originalFileName, contentType, content);
+        photo.setMultipartFile(multipartFile);
+        LOG.info("Zdjecie wrzucone insertEmptyPhoyo");
+       return content;
+    }
+
+   public void insertEmptyPhoto(Photo photo) {
         Path path = Paths.get(System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images\\photo.jpg");
         String name = "photo.jpg";
         String originalFileName = "photo.jpg";
@@ -90,7 +113,7 @@ class ProfileControllerCalculator {
         LOG.info("Zdjecie wrzucone insertEmptyPhoyo");
     }
 
-    void builderPhoto(Photo photo) {
+    public void builderPhoto(Photo photo) {
         User user = this.onlineUser();
         try {
             photo.setData(photo.getMultipartFile().getBytes());

@@ -9,7 +9,7 @@ public interface UserProfileService {
 
     void saveUserProfile(UserProfile userProfile);
 
-    void saveUserProfileFreeTimeActivities(UserProfile userProfile);
+    void   saveUserProfileFreeTimeActivities(UserProfile userProfile);
 
     void updateRegisterStepTwo(String newlanguage, int newnumber, String newcharacter, Date newbirthDate, int id);
 

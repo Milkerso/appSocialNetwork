@@ -15,7 +15,6 @@ D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\mainController\ErrorPageCon
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\post\PostRepository.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\validators\UserRegisterValidator.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\User.java
-D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\place\Place.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\photo\Photo.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\photo\PhotoServiceImpl.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\configuration\WebMvcConfig.java
@@ -25,9 +24,9 @@ D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\userProfile\FreeTimeRe
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\group\GroupServiceImpl.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\ProfileControllerCalculator.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\post\PostServiceImpl.java
-D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\place\PlaceRepository.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\admin\AdminPageController.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\validators\ChangePasswordValidator.java
+D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\repository\PlaceRepository.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\mainController\LoginPageController.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\RoleRepository.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\userProfile\FreeTime.java
@@ -50,6 +49,7 @@ D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\group\GroupRepository.
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\post\TimeAgoCalculator.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\post\PostService.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\Application.java
+D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\controller\Place.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\post\Post.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\user\RegisterController.java
 D:\In퓓nier\appSocialNetwork\src\main\java\dawid\app\mainController\MainPageController.java

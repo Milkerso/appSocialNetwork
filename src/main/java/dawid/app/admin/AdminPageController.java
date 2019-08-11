@@ -1,6 +1,16 @@
 package dawid.app.admin;
 
+import dawid.app.controller.Place;
+import dawid.app.repository.PlaceRepository;
+import dawid.app.user.ProfileControllerCalculator;
 import dawid.app.user.User;
+import dawid.app.user.UserService;
+import dawid.app.user.photo.Photo;
+import dawid.app.user.photo.PhotoService;
+import dawid.app.user.userProfile.FreeTime;
+import dawid.app.user.userProfile.FreeTimeRepository;
+import dawid.app.user.userProfile.PhysicalActivity;
+import dawid.app.user.userProfile.PhysicalActivityRepository;
 import dawid.app.utilities.UserUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,14 +32,14 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
+
 import static org.springframework.data.jpa.domain.Specification.where;
+
 
 @Controller
 public class AdminPageController {
@@ -43,9 +53,25 @@ public class AdminPageController {
 
 	@Autowired
 	private MessageSource messageSource;
+	@Autowired
+	private UserService userService;
 
 	@Autowired
 	private AdminRepository adminRepository;
+
+	@Autowired
+	private FreeTimeRepository freeTimeRepository;
+
+	@Autowired
+	private PhysicalActivityRepository physicalActivityRepository;
+
+	@Autowired
+	private ProfileControllerCalculator profileControllerCalculator;
+
+	@Autowired
+	private PlaceRepository placeRepository;
+
+	private PhotoService photoService;
 
 
 	@GET
@@ -130,6 +156,15 @@ public class AdminPageController {
 		return "redirect:/admin/users/1";
 	}
 
+	@POST
+	@RequestMapping(value = "/admin/addplace")
+	@Secured(value = "ROLE_ADMIN")
+	public String addPlace(Model model) {
+		Place place=new Place();
+		model.addAttribute("place",place);
+		return "addplace";
+	}
+
 	@GET
 	@RequestMapping(value = "/admin/users/search/{searchWord}/{page}")
 	@Secured(value = "ROLE_ADMIN")
@@ -178,7 +213,50 @@ public class AdminPageController {
 		}
 		return "redirect:/admin/users/1";
 	}
-	
+	@POST
+	@RequestMapping(value = "/admin/addnewplace")
+	@Secured(value = "ROLE_ADMIN")
+	public String addPlaceEnd(Model model, Place place) {
+		String username = UserUtilities.getLoggedUser();
+		User user=userService.findUserByEmail(username);
+
+		Photo photo = new Photo();
+
+		photo.setName("BuildPhoto");
+		photo.setDescription("DescriptionPhoto");
+		photo.setProfilePhoto(2);
+		photo.setUserId(user.getId());
+		try {
+			photo.setData(place.getPhoto().getBytes());
+		} catch (IOException e) {
+
+		}
+		if(place.getPhoto().isEmpty())
+		{
+			byte[] data =profileControllerCalculator.insertEmptyPhotoPlace(photo);
+			photo.setData(data);
+		}
+		List<Photo> photos = new ArrayList<>();
+		photos.add(photo);
+		place.setPhotos(photos);
+		List<FreeTime> freeTimesList = new ArrayList<>();
+		List<PhysicalActivity> activitiesList = new ArrayList<>();
+		List<Integer> freeTimeList = place.getFreeTime();
+		List<Integer> activityList = place.getPhysicalActivity();
+		for (int i = 0; i < freeTimeList.size(); i++) {
+			freeTimesList.add(freeTimeRepository.findById(place.getFreeTime().get(i).intValue()));
+		}
+		for (int i = 0; i < activityList.size(); i++) {
+			activitiesList.add(physicalActivityRepository.findById(place.getPhysicalActivity().get(i).intValue()));
+		}
+		place.setFreeTimes(new ArrayList<>(freeTimesList));
+		place.setPhysicalActivities(new ArrayList<>(activitiesList));
+		placeRepository.save(place);
+
+
+		return "index";
+	}
+
 	@DELETE
 	@RequestMapping(value = "/admin/users/delete/{id}")
 	@Secured(value = "ROLE_ADMIN")

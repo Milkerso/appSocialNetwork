@@ -1,4 +1,4 @@
-package dawid.app.user.place;
+package dawid.app.controller;
 
 import dawid.app.user.group.AllGroup;
 import dawid.app.user.photo.Photo;
@@ -7,9 +7,10 @@ import dawid.app.user.userProfile.PhysicalActivity;
 import dawid.app.user.userProfile.UserProfile;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ import java.util.Set;
 public class Place {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
     @Column(name = "place_id")
@@ -27,23 +29,18 @@ public class Place {
     @Column(name = "email")
     @Getter
     @Setter
-    @NotNull
     private String email;
 
 
     @Column(name = "address")
     @Getter
     @Setter
-    @NotNull
     private String address;
 
     @Column(name = "number")
     @Getter
     @Setter
-    @NotNull
     private int number;
-
-
 
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -58,11 +55,11 @@ public class Place {
     @Setter
     private List<PhysicalActivity> physicalActivities;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "photo_id")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "place_photo", joinColumns = @JoinColumn(name = "place_id"), inverseJoinColumns = @JoinColumn(name = "photo_id"))
     @Getter
     @Setter
-    private Photo photo;
+    private List<Photo> photos;
 
     @Column(name = "title")
     @Getter
@@ -72,11 +69,20 @@ public class Place {
     @Transient
     @Getter
     @Setter
-    private String encodedFile;
+    private MultipartFile photo;
 
     @Column(name = "description")
     @Getter
     @Setter
-    private String decription;
+    private String description;
+    @Transient
+    @Setter
+    @Getter
+    private ArrayList<Integer> freeTime;
+
+    @Transient
+    @Getter
+    @Setter
+    private ArrayList<Integer> physicalActivity;
 
 }
