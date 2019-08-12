@@ -34,8 +34,7 @@
     <sf:hidden path="id"/>
     <section id="contact">
         <div class="section-content">
-            <h1 class="section-header"><s:message code="register.step"/> <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> 2</span></h1>
-            <h3><s:message code="register.registerNextStep"/></h3>
+            <h1><s:message code="place.addPlace"/></h1>
         </div>
         <div class="contact-section">
             <div class="container">
@@ -55,6 +54,14 @@
                                 <sf:input path="email" type="email" class="form-control" id="email"/>
                             </div>
 
+                            <div class="form-group">
+                                <label for="telephone"><s:message code="place.address"/></label>
+                                <sf:input path="address" type="text" class="form-control" id="address"/>
+                            </div>
+
+
+
+
                         </div>
                     </div>
                     <div class="col-md-4 form-line">
@@ -70,7 +77,7 @@
                             </div>
                             <label for="exampleInputUsername"><s:message code="register.physicalActivity"/></label>
                             <div class="form-group">
-                                <sf:select multiple="true" path="physicalActivity" class="form-control" id="physicalActivity">
+                                <sf:select multiple="true" path="physicalActivity" class="form-control"  style="height:70px;" id="physicalActivity">
                                     <sf:option value="1"><s:message code="activity.basketball"/></sf:option>
                                     <sf:option value="2"><s:message code="activity.football"/></sf:option>
                                     <sf:option value="3"><s:message code="activity.running"/></sf:option>
@@ -83,6 +90,10 @@
                                     <sf:option value="10"><s:message code="activity.snowboard"/></sf:option>
                                     <sf:option value="11"><s:message code="activity.horseRiding"/></sf:option>
                                 </sf:select>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone"><s:message code="place.link"/></label>
+                                <sf:input path="link" type="text" class="form-control" id="link"/>
                             </div>
                         </div>
                     </div>
@@ -126,8 +137,6 @@
                                 <sf:textarea path="description" class="form-control" id="description"></sf:textarea>
                             </div>
                         </div>
-
-s
                         <div>
                             <button type="submit" value=<s:message code="register.accept"/> class="btn btn-default submit"style="margin-top=50px;"><i class="fa fa-paper-plane" aria-hidden="true"><s:message code="register.accept"/></i></button>
                         </div>

@@ -1,11 +1,15 @@
 package dawid.app.user;
 
+import dawid.app.controller.Place;
 import dawid.app.mainController.MainPageController;
 import dawid.app.post.Post;
+import dawid.app.repository.PlaceRepository;
 import dawid.app.user.group.AllGroup;
 import dawid.app.user.group.GroupService;
 import dawid.app.user.photo.Photo;
+import dawid.app.user.photo.PhotoRepository;
 import dawid.app.user.photo.PhotoService;
+import dawid.app.user.userProfile.FreeTime;
 import dawid.app.user.userProfile.UserProfile;
 import dawid.app.user.userProfile.UserProfileService;
 import dawid.app.utilities.UserUtilities;
@@ -26,6 +30,7 @@ import javax.ws.rs.POST;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 @Controller
 public class ProfilController {
@@ -41,6 +46,12 @@ public class ProfilController {
     private UserProfileService userProfileService;
     @Autowired
     private ProfileControllerCalculator profileControllerCalculator;
+
+    @Autowired
+    private PlaceRepository placeRepository;
+
+    @Autowired
+    private PhotoRepository photoRepository;
 
 
     @Autowired
@@ -68,7 +79,13 @@ public class ProfilController {
     public String showPlaces(Model model) {
 
         User user =profileControllerCalculator.onlineUser();
+        List<Place> places=placeRepository.findAll();
+        for (Place place:
+             places) {
+            place.setPhotoEncoded(profileControllerCalculator.getBuilderPhotoDefault(place.getPhotos().get(0).getData()));
+        }
 
+        model.addAttribute("places",places);
 
         return "places";
     }

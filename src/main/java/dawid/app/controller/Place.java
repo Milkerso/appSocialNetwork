@@ -31,6 +31,11 @@ public class Place {
     @Setter
     private String email;
 
+    @Column(name = "link")
+    @Getter
+    @Setter
+    private String link;
+
 
     @Column(name = "address")
     @Getter
@@ -70,6 +75,10 @@ public class Place {
     @Getter
     @Setter
     private MultipartFile photo;
+    @Transient
+    @Getter
+    @Setter
+    private String photoEncoded;
 
     @Column(name = "description")
     @Getter
