@@ -85,7 +85,7 @@ a {
 	font-size: 17px;
 	font-family: sans-serif;
 	font-weight: bold;
-	color: #000000;
+	color: white;
 	text-decoration: none;
 }
 
@@ -93,7 +93,7 @@ a:hover {
 	font-size: 17px;
 	font-family: sans-serif;
 	font-weight: bold;
-	color: #0080c0;
+	color: white;
 	text-decoration: underline;
 }
 

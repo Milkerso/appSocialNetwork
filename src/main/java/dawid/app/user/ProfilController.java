@@ -53,6 +53,9 @@ public class ProfilController {
     @Autowired
     private PhotoRepository photoRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     @Autowired
     private GroupService groupService;
@@ -72,6 +75,21 @@ public class ProfilController {
         model.addAttribute("email", user.getEmail());
         model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
         return "profil";
+    }
+
+
+    @GET
+    @RequestMapping(value = "/otherprofile/{userId}")
+    public String showOtherUserProfilePage(@PathVariable("userId") int userId,Model model) {
+
+        User user =userRepository.findById(userId);
+        Photo photo = new Photo();
+        UserProfile userProfile = user.getUserProfile();
+        model.addAttribute("user", userProfile);
+        model.addAttribute("photo", photo);
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("image", profileControllerCalculator.getProfilePhotoEncoded(user.getId()));
+        return "otherprofile";
     }
 
     @GET
@@ -176,12 +194,19 @@ public class ProfilController {
     @RequestMapping(value = "/updateprofil")
     public String changeUserDataAction(User user, BindingResult result, Model model, Locale locale) {
         String returnPage;
+        String username = UserUtilities.getLoggedUser();
+        User newUser = userService.findUserByEmail(username);
+        newUser.getUserProfile().setName(user.getUserProfile().getName());
+        newUser.getUserProfile().setLastName(user.getUserProfile().getLastName());
+        newUser.setEmail(user.getEmail());
         new EditUserProfileValidator().validate(user, result);
         if (result.hasErrors()) {
             returnPage = "editprofil";
         } else {
-            userService.updateUserProfile(user.getEmail(), user.getId());
+            userProfileService.saveUserProfile(newUser.getUserProfile());
+            userRepository.save(newUser);
             model.addAttribute("message", messageSource.getMessage("profilEdit.success", null, locale));
+            model.addAttribute("userProfile",newUser.getUserProfile());
             returnPage = "registersteptwo";
         }
         return returnPage;

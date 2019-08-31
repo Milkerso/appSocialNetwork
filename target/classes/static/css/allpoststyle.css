@@ -1,3 +1,14 @@
 .card-inner{
     margin-left: 4rem;
 }
+.card-body
+{
+
+}
+form {
+    direction: rtl;
+}
+input {
+     display: block;
+     direction: ltr;
+ }

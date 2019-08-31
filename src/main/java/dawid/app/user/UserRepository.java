@@ -14,6 +14,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     User findByEmail(String email);
+    User findById(int id);
 
     @Modifying
     @Query("UPDATE User u SET u.password = :newPassword WHERE u.email= :email")
@@ -28,6 +29,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     void updateUserProfile(@Param("newEmail") String newEmail, @Param("id") Integer id);
 
     List<User> findAllByGroups(AllGroup allGroup);
-
-
 }

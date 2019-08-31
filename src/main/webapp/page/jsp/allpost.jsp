@@ -36,7 +36,7 @@
         	    <div class="col-md-2">
         	        <img src="data:image/jpeg;base64,${post.photoEncoded}" class="img img-rounded img-fluid"/>
         	        <p class="text-secondary text-center"><c:out value="${post.timeAgo }"/></p>
-					<p><a href="/profil"><strong><c:out value="${post.postUserId.userProfile.name }"/> <c:out value="${post.postUserId.userProfile.lastName }"/></strong></a></p>
+					<p><a href="/otherprofile/${post.postUserId.userProfile.id}"><strong><c:out value="${post.postUserId.userProfile.name }"/> <c:out value="${post.postUserId.userProfile.lastName }"/></strong></a></p>
 				</div>
         	    <div class="col-md-10">
         	        <p>
@@ -68,7 +68,6 @@
                     	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
                     	       </p>
                     	    </div>
-                    	    </form>
             	        </div>
             	    </div>
 	            </div>
@@ -77,12 +76,12 @@
 
 
              <div class="col-12">
-                <textarea id="commentContent" name="commentContent" th:field="*{commentContent}" cols="40" rows="5" class="form-control"></textarea>
+                <textarea style="margin-top:10px;"id="commentContent" name="commentContent" th:field="*{commentContent}" cols="40" rows="5" class="form-control"></textarea>
 
                     </div>
 
-                    <div class="col-md-7" >
-                        <input type="submit" style="height:30px;" class="btn btn-sm btn-primary" value="Add new">
+                    <div class="col-md-12" >
+                        <input type="submit" style="height:30px; margin-top:7px; margin-right:20px;" class="btn btn-sm btn-primary pull-right" value="Dodaj post">
                     </div>
 
 	    </div>

@@ -22,7 +22,6 @@ public class EmailSenderImpl implements EmailSender {
 	public void sendEmail(String to, String subject, String content) {
 		MimeMessage mail = javaMailSender.createMimeMessage();
 		try {
-            System.out.println(subject);
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo(to);
             helper.setFrom("noreply@appsocial.net");

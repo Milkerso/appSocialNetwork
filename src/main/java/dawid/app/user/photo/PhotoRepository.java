@@ -12,8 +12,6 @@ public interface PhotoRepository  extends JpaRepository<Photo, Integer> {
     @Query(value = "Select * from photo where photo.user_id=:userId AND photo.profile_photo=1", nativeQuery = true)
     Photo findByUserIdProfilPhoto(int userId);
 
-
-
     @Modifying
     @Query("UPDATE Photo p SET p.name = :newName, p.description = :newDescription, p.data = :newData WHERE p.userId= :id")
     void updateUserProfilePhoto(@Param("newName") String newName, @Param("newDescription") String newDescription,

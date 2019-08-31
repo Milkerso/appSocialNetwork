@@ -21,7 +21,7 @@ function defaultTrBg(row){
 	row.style.backgroundColor = "white";
 }
 
-function startSerach(pParam){
+function startSearch(pParam){
 	var searchWord = document.getElementById('searchString').value;
 	var page = parseInt(document.getElementById('cp').value) + parseInt(pParam);
 	if (pParam == 0) {
@@ -98,11 +98,11 @@ function startSerach(pParam){
 		<td align="right">
 			
 			<c:if test="${currentPage > 1}">
-				<input type="button" onclick="startSerach(-1);" value="<s:message code="link.poprzedni"/>"/>&nbsp;&nbsp;
+				<input type="button" onclick="startSearch(-1);" value="<s:message code="link.poprzedni"/>"/>&nbsp;&nbsp;
 			</c:if>
 			
 			<c:if test="${currentPage < totalPages}">
-				<input type="button" onclick="startSerach(1);" value="<s:message code="link.nastepny"/>"/>
+				<input type="button" onclick="startSearch(1);" value="<s:message code="link.nastepny"/>"/>
 			</c:if>
 			
 		</td>

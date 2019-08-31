@@ -24,34 +24,29 @@
 <div class="container-fluid">
     <div class="row">
         <c:forEach var="place" items="${places }">
-        <div class="col-xs-12 col-sm-4 col-md-2">
+        <div class="col-xs-12 col-sm-4 col-md-3">
             <div class="productbox">
-                <img  src="data:image/jpeg;base64,${place.photoEncoded}" style="width: 200px;height: 200px;" class="img-responsive">
+                <img  src="data:image/jpeg;base64,${place.photoEncoded}" style="width: 100%;height: auto;" class="img-responsive">
                 <div class="producttitle"><c:out value="${place.title }"/></div>
                 <p class="text-justify"><c:out value="${place.description }"/></p>
                 <address>
                     <c:out value="${place.address}"/>
                     </br>
 
-                    <abbr title="Phone">P:</abbr> <c:out value="${place.number }"/>
+                    <span title="Phone">Phone: </span> <c:out value="${place.number }"/>
                 </address>
 
                 <address>
                     <strong>Zapraszam</strong><br>
                     <a href="mailto:#"><c:out value="${place.email }"/></a>
                 </address>
-                <div class="productprice">
-                    <div class="pull-right">
-                        <a href="<c:out value="${place.link }"/>" class="btn btn-success btm-sm" role="button">Link <span class="glyphicon glyphicon-cutlery"></span></a>
-                    </div>
-
-                </div>
+                <div style="clear:both"></div>
+                    <div class="align-right"><a href="<c:out value="${place.link }"/>" class="btn btn-success btm-sm" role="button">Strona miejsca<span class="glyphicon glyphicon-cutlery"></span></a></div>
             </div>
         </div>
         </c:forEach>
 
             </div>
         </div>
-    </div>
-</div>
 </body>
+</html>

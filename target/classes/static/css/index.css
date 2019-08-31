@@ -94,7 +94,7 @@ section {
 	color: #000;
 }
 .top-bar a.navbar-brand span {
-	color: #0297ff;
+	color: white;
 }
 .top-bar .nav-link {
 	color: #fff;
@@ -114,7 +114,7 @@ section {
 	border-radius: 0;
 }
 .sps--blw.top-bar .nav-link:hover, .sps--blw.top-bar .nav-item.active a {
-	color: #0297ff;
+	color: white;
 	border-bottom: none;
 	border-radius: 0;
 }

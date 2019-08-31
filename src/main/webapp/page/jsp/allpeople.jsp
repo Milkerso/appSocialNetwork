@@ -43,8 +43,8 @@
 
                         <ul class="list-group" id="contact-list">
                             <c:forEach var="user" items="${users }">
-
                             <li class="list-group-item">
+                                <a href="/otherprofile/${user.id}">
                                 <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <img src="data:image/jpeg;base64,${user.photoEncoded}" style="width:100px;height:100px;" class="img img-rounded img-fluid"/>
@@ -62,7 +62,9 @@
                                 <div class="clearfix"></div>
                                 </div>
                                 </div>
+                                </a>
                             </li>
+
                             </c:forEach>
                         </ul>
 

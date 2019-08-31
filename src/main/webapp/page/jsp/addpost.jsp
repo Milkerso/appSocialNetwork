@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/resources/css/bootstrap/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/menu.css" />
 <title><s:message code="profilEdit.pageName"/></title>
 
 </head>

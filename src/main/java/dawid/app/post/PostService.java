@@ -10,5 +10,5 @@ public interface PostService {
 
     List<Post> findByGroupId(AllGroup allGroup);
 
-    public void save(Post post);
+    public void  save(Post post);
 }

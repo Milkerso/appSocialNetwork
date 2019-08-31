@@ -18,8 +18,6 @@ public class EditUserProfileValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         User u = (User) obj;
 
-        ValidationUtils.rejectIfEmpty(errors, "name", "error.userName.empty");
-        ValidationUtils.rejectIfEmpty(errors, "lastName", "error.userLastName.empty");
         ValidationUtils.rejectIfEmpty(errors, "email", "error.userEmail.empty");
 
         if (!u.getEmail().equals(null)) {

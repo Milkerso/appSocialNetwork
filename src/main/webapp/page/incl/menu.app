@@ -1,23 +1,21 @@
 
 <header>
 	
-		<nav class="navbar navbar-dark bg-jumpers navbar-expand-lg">
+		<nav class="navbar bg-jumpers navbar-expand-lg">
 		
-			<a class="nav-link" href="/index"><img src="/resources/images/logo.png" width="50" height="50" > <font color="white"><s:message code="menu.mainPage"/></font></a>
+			<a class="nav-link" href="/index"><span style="color:white" class="fa fa-futbol-o fa-2x"></span> <font color="white"><s:message code="menu.mainPage"/></font></a>
 			
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
-				<span class="navbar-toggler-icon"></span>
+				<span style="color:white"class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="mainmenu">
 				<sec:authorize access="isAuthenticated()">
-			<a class="nav-link" href="/addpost"><img src="/resources/images/message.png" width="50" height="50" > <font color="white">Dodaj post</font></a>
-			<a class="nav-link" href="/allpeople"><img src="/resources/images/people.png" width="50" height="50" > <font color="white">Osoby</font></a>
-		    <a class="nav-link" href="/allpost"><img src="/resources/images/alert.png" width="50" height="50" > <font color="white">Grupy</font></a>
-		    <sec:authorize access="hasRole('ROLE_ADMIN')">
-		    <a class="nav-link" href="/places"><img src="/resources/images/place.png" width="50" height="50" > <font color="white">Miejsca</font></a>
-		    </sec:authorize>
+			<a class="nav-link" href="/addpost"><span style="color:white" class="fa fa-comments-o fa-2x"></span> <font color="white">Dodaj post</font></a>
+			<a class="nav-link" href="/allpeople"><span style="color:white" class="fa fa-user fa-2x"></span> <font color="white">Osoby</font></a>
+		    <a class="nav-link" href="/allpost"><span style="color:white" class="fa fa-users fa-2x"></span> <font color="white">Grupy</font></a>
+		    <a class="nav-link" href="/places"><span style="color:white" class="fa fa-map-marker fa-2x"></span> <font color="white">Miejsca</font></a>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
-            <a class="nav-link" href="/admin/addplace"><img src="/resources/images/add.png" width="50" height="50" > <font color="white">Miejsca</font></a>
+            <a class="nav-link" href="/admin/addplace"><span style="color:white" class="fa fa-plus fa-2x"></span> <font color="white">Dodaj miejsca</font></a>
             </sec:authorize>
 
 
@@ -34,33 +32,32 @@
 				
 					<li class="nav-item active">
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a class="nav-link" href="/admin"><s:message code="menu.adminPage"/></a>
+							<a style="color:white" class="nav-link" href="/admin"><span style="color:white; margin-right:5px;" class="fa fa-cogs fa-2x"></span><s:message code="menu.adminPage"/></a>
 						</sec:authorize>
 					</li>
 					
 					
 					<sec:authorize access="hasRole('ANONYMOUS')">
 					<li class="nav-item">
-						<a class="nav-link" href="/login"><s:message code="menu.login"/></a>&nbsp;&nbsp;
+						<a style="color:white" class="nav-link" href="/login"><s:message code="menu.login"/></a>&nbsp;&nbsp;
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link" href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;
+						<a style="color:white" class="nav-link" href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;
 					</li>
 						</sec:authorize>
 						
 					<sec:authorize access="isAuthenticated()">
 
 					<li class="nav-item">
-						<a class="nav-link" href="/profil"><s:message code="menu.profil"/></a>
+						<a style="color:white" class="nav-link" href="/profil"><span style="color:white; margin-right:5px;" class="fa fa-user-circle-o fa-2x"></span><s:message code="menu.profil"/></a>
 					</li>
-					
 					<li class="nav-item">
-						<a class="nav-link" href="/logout"><s:message code="menu.logout"/></a>
+						<a style="color:white" class="nav-link" href="/logout"><span style="color:white; margin-right:5px;" class="fa fa-sign-out fa-2x"></span><s:message code="menu.logout"/></a>
 					</li>
 						</sec:authorize>
-			
-				
+
+
 				</ul>
 			
 				
