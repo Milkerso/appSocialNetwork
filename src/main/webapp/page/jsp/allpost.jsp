@@ -45,7 +45,7 @@
         	       <div class="clearfix"></div>
         	        <p> <c:out value="${post.content }"/></p>
         	        <p>
-        	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i>Like</a>
+        	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i>Lubię</a>
         	       </p>
         	    </div>
 	        </div>
@@ -56,16 +56,14 @@
                     	    <div class="col-md-2">
 								<img src="data:image/jpeg;base64,${comment.photoEncoded}" class="img img-rounded img-fluid"/>
 								<p class="text-secondary text-center"><c:out value="${comment.commentTimeAgo }"/></p>
-								<p><a href="/profil"><strong><c:out value="${comment.commentUserId.userProfile.name }"/> <c:out value="${comment.commentUserId.userProfile.lastName }"/></strong></a></p>
+								<p><a href="/otherprofile/${post.postUserId.userProfile.id}"><strong><c:out value="${comment.commentUserId.userProfile.name }"/> <c:out value="${comment.commentUserId.userProfile.lastName }"/></strong></a></p>
 
                     	    </div>
                     	    <div class="col-md-10">
-                    	        <p><a href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>Maniruzzaman Akash</strong></a></p>
                                  <p> <c:out value="${comment.commentContent }"/></p>
 
                     	        <p>
-                    	            <a class="float-right btn btn-outline-primary ml-2">  <i class="fa fa-reply"></i> Reply</a>
-                    	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                    	            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Lubię</a>
                     	       </p>
                     	    </div>
             	        </div>

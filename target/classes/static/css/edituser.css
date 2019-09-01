@@ -1,0 +1,14 @@
+
+
+
+label:not(.input-group-text) {
+    margin-top: 10px;
+}
+
+.custom-select {
+    background-color:  #DABCAA;
+    color: #5F6162;
+    border: 0 none;
+    border-radius: 20px;
+    padding: 6px 20px;
+}

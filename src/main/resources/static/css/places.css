@@ -29,8 +29,6 @@
     font-weight:bold;
     font-size:1.4em;
 }
-.align-right
-{
-    display: block;
-    float: right;
+.btn-success{
+    float:right;
 }

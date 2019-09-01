@@ -123,5 +123,10 @@ public class UserProfile {
     @Setter
     private String photoEncoded;
 
+    @Transient
+    @Getter
+    @Setter
+    private String age;
+
 
 }

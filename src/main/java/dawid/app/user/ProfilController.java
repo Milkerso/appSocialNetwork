@@ -3,6 +3,7 @@ package dawid.app.user;
 import dawid.app.controller.Place;
 import dawid.app.mainController.MainPageController;
 import dawid.app.post.Post;
+import dawid.app.post.TimeAgoCalculator;
 import dawid.app.repository.PlaceRepository;
 import dawid.app.user.group.AllGroup;
 import dawid.app.user.group.GroupService;
@@ -27,9 +28,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -120,9 +121,12 @@ public class ProfilController {
         for (User userProf:users
              ) {
             UserProfile userProfile=userProf.getUserProfile();
-            userProfile.setEmail(user.getEmail());
+            userProfile.setEmail(userProf.getEmail());
             userProfile.setPhotoEncoded(profileControllerCalculator.getProfilePhotoEncoded(userProf.getId()));
+            Date date=  Calendar.getInstance().getTime();
+            userProfile.setAge(Integer.toString(date.getYear() -userProfile.getBirthDate().getYear())+ " lat");
             userProfiles.add(userProfile);
+
         }
         model.addAttribute("allGroup",allGroup);
         model.addAttribute("groupList",allGroupList);

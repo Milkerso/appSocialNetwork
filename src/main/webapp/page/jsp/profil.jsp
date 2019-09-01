@@ -26,10 +26,10 @@
 		<sf:hidden path="id"/>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-img" style="height:150px;" >
+                        <div class="profile-img" style="height:auto; width: 100%;" >
                               <img src="data:image/jpeg;base64,${image}" alt="...">
 
-                            <div class="file btn btn-lg btn-primary">
+                            <div style="z-index: 100;" class="file btn btn-lg btn-primary">
                               <s:message code="profil.changePhoto"  />
                                <sf:input type="file" onchange="this.form.submit()" id="photo" path="multipartFile" name="photo"/>
 

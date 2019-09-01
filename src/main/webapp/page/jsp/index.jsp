@@ -15,6 +15,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <title><s:message code="menu.mainPage"/></title>
 </head>
@@ -45,30 +46,30 @@
 <!-- Benefits
     ================================================== -->
 <section class="service-sec" id="benefits">
-  <div class="container">
+  <div  style="margin-bottom: -50px;" class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="heading">
-      <h2><small>Aktywny tryb życia</small>Dla dobrego samopoczucia i zdrowego trybu życia aktywność fizyczna jest niezbędna</h2>
+      <h2><small style="color: white;">Aktywny tryb życia</small>Dla dobrego samopoczucia i zdrowego trybu życia aktywność fizyczna jest niezbędna</h2>
     </div>
         </div>
       <div class="col-md-8">
         <div class="row">
-            <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-plus" aria-hidden="true"></i>
-          <h3>Lepszy sen</h3>
-          <p>Wysiłek fizyczny budzi Twoje ciało, przez co potrzebujesz regeneracji i masz zdrowszy sen</p>
+            <div class="col-md-6 text-sm-center service-block"> <i style="color: white;" class="fa fa-plus" aria-hidden="true"></i>
+          <h3 style="color: white;">Lepszy sen</h3>
+          <p style="color: white;">Wysiłek fizyczny budzi Twoje ciało, przez co potrzebujesz regeneracji i masz zdrowszy sen</p>
         </div>
-        <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-leaf" aria-hidden="true"></i>
-          <h3>Zmniejszenie wagi</h3>
-          <p>Nie dość, że aktywność fizyczna wspomoaga stracenie paru zbędnych kilogramów to jeszcze rzezbi Twoje ciało by wyglądało atrakcyjniej</p>
+        <div class="col-md-6 text-sm-center service-block"> <i style="color:white;" class="fa fa-leaf" aria-hidden="true"></i>
+          <h3 style="color: white;">Zmniejszenie wagi</h3>
+          <p style="color: white;">Nie dość, że aktywność fizyczna wspomoaga stracenie paru zbędnych kilogramów to jeszcze rzezbi Twoje ciało by wyglądało atrakcyjniej</p>
         </div>
-        <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-leaf" aria-hidden="true"></i>
-          <h3>Wytrzymałość</h3>
-          <p>Systematyczna aktywność fizyczna zwiększa Twoją wytrzymałość, dzięki czemu wysiłek który robiłeś kiedyś nie sprawia Ci już problemów</p>
+        <div class="col-md-6 text-sm-center service-block"> <i  style="color: white;" class="fa fa-leaf" aria-hidden="true"></i>
+          <h3 style="color: white;">Wytrzymałość</h3>
+          <p style="color: white;">Systematyczna aktywność fizyczna zwiększa Twoją wytrzymałość, dzięki czemu wysiłek który robiłeś kiedyś nie sprawia Ci już problemów</p>
         </div>
-        <div class="col-md-6 text-sm-center service-block"> <i class="fa fa-bell" aria-hidden="true"></i>
-          <h3>Umiejętności</h3>
-          <p>Przez powtarzanie tych samych czynności, dochodzimy do perfekcji. Ćwicz abyś był mistrzem</p>
+        <div class="col-md-6 text-sm-center service-block"> <i style="color: white;" class="fa fa-bell" aria-hidden="true"></i>
+          <h3 style="color: white;">Umiejętności</h3>
+          <p style="color: white;">Przez powtarzanie tych samych czynności, dochodzimy do perfekcji. Ćwicz abyś był mistrzem</p>
         </div>
         </div>
       </div>
@@ -81,14 +82,14 @@
 <!-- About 
     ================================================== -->
 <section class="about-sec parallax-section" id="about">
-  <div class="container">
+  <div style="margin-top: -50px;" class="container">
     <div class="row">
       <div class="col-md-3">
         <h2><small>Kim jesteśmy</small>O<br>
           Serwisie</h2>
       </div>
       <div class="col-md-4">
-        <p>Nie masz motywacji do aktywnego trybu życua bądz nudzi Cię to, że nie masz z kim się podzielić sukcesami i porażkami?</p>
+        <p>Nie masz motywacji do aktywnego trybu życia bądz nudzi Cię to, że nie masz z kim się podzielić sukcesami i porażkami?</p>
         <p>Mamy dla Ciebie rozwiązanie, to właśnie u nas znajdziesz partnera do wspólnego biegania, spacerowania, na siłownie</p>
       </div>
       <div class="col-md-4">

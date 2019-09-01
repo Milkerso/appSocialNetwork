@@ -1,9 +1,12 @@
 .card-inner{
     margin-left: 4rem;
+    border:0;
+    background-color:#EDEDED;
+    border-radius: 7px 7px 7px 7px;
 }
 .card-body
 {
-
+    border: 0;
 }
 form {
     direction: rtl;
@@ -11,4 +14,8 @@ form {
 input {
      display: block;
      direction: ltr;
- }
+}
+strong
+{
+    color: black;
+}

@@ -62,34 +62,39 @@
                     <input type="hidden" name="cp" id="cp" value="${currentPage}"/>
                     <div class="col-md-3">
                         <div>
-                            <labe>Imie</labe>
+                            <labe style="font-weight: 600;">Imię</labe>
                         </div>
                         <div>
-                            <input type="text" id="searchName"/>
+                            <input style="font-weight: 600; border-radius: 7px 7px 7px 7px;" type="text" id="searchName"/>
+                        </div>
+                </div>
+                    <div class="col-md-3">
+                        <div>
+                            <labe style="font-weight: 600;">Nazwisko</labe>
+                        </div>
+                        <div>
+                            <input style="font-weight: 600; border-radius: 7px 7px 7px 7px;" type="text" id="searchLastName"/>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div>
-                            <labe>Nazwisko</labe>
+                            <labe style="font-weight: 600;">email</labe>
                         </div>
                         <div>
-                            <input type="text" id="searchLastName"/>
+                            <input style="font-weight: 600; border-radius: 7px 7px 7px 7px;" type="text" id="searchEmail"/>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div>
-                            <labe>email</labe>
-                        </div>
-                        <div>
-                            <input type="text" id="searchEmail"/>
-                        </div>
+                    <div>
+                        <labe style="font-weight: 600;"> </labe>
                     </div>
+                    <div style="height: 50%; margin-top: 20px;">
                     <button type="button" class="btn btn-primary"
                             onclick="startSearch(0);"><s:message code="button.search"/><br/>
                     </button>
+                    </div>
                     <span id="errorSearch" style="color: red;"></span>
                 </div>
-                <table class="table table-striped table-bordered" width="1000" border="0" cellpadding="6"
+                <table style="margin-top: 10px" class="table table-striped table-bordered" width="1000" border="0" cellpadding="6"
                        cellspacing="2">
                     <tr bgcolor="#ffddcc">
                         <td width="40" align="center"></td>

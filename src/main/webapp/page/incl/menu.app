@@ -39,11 +39,11 @@
 					
 					<sec:authorize access="hasRole('ANONYMOUS')">
 					<li class="nav-item">
-						<a style="color:white" class="nav-link" href="/login"><s:message code="menu.login"/></a>&nbsp;&nbsp;
+						<a style="color:white" class="nav-link" href="/login"><span style="color:white; margin-right:5px;" class="fa fa-sign-in fa-2x"></span><s:message code="menu.login"/></a>
 					</li>
 					
 					<li class="nav-item">
-						<a style="color:white" class="nav-link" href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;
+						<a style="color:white" class="nav-link" href="/register"><span style="color:white; margin-right:5px;" class="fa fa-user-plus fa-2x"></span><s:message code="menu.register"/></a>&nbsp;&nbsp;
 					</li>
 						</sec:authorize>
 						

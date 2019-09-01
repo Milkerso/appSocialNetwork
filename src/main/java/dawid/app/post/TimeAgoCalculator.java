@@ -12,7 +12,7 @@ public class TimeAgoCalculator {
             TimeUnit.HOURS.toMillis(1),
             TimeUnit.MINUTES.toMillis(1),
             TimeUnit.SECONDS.toMillis(1));
-    public static final List<String> timesString = Arrays.asList("year", "month", "day", "hour", "minute", "second");
+    public static final List<String> timesString = Arrays.asList("lat", "miesięcy", "dni", "godziny", "minut", "sekund");
 
     public static String toDuration(long duration) {
 
@@ -21,12 +21,12 @@ public class TimeAgoCalculator {
             Long current = TimeAgoCalculator.times.get(i);
             long temp = duration / current;
             if (temp > 0) {
-                res.append(temp).append(" ").append(TimeAgoCalculator.timesString.get(i)).append(temp != 1 ? "s" : "").append(" ago");
+                res.append(temp).append(" ").append(TimeAgoCalculator.timesString.get(i)).append(temp != 1 ? "" : "").append(" temu");
                 break;
             }
         }
         if ("".equals(res.toString()))
-            return "0 seconds ago";
+            return "0 sukund temu";
         else
             return res.toString();
     }
