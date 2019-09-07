@@ -1,7 +1,7 @@
 package dawid.app.validators;
 
 import dawid.app.constants.AppDemoConstants;
-import dawid.app.user.User;
+import dawid.app.model.User;
 import dawid.app.utilities.AppdemoUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
